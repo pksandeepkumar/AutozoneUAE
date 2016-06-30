@@ -1,0 +1,54 @@
+[
+  {
+    "specs": [
+      {
+        "name": "year",
+        "value": "2010"
+      },
+      {
+        "name": "model",
+        "value": "Kv10"
+      },
+      {
+        "name": "make",
+        "value": "Japan"
+      },
+      {
+        "name": "fuel",
+        "value": "Petrol"
+      },
+      {
+        "name": "mileage",
+        "value": "20"
+      },
+      {
+        "name": "transmission",
+        "value": "Manual"
+      },
+      {
+        "name": "colors",
+        "value": "2",
+        "colors": [
+          {
+            "color": "#757575"
+          },
+          {
+            "color": "#dd3333"
+          }
+        ]
+      },
+      {
+        "name": "drivetrain",
+        "value": "4WD"
+      },
+      {
+        "name": "drive",
+        "value": "LHD"
+      },
+      {
+        "name": "origin",
+        "value": "Korea"
+      }
+    ]
+  }
+]

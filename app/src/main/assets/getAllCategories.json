@@ -1,0 +1,123 @@
+[
+  {
+    "cat_id": "6",
+    "cat_name": "Armored Vehicles",
+    "products": [
+      {
+        "product_id": "43",
+        "product_name": "Armored Vehicle",
+        "images": [
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/4-1.jpg"
+          },
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/3-2.jpg"
+          },
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/3.jpg"
+          },
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/2.jpg"
+          },
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/01.png"
+          }
+        ]
+      },
+      {
+        "product_id": "153",
+        "product_name": "Armored 0012",
+        "images": [
+          []
+        ]
+      }
+    ]
+  },
+  {
+    "cat_id": "7",
+    "cat_name": "Ambulance",
+    "products": [
+      {
+        "product_id": "36",
+        "product_name": "Toyota Hiace Standard Roof Ambulance",
+        "images": [
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/3-1.jpg"
+          },
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/4.jpg"
+          },
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/2-1.jpg"
+          },
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/1.jpg"
+          },
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/3-2.jpg"
+          }
+        ]
+      },
+      {
+        "product_id": "117",
+        "product_name": "Basic Ambulance",
+        "images": [
+          []
+        ]
+      },
+      {
+        "product_id": "119",
+        "product_name": "Ambulance",
+        "images": [
+          []
+        ]
+      }
+    ]
+  },
+  {
+    "cat_id": "8",
+    "cat_name": "Special Vehicles",
+    "products": [
+      {
+        "product_id": "153",
+        "product_name": "Armored 0012",
+        "images": [
+          []
+        ]
+      }
+    ]
+  },
+  {
+    "cat_id": "9",
+    "cat_name": "New Cars",
+    "products": []
+  },
+  {
+    "cat_id": "10",
+    "cat_name": "Armored Parts",
+    "products": [
+      {
+        "product_id": "45",
+        "product_name": "Air Pressure Gauge",
+        "images": [
+          []
+        ]
+      }
+    ]
+  },
+  {
+    "cat_id": "11",
+    "cat_name": "4x4 Equipments",
+    "products": []
+  },
+  {
+    "cat_id": "12",
+    "cat_name": "Auto Spare Parts",
+    "products": []
+  },
+  {
+    "cat_id": "20",
+    "cat_name": "Ambulance Equipments",
+    "products": []
+  }
+]
