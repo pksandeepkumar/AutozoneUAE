@@ -8,6 +8,9 @@
         "product_name": "Armored Vehicle",
         "images": [
           {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/2.jpg"
+          },
+          {
             "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/4-1.jpg"
           },
           {
@@ -28,7 +31,9 @@
         "product_id": "153",
         "product_name": "Armored 0012",
         "images": [
-          []
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/2-3.jpg"
+          }
         ]
       }
     ]
@@ -41,6 +46,9 @@
         "product_id": "36",
         "product_name": "Toyota Hiace Standard Roof Ambulance",
         "images": [
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/1-1.jpg"
+          },
           {
             "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/3-1.jpg"
           },
@@ -62,14 +70,18 @@
         "product_id": "117",
         "product_name": "Basic Ambulance",
         "images": [
-          []
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/basic.jpg"
+          }
         ]
       },
       {
         "product_id": "119",
         "product_name": "Ambulance",
         "images": [
-          []
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/4.jpg"
+          }
         ]
       }
     ]
@@ -82,7 +94,9 @@
         "product_id": "153",
         "product_name": "Armored 0012",
         "images": [
-          []
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/2-3.jpg"
+          }
         ]
       }
     ]
@@ -100,7 +114,9 @@
         "product_id": "45",
         "product_name": "Air Pressure Gauge",
         "images": [
-          []
+          {
+            "image_url": "http://autozoneuae.com/demo/wp-content/uploads/2016/06/air-Pressure-Gauge.jpg"
+          }
         ]
       }
     ]
