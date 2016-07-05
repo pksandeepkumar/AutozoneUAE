@@ -1,0 +1,36 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#949494"
+    >
+
+    <texus.autozoneuae.controls.SquareImageView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/imImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        android:padding="@dimen/gallery_image_padding"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+    <TextView
+        android:id="@+id/tvProductTiltle"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_large"
+        android:background="#99000000"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:singleLine="true"
+        android:text="PRODUCT NAME"/>
+
+</RelativeLayout>
+
+
+
+
