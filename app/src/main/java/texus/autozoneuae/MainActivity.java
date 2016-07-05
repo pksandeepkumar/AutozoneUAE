@@ -1,9 +1,9 @@
 package texus.autozoneuae;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -30,10 +30,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main2);
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -42,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
 
         LoadProducts task = new LoadProducts(this);
         task.execute();
+
+        final CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(
+                R.id.collapse_toolbar);
+
+        collapsingToolbar.setTitleEnabled(false);
+
+//        CollapsingToolbarLayout collapsingToolbar =
+//                (CollapsingToolbarLayout) findViewById(R.id.collapse_toolbar);
+//        collapsingToolbar.setTitle("");
 
 
     }
@@ -98,14 +109,14 @@ public class MainActivity extends AppCompatActivity {
 
     public class LoadProducts extends AsyncTask<Void, Void, Void> {
 
-        ProgressDialog dialog = null;
+        texus.autozoneuae.dialogs.ProgressDialog dialog = null;
         Context context;
         ArrayList<CatData> catDatas = null;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            dialog = new ProgressDialog(context);
+            dialog = new texus.autozoneuae.dialogs.ProgressDialog(context);
             dialog.show();
             Log.e("XXXXX"," ON LoadProducts....................................");
 

@@ -12,8 +12,13 @@
     <dimen name="grid_padding">5dp</dimen>
     <dimen name="gallery_image_padding">2dp</dimen>
     <dimen name="gallery_grid_width">150dp</dimen>
+    <dimen name="gallery_grid_height">120dp</dimen>
 
-    <dimen name="card_corner_radious">3dp</dimen>
 
-    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_corner_radious">1dp</dimen>
+
+    <dimen name="card_elevation">2dp</dimen>
+
+    <dimen name="product_title_side_padding">5dp</dimen>
+    <dimen name="product_title_top_padding">8dp</dimen>
 </resources>

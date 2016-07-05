@@ -1,35 +1,52 @@
-<RelativeLayout
+<android.support.v7.widget.CardView
+    android:id="@+id/card_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#949494"
-    >
+    android:layout_height="@dimen/gallery_grid_height"
 
-    <texus.autozoneuae.controls.SquareImageView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/imImage"
+    card_view:cardCornerRadius="0dp"
+    card_view:cardElevation="@dimen/card_elevation">
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"
-        android:padding="@dimen/gallery_image_padding"
-        android:background="?android:attr/selectableItemBackground"
-        />
+        >
+        <ImageView
+            android:id="@+id/imImage"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/no_preview"
+            android:layout_above="@+id/tvProductTiltle"
+            />
 
-    <TextView
-        android:id="@+id/tvProductTiltle"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_large"
-        android:background="#99000000"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:singleLine="true"
-        android:text="PRODUCT NAME"/>
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_above="@+id/tvProductTiltle"
+            android:background="#e2e2e2"/>
+
+        <TextView
+            android:id="@+id/tvProductTiltle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#FFFFFF"
+            android:paddingBottom="@dimen/product_title_top_padding"
+            android:paddingLeft="@dimen/product_title_side_padding"
+            android:paddingRight="@dimen/product_title_side_padding"
+            android:paddingTop="@dimen/product_title_top_padding"
+            android:singleLine="true"
+            android:text="PRODUCT NAME"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
 
 
 
