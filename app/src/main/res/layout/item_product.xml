@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+
         <ImageView
             android:id="@+id/imImage"
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -43,6 +44,13 @@
             android:text="PRODUCT NAME"
             android:textColor="#000000"
             android:textStyle="bold"/>
+
+        <View
+            android:id="@+id/vBgLike"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_ripple_squir_background"
+            android:visibility="gone" />
 
     </RelativeLayout>
 

@@ -12,6 +12,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     TabLayout tabLayout;
+    ImageView imCoverImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
 
 
+        setUpCoverImage();
 
         LoadProducts task = new LoadProducts(this);
         task.execute();
@@ -55,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
 //        collapsingToolbar.setTitle("");
 
 
+    }
+
+    public void setUpCoverImage() {
+        imCoverImage = (ImageView) findViewById(R.id.imCoverImage);
+        Glide.with(this)
+                .load(R.drawable.cover_image)
+                .into(imCoverImage);
     }
 
     public void populateProductList( ArrayList<CatData> catDatas) {
@@ -137,9 +149,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+            // The network call called here because we for every execution we need this cod eto be
+            //executed
             NetworkService.getAndSave(ApplicationClass.URL_GET_ALL_CATEGORIES, CatData.FILENAME);
 
             if(!SavedPreferance.getAlreadyLoaded(context)) {
+                catDatas = CatData.getParesed(Utility.getData(CatData.FILENAME));
                 publishProgress();
                 SavedPreferance.setAlreadyLoaded(context, true);
             }
