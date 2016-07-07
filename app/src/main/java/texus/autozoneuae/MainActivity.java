@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 //                (CollapsingToolbarLayout) findViewById(R.id.collapse_toolbar);
 //        collapsingToolbar.setTitle("");
 
+        texus.autozoneuae.dialogs.ProgressDialog dialog = new texus.autozoneuae.dialogs.ProgressDialog(this);
+        dialog.show();
 
     }
 

@@ -8,14 +8,27 @@
     android:background="@drawable/bg_app"
     android:padding="@dimen/padding_extra_large"
     >
+    <TextView
+        android:id="@+id/tvMessage"
+        android:text="Loading..."
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
 
     <texus.autozoneuae.controls.AVLoadingIndicatorView
+        android:layout_below="@id/tvMessage"
         android:id="@+id/avlProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:indicator="BallTrianglePath"
         android:layout_centerVertical="true"
         android:layout_margin="@dimen/padding_extra_large"
+        android:layout_centerHorizontal="true"
         />
 
 </RelativeLayout>
