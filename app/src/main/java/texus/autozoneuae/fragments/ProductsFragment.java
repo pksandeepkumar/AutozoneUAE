@@ -20,8 +20,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -31,10 +31,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
@@ -48,6 +45,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import texus.autozoneuae.ProductDetailActivty;
 import texus.autozoneuae.R;
 import texus.autozoneuae.controls.MarginDecoration;
 import texus.autozoneuae.datamodels.CatData;
@@ -155,7 +153,7 @@ public class ProductsFragment extends Fragment {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
 
-            Product product = mValues.get(position);
+            final Product product = mValues.get(position);
 
             holder.tvProductTiltle.setText(product.product_name);
             Log.e("Adapeter","---------------------------------");
@@ -178,13 +176,10 @@ public class ProductsFragment extends Fragment {
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    animateRipple(holder);
+//                    animateRipple(holder);
+                    callProductDetailActivity(holder, product);
 //                    Toast.makeText(v.getContext(),"Clicked!!", Toast.LENGTH_LONG).show();
-//                    Context context = v.getContext();
-//                    Intent intent = new Intent(context, CheeseDetailActivity.class);
-//                    intent.putExtra(CheeseDetailActivity.EXTRA_NAME, holder.mBoundString);
-//
-//                    context.startActivity(intent);
+
 //                    onClickAnimation(v);
 
                 }
@@ -230,68 +225,20 @@ public class ProductsFragment extends Fragment {
         private void resetLikeAnimationState(ViewHolder holder) {
             likeAnimations.remove(holder);
             holder.vBgLike.setVisibility(View.GONE);
+            callProductDetailActivity(holder,null);
+
+        }
+
+        private void callProductDetailActivity(ViewHolder holder, Product product ) {
+            Context context = holder.mView.getContext();
+            Intent intent = new Intent(context, ProductDetailActivty.class);
+            if(product != null)
+            intent.putExtra(ProductDetailActivty.PARAM_PRODUCT,product);
+//                    intent.putExtra(CheeseDetailActivity.EXTRA_NAME, holder.mBoundString);
+            context.startActivity(intent);
         }
 
 
-        public void onClickAnimation( final View view) {
-
-            int originalHeight = 0;
-            boolean mIsViewExpanded = false;
-            // If the originalHeight is 0 then find the height of the View being used
-            // This would be the height of the cardview
-            if (originalHeight == 0) {
-                originalHeight = view.getHeight();
-            }
-
-            // Declare a ValueAnimator object
-            ValueAnimator valueAnimator;
-            if (!mIsViewExpanded) {
-                view.setVisibility(View.VISIBLE);
-                view.setEnabled(true);
-                mIsViewExpanded = true;
-                valueAnimator = ValueAnimator.ofInt(originalHeight, originalHeight + (int) (originalHeight * 2.0)); // These values in this method can be changed to expand however much you like
-            } else {
-                mIsViewExpanded = false;
-                valueAnimator = ValueAnimator.ofInt(originalHeight + (int) (originalHeight * 2.0), originalHeight);
-
-                Animation a = new AlphaAnimation(1.00f, 0.00f); // Fade out
-
-                a.setDuration(200);
-                // Set a listener to the animation and configure onAnimationEnd
-                a.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        view.setVisibility(View.INVISIBLE);
-                        view.setEnabled(false);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-
-                // Set the animation on the custom view
-                view.startAnimation(a);
-            }
-            valueAnimator.setDuration(200);
-            valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    Integer value = (Integer) animation.getAnimatedValue();
-                    view.getLayoutParams().height = value.intValue();
-                    view.requestLayout();
-                }
-            });
-
-
-            valueAnimator.start();
-        }
 
         @Override
         public int getItemCount() {

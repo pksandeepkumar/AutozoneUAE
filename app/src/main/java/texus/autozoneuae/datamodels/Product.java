@@ -1,5 +1,8 @@
 package texus.autozoneuae.datamodels;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -10,7 +13,7 @@ import texus.autozoneuae.json.JsonParserBase;
 /**
  * Created by sandeep on 03/07/16.
  */
-public class Product {
+public class Product implements Parcelable{
 
     public int product_id = 0;
     public String product_name = "";
@@ -42,4 +45,46 @@ public class Product {
         return objects;
 
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(product_id);
+        dest.writeString(product_name);
+        dest.writeList(image_urls);
+//        dest.writeByte((byte) (viewed ? 1 : 0));
+//        dest.writeByte((byte) (liked ? 1 : 0));
+    }
+
+    public Product() {
+
+    }
+
+    private Product(Parcel in){
+        this.product_id = in.readInt();
+        this.product_name = in.readString();
+        this.image_urls = in.readArrayList(null);
+
+//        this.viewed = in.readByte() != 0;
+//        this.liked = in.readByte() != 0;
+
+    }
+
+    public static final Creator<Product> CREATOR = new Creator<Product>() {
+
+        @Override
+        public Product createFromParcel(Parcel source) {
+            return new Product(source);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 }

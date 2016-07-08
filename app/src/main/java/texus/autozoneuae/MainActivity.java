@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
 //                (CollapsingToolbarLayout) findViewById(R.id.collapse_toolbar);
 //        collapsingToolbar.setTitle("");
 
-        texus.autozoneuae.dialogs.ProgressDialog dialog = new texus.autozoneuae.dialogs.ProgressDialog(this);
-        dialog.show();
+//        texus.autozoneuae.dialogs.ProgressDialog dialog = new texus.autozoneuae.dialogs.ProgressDialog(this);
+//        dialog.show();
 
     }
 
