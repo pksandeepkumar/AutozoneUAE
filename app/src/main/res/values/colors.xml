@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="color_main_backgroud">#eeeeee</color>
+    <color name="fill_color">#7e7e7e</color>
+    <color name="line_color">#b9b9b9</color>
+    <color name="row_text_color">#636060</color>
 </resources>

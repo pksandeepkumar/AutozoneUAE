@@ -1,6 +1,8 @@
 package texus.autozoneuae;
 
 import android.app.Application;
+import android.graphics.Point;
+import android.view.Display;
 
 import java.io.File;
 
@@ -50,6 +52,8 @@ public class ApplicationClass extends Application {
         File rootDir =  getFilesDir();
         INTERNAL_RESPONSE_FOLDER  = rootDir + "/" + "ResponseFolder";
         makeDir(INTERNAL_RESPONSE_FOLDER);
+
+
     }
 
 }

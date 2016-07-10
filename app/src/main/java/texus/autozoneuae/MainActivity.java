@@ -1,6 +1,7 @@
 package texus.autozoneuae;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -12,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Display;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -31,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ImageView imCoverImage;
 
+    public static int width = 0;
+    public static int height = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -62,6 +67,16 @@ public class MainActivity extends AppCompatActivity {
 //        texus.autozoneuae.dialogs.ProgressDialog dialog = new texus.autozoneuae.dialogs.ProgressDialog(this);
 //        dialog.show();
 
+        saveWidthAndHeight();
+
+    }
+
+    public void saveWidthAndHeight() {
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        width = size.x;
+        height = size.y;
     }
 
     public void setUpCoverImage() {
@@ -164,6 +179,8 @@ public class MainActivity extends AppCompatActivity {
 
             return null;
         }
+
+
 
         @Override
         protected void onProgressUpdate(Void... values) {
