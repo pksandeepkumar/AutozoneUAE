@@ -4,7 +4,10 @@ import android.content.Context;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+>>>>>>> origin/master
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -51,13 +54,18 @@ public class ImageViewPagerAdapter  extends PagerAdapter {
 
 
         LinearLayout layout = new LinearLayout(context);
+<<<<<<< HEAD
         LayoutInflater inflater = (LayoutInflater)
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+=======
+        LayoutInflater inflater = (LayoutInflater)  context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+>>>>>>> origin/master
         View child =  inflater.inflate(getLayoutID(),layout);
 
         ImageView imImage = (ImageView) child.findViewById(R.id.imImage);
 
         String url = getURL(position);
+<<<<<<< HEAD
         Log.e("ImageAdapter","URL:" + url);
 
         Glide.with(context)
@@ -70,6 +78,12 @@ public class ImageViewPagerAdapter  extends PagerAdapter {
 
 //        Picasso.with(context).load(url).placeholder(R.drawable.no_preview)
 //                .error(R.drawable.no_preview).into(imImage);
+=======
+
+        Glide.with(context)
+                .load(url)
+                .into(imImage);
+>>>>>>> origin/master
 
         ((ViewPager) collection).addView(layout, 0);
 
