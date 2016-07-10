@@ -35,7 +35,7 @@ public class ProductDetailActivty  extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //ScrollView not works effectively
+        //ScrollView not works effectively, so we must use list approch
         setContentView(R.layout.activity_product_details);
 
         product = getIntent().getParcelableExtra(PARAM_PRODUCT);
