@@ -1,20 +1,6 @@
 
 
-<<<<<<< HEAD
 
-    <ImageView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/imImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitStart"
-        android:padding="20dp"
-        />
-
-
-
-
-=======
 <ImageView
     android:id="@+id/imImage"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,7 +11,7 @@
     android:src="@drawable/no_preview"
     android:padding="20dp"
     />
->>>>>>> origin/master
+
 
 
 

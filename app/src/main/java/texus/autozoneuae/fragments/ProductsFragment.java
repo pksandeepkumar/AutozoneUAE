@@ -37,7 +37,7 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -165,12 +165,9 @@ public class ProductsFragment extends Fragment {
 
                     Log.e("Adapeter","URL" + url);
 
-//                    Glide.with(holder.imImage.getContext())
-//                            .load(url)
-//                            .into(holder.imImage);
-
-                    Picasso.with(holder.imImage.getContext()).load(url).placeholder(R.drawable.no_preview)
-                            .error(R.drawable.no_preview).into(holder.imImage);
+                    Glide.with(holder.imImage.getContext())
+                            .load(url)
+                            .into(holder.imImage);
                 }
             } else {
                 Log.e("Adapeter","Images are NULL");
