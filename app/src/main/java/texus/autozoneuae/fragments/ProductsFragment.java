@@ -45,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import texus.autozoneuae.ProductDetailActivty;
+import texus.autozoneuae.ProductDetailListActivty;
 import texus.autozoneuae.R;
 import texus.autozoneuae.controls.MarginDecoration;
 import texus.autozoneuae.datamodels.CatData;
@@ -231,9 +231,9 @@ public class ProductsFragment extends Fragment {
 
         private void callProductDetailActivity(ViewHolder holder, Product product ) {
             Context context = holder.mView.getContext();
-            Intent intent = new Intent(context, ProductDetailActivty.class);
+            Intent intent = new Intent(context, ProductDetailListActivty.class);
             if(product != null)
-            intent.putExtra(ProductDetailActivty.PARAM_PRODUCT,product);
+            intent.putExtra(ProductDetailListActivty.PARAM_PRODUCT,product);
 //                    intent.putExtra(CheeseDetailActivity.EXTRA_NAME, holder.mBoundString);
             context.startActivity(intent);
         }
