@@ -45,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import texus.autozoneuae.ProductDetailListActivty;
+import texus.autozoneuae.ProductDetailActivty;
 import texus.autozoneuae.R;
 import texus.autozoneuae.controls.MarginDecoration;
 import texus.autozoneuae.datamodels.CatData;
@@ -176,19 +176,16 @@ public class ProductsFragment extends Fragment {
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    animateRipple(holder);
-                    callProductDetailActivity(holder, product);
-//                    Toast.makeText(v.getContext(),"Clicked!!", Toast.LENGTH_LONG).show();
-
-//                    onClickAnimation(v);
-
+                    animateRipple(holder, product);
                 }
             });
 
 
         }
 
-        private void animateRipple(final ViewHolder holder) {
+        //This will show ripple animation and navigate to product detail activity after
+        // animation complete
+        private void animateRipple(final ViewHolder holder, final Product product) {
             if (!likeAnimations.containsKey(holder)) {
                 holder.vBgLike.setVisibility(View.VISIBLE);
 
@@ -215,26 +212,25 @@ public class ProductsFragment extends Fragment {
                 animatorSet.addListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        resetLikeAnimationState(holder);
+                        resetLikeAnimationState(holder, product);
                     }
                 });
                 animatorSet.start();
             }
         }
 
-        private void resetLikeAnimationState(ViewHolder holder) {
+        private void resetLikeAnimationState(ViewHolder holder, Product product) {
             likeAnimations.remove(holder);
             holder.vBgLike.setVisibility(View.GONE);
-            callProductDetailActivity(holder,null);
+            callProductDetailActivity(holder,product);
 
         }
 
         private void callProductDetailActivity(ViewHolder holder, Product product ) {
             Context context = holder.mView.getContext();
-            Intent intent = new Intent(context, ProductDetailListActivty.class);
+            Intent intent = new Intent(context, ProductDetailActivty.class);
             if(product != null)
-            intent.putExtra(ProductDetailListActivty.PARAM_PRODUCT,product);
-//                    intent.putExtra(CheeseDetailActivity.EXTRA_NAME, holder.mBoundString);
+            intent.putExtra(ProductDetailActivty.PARAM_PRODUCT,product);
             context.startActivity(intent);
         }
 

@@ -1,10 +1,6 @@
 package texus.autozoneuae;
 
 import android.app.Application;
-import android.content.Context;
-import android.graphics.Point;
-import android.view.Display;
-import android.view.WindowManager;
 
 import java.io.File;
 
@@ -47,12 +43,6 @@ public class ApplicationClass extends Application {
     }
 
     public void setWidthAndHeight(int width, int height) {
-
-        Display display = (WindowManager) getSystemService(Context.WINDOW_SERVICE).getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        width = size.x;
-        height = size.y;
 
         if(width > height) {
             this.width = width/2;

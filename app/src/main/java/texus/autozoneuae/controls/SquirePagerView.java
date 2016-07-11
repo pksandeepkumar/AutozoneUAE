@@ -3,9 +3,12 @@ package texus.autozoneuae.controls;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
+
+import texus.autozoneuae.ApplicationClass;
 
 /**
  * 
@@ -33,9 +36,10 @@ public class SquirePagerView extends RelativeLayout {
 	}
 
 	private void init(Context context, AttributeSet attrs) {
-
+        setGravity(Gravity.CENTER);
         viewPager = new ViewPager(context);
-        RelativeLayout.LayoutParams rlp = new LayoutParams(200,200);
+        int width = (int) ((ApplicationClass.getInstance().width ) * 0.8f);
+        RelativeLayout.LayoutParams rlp = new LayoutParams(width,width);
         addView(viewPager, rlp);
 	}
 

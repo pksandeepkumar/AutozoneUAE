@@ -1,5 +1,7 @@
 package texus.autozoneuae.network;
 
+import android.util.Log;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -28,6 +30,8 @@ public class NetworkService {
     }
 
     public static void getAndSave(String url, String fileName) {
+        Log.e("NetworkService","URL:" + url);
+        Log.e("NetworkService","File Name:" + fileName);
         try {
             OkHttpClient client =  new OkHttpClient();
             Request request = new Request.Builder()
@@ -35,6 +39,7 @@ public class NetworkService {
                     .build();
             Response response = client.newCall(request).execute();
             String responseString  = response.body().string();
+            Log.e("NetworkService","responseString:" + responseString);
             Utility.write(fileName, responseString);
 
         } catch ( Exception e) {

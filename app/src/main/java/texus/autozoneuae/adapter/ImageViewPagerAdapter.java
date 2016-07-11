@@ -1,4 +1,4 @@
-package texus.autozoneuae.adapters;
+package texus.autozoneuae.adapter;
 
 import android.content.Context;
 import android.os.Parcelable;

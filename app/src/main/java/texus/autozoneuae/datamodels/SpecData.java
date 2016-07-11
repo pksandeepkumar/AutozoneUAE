@@ -13,6 +13,7 @@ public class SpecData  {
 
     public static final int SPEC_TYPE_NORMAL = 1;
     public static final int SPEC_TYPE_COLOR = 2;
+    public static final String FILE_NAME_START = "Spec";
 
 //    "name": "colors",
 //            "value": "2",
@@ -62,12 +63,18 @@ public class SpecData  {
                         }
                     }
                 }
+                instance.name = makeFirstLetterCapital(instance.name);
             }
         } catch ( Exception e) {
             e.printStackTrace();
         }
         return objects;
 
+    }
+
+    private static String makeFirstLetterCapital( String input) {
+        String output = input.substring(0, 1).toUpperCase() + input.substring(1);
+        return output;
     }
 
 
