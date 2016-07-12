@@ -29,7 +29,7 @@ public class NetworkService {
 
     }
 
-    public static void getAndSave(String url, String fileName) {
+    public static boolean getAndSave(String url, String fileName) {
         Log.e("NetworkService","URL:" + url);
         Log.e("NetworkService","File Name:" + fileName);
         try {
@@ -44,8 +44,9 @@ public class NetworkService {
 
         } catch ( Exception e) {
             e.printStackTrace();;
+            return  false;
         }
-
+        return  true;
 
     }
 

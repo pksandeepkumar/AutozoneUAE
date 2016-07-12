@@ -66,7 +66,7 @@ public class ImageViewPagerAdapter  extends PagerAdapter {
         Glide.with(context)
                 .load(url)
                 .error(R.drawable.no_preview)
-                .placeholder(R.drawable.cover_image)
+//                .placeholder(R.drawable.cover_image)
                 .into(imImage);
         //Glide is not working so picasso used
 

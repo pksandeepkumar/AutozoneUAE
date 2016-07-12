@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Display;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -141,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
         texus.autozoneuae.dialogs.ProgressDialog dialog = null;
         Context context;
         ArrayList<CatData> catDatas = null;
+        boolean status = false;
 
         @Override
         protected void onPreExecute() {
@@ -168,7 +170,10 @@ public class MainActivity extends AppCompatActivity {
 
             // The network call called here because we for every execution we need this cod eto be
             //executed
-            NetworkService.getAndSave(ApplicationClass.URL_GET_ALL_CATEGORIES, CatData.FILENAME);
+            status = NetworkService.getAndSave(
+                    ApplicationClass.URL_GET_ALL_CATEGORIES, CatData.FILENAME);
+
+            if(!status) return  null;
 
             if(!SavedPreferance.getAlreadyLoaded(context)) {
                 catDatas = CatData.getParesed(Utility.getData(CatData.FILENAME));
@@ -183,13 +188,23 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
-            dialog.hide();
+            hideDialog();
             populateProductList(catDatas);
+        }
+
+        private void hideDialog(){
+            if(dialog.isShowing()) {
+                dialog.hide();
+            }
         }
 
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
+            if(!status) {
+                hideDialog();
+                Toast.makeText(context,"Something went wrong. Please try later!!", Toast.LENGTH_LONG).show();
+            }
         }
 
 

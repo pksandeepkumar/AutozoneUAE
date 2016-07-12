@@ -44,6 +44,8 @@ public class ProgressDialog extends Dialog {
 
         setCanceledOnTouchOutside(false);
 
+        setCancelable(false);
+
     }
 
     public void setMessage( String message) {
