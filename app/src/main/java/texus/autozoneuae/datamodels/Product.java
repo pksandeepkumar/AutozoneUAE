@@ -1,5 +1,8 @@
 package texus.autozoneuae.datamodels;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -8,12 +11,26 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import texus.autozoneuae.db.Databases;
 import texus.autozoneuae.json.JsonParserBase;
+import texus.autozoneuae.utility.LOG;
 
 /**
  * Created by sandeep on 03/07/16.
  */
 public class Product implements Parcelable{
+
+    public static final String TABLE_NAME = "TableProduct";
+
+    public static final String PRODUCT_ID = "product_id";
+    public static final String PRODUCT_NAME = "product_name";
+    public static final String CAT_ID = "cat_id";
+
+    public static final String CREATE_TABLE_QUERY = "CREATE TABLE  " + TABLE_NAME
+            + " ( " + "_id" + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
+            + PRODUCT_ID + " INTEGER , "
+            + CAT_ID + " INTEGER , "
+            + PRODUCT_NAME + " TEXT )";
 
     public int product_id = 0;
     public String product_name = "";
@@ -87,4 +104,60 @@ public class Product implements Parcelable{
             return new Product[size];
         }
     };
+
+    public static void insertObjects(Databases db, ArrayList<Product> objects, int cat_id ) {
+        if( objects == null) return;
+        SQLiteDatabase sqld = db.getWritableDatabase();
+        for( Product product : objects) {
+            if( null == product ) continue;
+            ContentValues cv = new ContentValues();
+            cv.put(CAT_ID, cat_id);
+            cv.put(PRODUCT_ID, product.product_id);
+            cv.put(PRODUCT_NAME, product.product_name);
+            sqld.insert(TABLE_NAME, null,cv);
+        }
+        sqld.close();
+    }
+
+    public static ArrayList<Product> getAllProductsUnderACategory( Databases db, int cat_id) {
+        ArrayList<Product> objects = new ArrayList<Product>();
+        SQLiteDatabase dbRead = db.getReadableDatabase();
+        String query = "select * from " + TABLE_NAME + " WHERE " + CAT_ID
+                + " = " + cat_id  ;
+        LOG.log("Query:", "Query:" + query);
+        Cursor c = dbRead.rawQuery(query, null);
+        if (c.moveToFirst()) {
+            do {
+                objects.add(getAnObjectFromCursor(c));
+            } while ( c.moveToNext()) ;
+        }
+        c.close();
+        dbRead.close();
+        return objects;
+    }
+
+    public static Product getAnObjectFromCursor( Cursor c ) {
+        Product instance = null;
+        if( c != null) {
+            instance = new Product();
+            instance.product_id = c.getInt(c.getColumnIndex(PRODUCT_ID));
+            instance.product_name = c.getString(c.getColumnIndex(PRODUCT_NAME));
+        } else {
+            LOG.log("getAnObjectFromCursor:", "getAnObjectFromCursor Cursor is null");
+        }
+        return instance;
+    }
+
+    public static boolean deleteTable(Databases db) {
+        try {
+            SQLiteDatabase sql = db.getWritableDatabase();
+            String query = "DELETE from " + TABLE_NAME;
+            LOG.log("Query:", "Query:" + query);
+            sql.execSQL(query);
+            sql.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

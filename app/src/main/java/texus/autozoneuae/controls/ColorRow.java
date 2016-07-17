@@ -51,6 +51,7 @@ public class ColorRow extends RelativeLayout {
     public void setValues( String name, ArrayList<String> colors) {
         tvText.setText(name);
         for(String color: colors) {
+            if(color.trim().length() == 0) continue;
             try {
                 LinearLayout btn = new LinearLayout(this.getContext());
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(

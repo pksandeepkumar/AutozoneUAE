@@ -21,6 +21,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
+import texus.autozoneuae.datamodels.CatData;
+import texus.autozoneuae.datamodels.Product;
+import texus.autozoneuae.datamodels.SpecData;
 import texus.autozoneuae.utility.LOG;
 
 
@@ -66,7 +69,9 @@ public class Databases extends SQLiteOpenHelper {
 	 */
 	private void loadQuery() {
 		query_create_tables = new ArrayList<String>();
-//		query_create_tables.add(ItemData.CREATE_TABE_QUERY);
+		query_create_tables.add(CatData.CREATE_TABLE_QUERY);
+		query_create_tables.add(Product.CREATE_TABLE_QUERY);
+		query_create_tables.add(SpecData.CREATE_TABLE_QUERY);
 	}
 	
 
@@ -74,7 +79,9 @@ public class Databases extends SQLiteOpenHelper {
 	 * Used for delete purpose, load drop table queries
 	 */
 	private void loadTableNames() {
-//		tables.add(ItemData.TABLE_NAME);
+		tables.add(CatData.TABLE_NAME);
+		tables.add(Product.TABLE_NAME);
+		tables.add(SpecData.TABLE_NAME);
 	}
 
 	@Override

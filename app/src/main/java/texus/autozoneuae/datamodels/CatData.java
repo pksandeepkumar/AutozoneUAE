@@ -1,5 +1,8 @@
 package texus.autozoneuae.datamodels;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -8,19 +11,31 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import texus.autozoneuae.db.Databases;
 import texus.autozoneuae.json.JsonParserBase;
+import texus.autozoneuae.utility.LOG;
 
 
 public class CatData implements Parcelable {
 
     public static final String FILENAME = "GetAllCategories.json";
-    public static final String TABLE_NAME = "TableCat";
+
+    public static final String TABLE_NAME = "TableCategory";
+
+    public static final String CAT_ID = "cat_id";
+    public static final String CAT_NAME = "cat_name";
 
 
     public int cat_id = 0;
     public String cat_name = "";
 
     public ArrayList<Product> products = null;
+
+    public static final String CREATE_TABLE_QUERY = "CREATE TABLE  " + TABLE_NAME
+            + " ( " + "_id" + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
+            + CAT_ID + " INTEGER , "
+            + CAT_NAME + " TEXT )";
+
 
     @Override
     public int describeContents() {
@@ -83,11 +98,57 @@ public class CatData implements Parcelable {
     }
 
 
+    public static void insertObjects(Databases db, ArrayList<CatData> categoryDatas ) {
+        if( categoryDatas == null) return;
+        SQLiteDatabase sqld = db.getWritableDatabase();
+        for( CatData categoryData : categoryDatas) {
+            if( null == categoryData ) continue;
+            ContentValues cv = new ContentValues();
+            cv.put(CAT_ID, categoryData.cat_id);
+            cv.put(CAT_NAME, categoryData.cat_name);
+            sqld.insert(TABLE_NAME, null,cv);
+        }
+        sqld.close();
+    }
 
+    public static ArrayList<CatData> getAllCategories( Databases db) {
+        ArrayList<CatData> objects = new ArrayList<CatData>();
+        SQLiteDatabase dbRead = db.getReadableDatabase();
+        String query = "select * from " + TABLE_NAME + " ";
+        LOG.log("Query:", "Query:" + query);
+        Cursor c = dbRead.rawQuery(query, null);
+        if (c.moveToFirst()) {
+            do {
+                objects.add(getAnObjectFromCursor(c));
+            } while ( c.moveToNext()) ;
+        }
+        c.close();
+        dbRead.close();
+        return objects;
+    }
 
+    public static CatData getAnObjectFromCursor( Cursor c ) {
+        CatData instance = null;
+        if( c != null) {
+            instance = new CatData();
+            instance.cat_id = c.getInt(c.getColumnIndex(CAT_ID));
+            instance.cat_name = c.getString(c.getColumnIndex(CAT_NAME));
+        } else {
+            LOG.log("getAnObjectFromCursor:", "getAnObjectFromCursor Cursor is null");
+        }
+        return instance;
+    }
 
-
-
-
+    public static boolean deleteTable(Databases db) {
+        try {
+            SQLiteDatabase sql = db.getWritableDatabase();
+            String query = "DELETE from " + TABLE_NAME;
+            LOG.log("Query:", "Query:" + query);
+            sql.execSQL(query);
+            sql.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
-
