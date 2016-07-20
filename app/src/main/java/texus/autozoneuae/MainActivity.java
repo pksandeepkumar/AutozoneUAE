@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     ImageView imCoverImage;
+    ViewPager viewpagerSlider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        viewPager       = (ViewPager) findViewById(R.id.viewpager);
+        tabLayout       = (TabLayout) findViewById(R.id.tabs);
+        viewpagerSlider = (ViewPager) findViewById(R.id.viewpagerSlider);
 
 
         setUpCoverImage();
@@ -161,6 +163,39 @@ public class MainActivity extends AppCompatActivity {
 //
 //        return super.onOptionsItemSelected(item);
 //    }
+
+    public class LoadSlideShow extends AsyncTask<Void, Void, Void> {
+
+        Context context;
+        ArrayList<String> images = null;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        public LoadSlideShow(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+        }
+
+    }
 
 
     public class LoadProducts extends AsyncTask<Void, Void, Void> {
