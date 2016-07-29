@@ -10,8 +10,13 @@ import java.io.File;
 public class ApplicationClass extends Application {
 
     public static final String BASE_URL  = "http://autozoneuae.com/test";
-    public static final String URL_GET_ALL_CATEGORIES  = BASE_URL + "/getAllCategoryData.php";
-    public static final String URL_GET_PRODUCT_SPEC  = BASE_URL + "/getProductSpec.php?product_id=";
+    public static final String URL_GET_ALL_CATEGORIES  = BASE_URL
+            + "/getAllCategoryData.php";
+    public static final String URL_GET_PRODUCT_SPEC  = BASE_URL
+            + "/getProductSpec.php?product_id=";
+    public static final String URL_GET_SLIDER_IMAGE  = BASE_URL
+            + "/splash_screen/splash_screen_resp_json.json";
+
     public static String INTERNAL_RESPONSE_FOLDER = "FOLDER_RESPONSE";
 
     public int width = 0;

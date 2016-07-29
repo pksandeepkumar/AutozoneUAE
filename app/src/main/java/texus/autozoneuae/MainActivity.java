@@ -16,15 +16,14 @@ import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import texus.autozoneuae.adapter.SlidePagerAdapter;
 import texus.autozoneuae.datamodels.CatData;
+import texus.autozoneuae.datamodels.SlideData;
 import texus.autozoneuae.fragments.ProductsFragment;
 import texus.autozoneuae.network.NetworkService;
 import texus.autozoneuae.preferance.SavedPreferance;
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     TabLayout tabLayout;
-    ImageView imCoverImage;
+//    ImageView imCoverImage;
     ViewPager viewpagerSlider;
 
     @Override
@@ -85,10 +84,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setUpCoverImage() {
-        imCoverImage = (ImageView) findViewById(R.id.imCoverImage);
-        Glide.with(this)
-                .load(R.drawable.cover_image)
-                .into(imCoverImage);
+
+        ArrayList<String> image_urls = SlideData.getParesed(Utility.getData(SlideData.FILENAME));
+        SlidePagerAdapter adapter = new SlidePagerAdapter(this, image_urls);
+        viewpagerSlider.setAdapter(adapter);
+//        imCoverImage = (ImageView) findViewById(R.id.imCoverImage);
+//        Glide.with(this)
+//                .load(R.drawable.cover_image)
+//                .into(imCoverImage);
     }
 
     public void populateProductList( ArrayList<CatData> catDatas) {
