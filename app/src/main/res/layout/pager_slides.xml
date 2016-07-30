@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scaleType="centerCrop"
-    android:gravity="center"
     android:src="@drawable/cover_image"
-    android:padding="@dimen/padding_large"
     />
 
 

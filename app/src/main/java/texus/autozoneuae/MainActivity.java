@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
 //    ImageView imCoverImage;
     ViewPager viewpagerSlider;
+    ArrayList<String> image_urls;
+
+    private Handler mHandlerFilp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +76,44 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void startRefreshTimer() {
+        mHandlerFilp = new Handler();
+        mHandlerFilp.postDelayed(flipRunnable, ApplicationClass.REFRESH_TIME_IN_MILLISECONDS);
+    }
+
+    private Runnable flipRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if( viewpagerSlider == null) return;
+            viewpagerSlider.post(new Runnable() {
+                @Override
+                public void run() {
+                    flip(viewpagerSlider);
+                }
+            });
+            mHandlerFilp.postDelayed(flipRunnable,
+                    ApplicationClass.REFRESH_TIME_IN_MILLISECONDS);
+        }
+    };
+
+    public void flip(ViewPager pager) {
+        try {
+            int index = pager.getCurrentItem();
+            index++;
+            if(image_urls != null) {
+                if(index == image_urls.size()) {
+                    index = 0;
+                }
+            }
+            pager.setCurrentItem(index);
+
+        } catch ( Exception e) {
+            e.printStackTrace();;
+        }
+
+
+    }
+
     public void setWidthAndHeight() {
 
         Display display = getWindowManager().getDefaultDisplay();
@@ -85,9 +127,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void setUpCoverImage() {
 
-        ArrayList<String> image_urls = SlideData.getParesed(Utility.getData(SlideData.FILENAME));
+        image_urls = SlideData.getParesed(Utility.getData(SlideData.FILENAME));
         SlidePagerAdapter adapter = new SlidePagerAdapter(this, image_urls);
         viewpagerSlider.setAdapter(adapter);
+        startRefreshTimer();
 //        imCoverImage = (ImageView) findViewById(R.id.imCoverImage);
 //        Glide.with(this)
 //                .load(R.drawable.cover_image)

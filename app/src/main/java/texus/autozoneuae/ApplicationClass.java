@@ -17,6 +17,8 @@ public class ApplicationClass extends Application {
     public static final String URL_GET_SLIDER_IMAGE  = BASE_URL
             + "/splash_screen/splash_screen_resp_json.json";
 
+    public static final long REFRESH_TIME_IN_MILLISECONDS = 5000;
+
     public static String INTERNAL_RESPONSE_FOLDER = "FOLDER_RESPONSE";
 
     public int width = 0;
