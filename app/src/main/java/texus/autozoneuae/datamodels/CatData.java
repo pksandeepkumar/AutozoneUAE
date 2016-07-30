@@ -1,6 +1,7 @@
 package texus.autozoneuae.datamodels;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Parcel;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 import texus.autozoneuae.db.Databases;
 import texus.autozoneuae.json.JsonParserBase;
+import texus.autozoneuae.preferance.SavedPreferance;
 import texus.autozoneuae.utility.LOG;
 
 
@@ -150,5 +152,17 @@ public class CatData implements Parcelable {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public static void insertDatas(ArrayList<CatData> catDatas, Context context) {
+        Databases db = new Databases(context);
+        CatData.deleteTable(db);
+        Product.deleteTable(db);
+        CatData.insertObjects(db, catDatas);
+        for( CatData catData :  catDatas) {
+            Product.insertObjects(db,catData.products, catData.cat_id);
+        }
+        db.close();
+        SavedPreferance.setAlreadyLoaded(context, true);
     }
 }

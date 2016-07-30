@@ -9,10 +9,12 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
+
 import texus.autozoneuae.datamodels.CatData;
 import texus.autozoneuae.datamodels.SlideData;
 import texus.autozoneuae.network.NetworkService;
-import texus.autozoneuae.preferance.SavedPreferance;
+import texus.autozoneuae.utility.Utility;
 
 /**
  * Created by sandeep on 12/07/16.
@@ -77,7 +79,9 @@ public class SplashScreen  extends AppCompatActivity {
             status = NetworkService.getAndSave(
                     ApplicationClass.URL_GET_ALL_CATEGORIES, CatData.FILENAME);
 
-            SavedPreferance.setAlreadyLoaded(context, true);
+            ArrayList<CatData> catDatas = CatData.getParesed(Utility.getData(CatData.FILENAME));
+
+            CatData.insertDatas(catDatas, context);
 
             return null;
         }

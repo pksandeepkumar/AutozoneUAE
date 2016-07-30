@@ -282,6 +282,8 @@ public class MainActivity extends AppCompatActivity {
 
             if(!status) return  null;
 
+            CatData.insertDatas(catDatas, context);
+
             if(!SavedPreferance.getAlreadyLoaded(context)) {
                 catDatas = CatData.getParesed(Utility.getData(CatData.FILENAME));
                 publishProgress();
