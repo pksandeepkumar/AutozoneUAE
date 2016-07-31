@@ -19,6 +19,8 @@ public class ApplicationClass extends Application {
 
     public static final long REFRESH_TIME_IN_MILLISECONDS = 5000;
 
+    public static final String TEMP_PDF = "http://autozoneuae.com/demo/wp-content/uploads/2016/06/1dummy.pdf";
+
     public static String INTERNAL_RESPONSE_FOLDER = "FOLDER_RESPONSE";
 
     public int width = 0;

@@ -3,4 +3,6 @@
     <string name="action_settings">Settings</string>
 
     <string name="search_vehicle">Search Vehicle</string>
+
+    <string name="enquiry_form">Enquiry Form</string>
 </resources>
