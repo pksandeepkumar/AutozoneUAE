@@ -136,6 +136,23 @@ public class Product implements Parcelable{
         return objects;
     }
 
+    public static ArrayList<Product> searchProduct( Databases db, String keyword) {
+        ArrayList<Product> objects = new ArrayList<Product>();
+        SQLiteDatabase dbRead = db.getReadableDatabase();
+        String query = "select * from " + TABLE_NAME + " WHERE " + PRODUCT_NAME
+                + " LIKE '%" + keyword + "%'"  ;
+        LOG.log("Query:", "Query:" + query);
+        Cursor c = dbRead.rawQuery(query, null);
+        if (c.moveToFirst()) {
+            do {
+                objects.add(getAnObjectFromCursor(c));
+            } while ( c.moveToNext()) ;
+        }
+        c.close();
+        dbRead.close();
+        return objects;
+    }
+
     public static Product getAnObjectFromCursor( Cursor c ) {
         Product instance = null;
         if( c != null) {

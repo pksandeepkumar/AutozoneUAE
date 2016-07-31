@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <LinearLayout
+            android:id="@+id/llHolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_above="@+id/itAndroidToolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <sbl.lafeef.control.ItemAndroidToolbar
+            android:id="@+id/itAndroidToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="top"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleMarginTop="15dp" />
+
+            <RelativeLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="bottom"
+                android:padding="@dimen/padding_extra_large"
+                 >
+                <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLines="1"
+                    android:paddingLeft="60dp"
+                    android:paddingRight="@dimen/padding_medium"
+                    android:paddingBottom="@dimen/padding_medium"
+                    android:paddingTop="@dimen/padding_medium"
+                    android:textColor="#000000"
+                    android:textColorHint="#c4c1c1"
+                    android:hint="Type Here"
+                    android:background="@drawable/bordered_bg"/>
+
+                <ImageView
+                    android:id="@+id/imSearch"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_search_grey"/>
+
+            </RelativeLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
