@@ -1,6 +1,7 @@
 package texus.autozoneuae;
 
 import android.app.Application;
+import android.os.Environment;
 
 import java.io.File;
 
@@ -22,6 +23,7 @@ public class ApplicationClass extends Application {
     public static final String TEMP_PDF = "http://autozoneuae.com/demo/wp-content/uploads/2016/06/1dummy.pdf";
 
     public static String INTERNAL_RESPONSE_FOLDER = "FOLDER_RESPONSE";
+    public static String PDF_FOLDER = "AutozoneUAE";
 
     public int width = 0;
     public int height = 0;
@@ -76,6 +78,9 @@ public class ApplicationClass extends Application {
         File rootDir =  getFilesDir();
         INTERNAL_RESPONSE_FOLDER  = rootDir + "/" + "ResponseFolder";
         makeDir(INTERNAL_RESPONSE_FOLDER);
+        PDF_FOLDER = Environment.getExternalStorageDirectory() + File.separator
+                + "AutoZoneUAE";
+        makeDir(PDF_FOLDER);
 
 
     }

@@ -11,18 +11,10 @@ import android.content.SharedPreferences;
 public class SavedPreferance {
 
 	private static final String ALREADY_LOADED = "AlreadyLoaded";
+	private static final String USER_NAME = "user_name";
+	private static final String USER_EMAIL = "user_email";
 	
-	private static final String SETINGS_SAVED = "dbCreated";
-	private static final String OFFLINE = "offline";
-	private static final String DEVICE_ID = "device_id";
-    private static final String TABLE_ID = "table_id";
-    private static final String TABLE_NAME = "table_name";
-	private static final String TABLE_TYPE = "table_type";
-	private static final String SERVICE_URL = "service_url";
-	private static final String LANAGUAGE_ID = "language_id";
-	
-	private static final String UPDATE_COUNT = "update_count";
-	
+
 
 	public static void setAlreadyLoaded(Context context, boolean status) {
 		SharedPreferences.Editor edit = getPreferance(context).edit();
@@ -33,6 +25,23 @@ public class SavedPreferance {
 		return getPreferance(context).getBoolean(ALREADY_LOADED, false);
 	}
 
+	public static void setUserName(Context context, String userName) {
+		SharedPreferences.Editor edit = getPreferance(context).edit();
+		edit.putString(USER_NAME, userName);
+		edit.commit();
+	}
+	public static String getUserName(Context context) {
+		return getPreferance(context).getString(USER_NAME, "");
+	}
+
+	public static void setEmailID(Context context, String userName) {
+		SharedPreferences.Editor edit = getPreferance(context).edit();
+		edit.putString(USER_EMAIL, userName);
+		edit.commit();
+	}
+	public static String getEmailID(Context context) {
+		return getPreferance(context).getString(USER_EMAIL, "");
+	}
 	
 	private static SharedPreferences getPreferance(Context context) {
 		SharedPreferences preferences = android.preference.PreferenceManager

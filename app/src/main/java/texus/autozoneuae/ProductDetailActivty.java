@@ -1,19 +1,27 @@
 package texus.autozoneuae;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.viewpagerindicator.CirclePageIndicator;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import texus.autozoneuae.adapter.ImageViewPagerAdapter;
 import texus.autozoneuae.controls.ColorRow;
@@ -23,6 +31,8 @@ import texus.autozoneuae.controls.NameValueRow;
 import texus.autozoneuae.controls.SquirePagerView;
 import texus.autozoneuae.datamodels.Product;
 import texus.autozoneuae.datamodels.SpecData;
+import texus.autozoneuae.dialogs.ProgressDialog;
+import texus.autozoneuae.network.Downloader;
 import texus.autozoneuae.network.NetworkService;
 import texus.autozoneuae.utility.Utility;
 
@@ -38,6 +48,7 @@ public class ProductDetailActivty  extends AppCompatActivity {
     Product product;
 
     LinearLayout llSpecHolder;
+    String pdfFileName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +63,25 @@ public class ProductDetailActivty  extends AppCompatActivity {
                 actionBar.setTitle(product.product_name);
                 actionBar.setDisplayHomeAsUpEnabled(true);
             }
+            pdfFileName = "Brochure" + product.product_id + ".pdf";
         }
 
         init();
 
     }
+
+    public void getAQuote(View view) {
+        Intent intent = new Intent(this, EnquiryFormActivity.class);
+        intent.putExtra(EnquiryFormActivity.PARAM_PRODUCT_NAME, product.product_name);
+        startActivity(intent);
+    }
+
+    public void downloadPDF(View view) {
+        LoadAndViewPDF task = new LoadAndViewPDF(this);
+        task.execute();
+    }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -131,6 +156,11 @@ public class ProductDetailActivty  extends AppCompatActivity {
                 llSpecHolder.addView(row);
             }
         }
+
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View child = inflater.inflate(R.layout.element_buttons, null);
+        llSpecHolder.addView(child);
     }
 
 
@@ -190,6 +220,78 @@ public class ProductDetailActivty  extends AppCompatActivity {
 
 
 
+    }
+
+
+    public class LoadAndViewPDF extends AsyncTask<Void, Void, Void> {
+
+        Context context;
+
+        boolean status;
+
+        ProgressDialog dialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new ProgressDialog(context);
+            dialog.show();
+
+        }
+
+        public LoadAndViewPDF(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            File folder = new File(ApplicationClass.PDF_FOLDER);
+            File file = new File(folder, pdfFileName);
+            try {
+                file.createNewFile();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            status = Downloader.DownloadFile(ApplicationClass.TEMP_PDF, file);
+
+
+
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            dialog.hide();
+            if(status) {
+                showPdf();
+            }
+
+
+
+        }
+
+
+
+    }
+
+    public void showPdf() {
+        File file = new File(ApplicationClass.PDF_FOLDER + File.separator + pdfFileName);
+        PackageManager packageManager = getPackageManager();
+        Intent testIntent = new Intent(Intent.ACTION_VIEW);
+        testIntent.setType("application/pdf");
+        List list = packageManager.queryIntentActivities(testIntent, PackageManager.MATCH_DEFAULT_ONLY);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        Uri uri = Uri.fromFile(file);
+        intent.setDataAndType(uri, "application/pdf");
+        startActivity(intent);
     }
 
 }

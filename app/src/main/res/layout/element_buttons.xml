@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="@dimen/padding_extra_large"
@@ -18,10 +16,11 @@
         android:layout_height="@dimen/button_height"
         android:background="@drawable/round_bg_blue_xml"
         android:textColor="#FFFFFF"
-        android:paddingLeft="@dimen/padding_large"
-        android:paddingRight="@dimen/padding_large"
-        android:layout_marginRight="@dimen/padding_large"
+        android:paddingLeft="@dimen/padding_extra_large"
+        android:paddingRight="@dimen/padding_extra_large"
+        android:layout_marginRight="@dimen/padding_extra_large"
         android:textStyle="bold"
+        android:onClick="getAQuote"
         android:text="Get a Quote"/>
 
     <Button
@@ -30,10 +29,11 @@
         android:layout_height="@dimen/button_height"
         android:background="@drawable/round_bg_red_xml"
         android:textColor="#FFFFFF"
-        android:paddingLeft="@dimen/padding_large"
-        android:paddingRight="@dimen/padding_large"
-        android:layout_marginRight="@dimen/padding_large"
+        android:paddingLeft="@dimen/padding_extra_large"
+        android:paddingRight="@dimen/padding_extra_large"
+
         android:textStyle="bold"
+        android:onClick="downloadPDF"
         android:text="Download Pdf"/>
 
 
