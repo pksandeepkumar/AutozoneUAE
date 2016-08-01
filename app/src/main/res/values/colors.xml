@@ -8,4 +8,13 @@
     <color name="fill_color">#7e7e7e</color>
     <color name="line_color">#b9b9b9</color>
     <color name="row_text_color">#636060</color>
+
+
+
+
+    <color name="google_plus_red">#d34836</color>
+    <color name="google_plus_red_hover">#de7568</color>
+    <color name="google_plus_dark_grey">#2d2d2d</color>
+    <color name="google_plus_light_grey">#d2d2d2</color>
+    <color name="google_plus_lightest_grey">#f1f1f1</color>
 </resources>

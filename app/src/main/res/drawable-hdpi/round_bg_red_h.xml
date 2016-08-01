@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+	<stroke android:width="2dp" android:color="@color/google_plus_red_hover"  />
+    <solid android:color="@color/google_plus_red_hover"/>
+    <corners android:radius="3dp" />
+</shape>
