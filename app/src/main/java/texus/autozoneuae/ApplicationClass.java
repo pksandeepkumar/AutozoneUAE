@@ -26,6 +26,9 @@ public class ApplicationClass extends Application {
     public int width = 0;
     public int height = 0;
 
+    //IN search page search start if the keyword has following length
+    public static final int SEARCH_MIN_COUNT = 3;
+
 
     private static ApplicationClass ourInstance = new ApplicationClass();
 

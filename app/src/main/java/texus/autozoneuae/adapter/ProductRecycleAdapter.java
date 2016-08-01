@@ -165,6 +165,7 @@ public class ProductRecycleAdapter extends RecyclerView.Adapter<ProductRecycleAd
     private void callProductDetailActivity(ViewHolder holder, Product product ) {
         Context context = holder.mView.getContext();
         Intent intent = new Intent(context, ProductDetailActivty.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if(product != null)
             intent.putExtra(ProductDetailActivty.PARAM_PRODUCT,product);
         context.startActivity(intent);

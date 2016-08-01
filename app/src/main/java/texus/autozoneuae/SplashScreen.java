@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import texus.autozoneuae.datamodels.CatData;
 import texus.autozoneuae.datamodels.SlideData;
 import texus.autozoneuae.network.NetworkService;
+import texus.autozoneuae.preferance.SavedPreferance;
 import texus.autozoneuae.utility.Utility;
 
 /**
@@ -35,22 +37,22 @@ public class SplashScreen  extends AppCompatActivity {
                 .load(R.drawable.splash)
                 .into(imgLogo);
 
-        LoadInitialData task = new LoadInitialData(this);
-        task.execute();
+//        LoadInitialData task = new LoadInitialData(this);
+//        task.execute();
 
-//        if(SavedPreferance.getAlreadyLoaded(this)) {
-//            new Handler().postDelayed(new Runnable() {
-//                @Override
-//                public void run() {
-//                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
-//                    startActivity(i);
-//                    finish();
-//                }
-//            }, SPLASH_TIME_OUT);
-//        } else {
-//            LoadInitialData task = new LoadInitialData(this);
-//            task.execute();
-//        }
+        if(SavedPreferance.getAlreadyLoaded(this)) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+            }, SPLASH_TIME_OUT);
+        } else {
+            LoadInitialData task = new LoadInitialData(this);
+            task.execute();
+        }
 
     }
 

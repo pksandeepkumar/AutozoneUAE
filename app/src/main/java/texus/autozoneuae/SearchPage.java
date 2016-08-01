@@ -130,7 +130,7 @@ public class SearchPage extends AppCompatActivity {
 //                    imSearch.setImageResource(R.drawable.ic_search);
                 } else {
 //                    imSearch.setImageResource(R.drawable.ic_close);
-                    if(keyWord.trim().length() <= 3) {
+                    if(keyWord.trim().length() < ApplicationClass.SEARCH_MIN_COUNT) {
                         llHolder.removeAllViews();
                         return;
                     }

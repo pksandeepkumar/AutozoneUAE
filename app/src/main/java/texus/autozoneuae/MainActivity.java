@@ -1,6 +1,7 @@
 package texus.autozoneuae;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -175,8 +176,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-//                startPage(SearchPage.class);
-                // User chose the "Settings" item, show the app settings UI...
+                Intent intent = new Intent(this, SearchPage.class);
+                startActivity(intent);
                 return true;
 
 

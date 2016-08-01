@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import texus.autozoneuae.db.Databases;
 import texus.autozoneuae.json.JsonParserBase;
@@ -24,12 +25,14 @@ public class Product implements Parcelable{
 
     public static final String PRODUCT_ID = "product_id";
     public static final String PRODUCT_NAME = "product_name";
+    public static final String PRODUCT_IMAGES = "product_images";
     public static final String CAT_ID = "cat_id";
 
     public static final String CREATE_TABLE_QUERY = "CREATE TABLE  " + TABLE_NAME
             + " ( " + "_id" + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
             + PRODUCT_ID + " INTEGER , "
             + CAT_ID + " INTEGER , "
+            + PRODUCT_IMAGES + " TEXT , "
             + PRODUCT_NAME + " TEXT )";
 
     public int product_id = 0;
@@ -114,6 +117,11 @@ public class Product implements Parcelable{
             cv.put(CAT_ID, cat_id);
             cv.put(PRODUCT_ID, product.product_id);
             cv.put(PRODUCT_NAME, product.product_name);
+            String images = "";
+            for(String image_url :  product.image_urls) {
+                images = images + image_url + ",";
+            }
+            cv.put(PRODUCT_IMAGES, images);
             sqld.insert(TABLE_NAME, null,cv);
         }
         sqld.close();
@@ -159,6 +167,9 @@ public class Product implements Parcelable{
             instance = new Product();
             instance.product_id = c.getInt(c.getColumnIndex(PRODUCT_ID));
             instance.product_name = c.getString(c.getColumnIndex(PRODUCT_NAME));
+            String [] split = c.getString(c.getColumnIndex(PRODUCT_IMAGES)).split(",");
+            instance.image_urls = new ArrayList( Arrays.asList(split));
+
         } else {
             LOG.log("getAnObjectFromCursor:", "getAnObjectFromCursor Cursor is null");
         }
