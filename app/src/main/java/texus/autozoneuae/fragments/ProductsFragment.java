@@ -35,6 +35,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -45,6 +46,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import texus.autozoneuae.ApplicationClass;
 import texus.autozoneuae.ProductDetailActivty;
 import texus.autozoneuae.R;
 import texus.autozoneuae.controls.MarginDecoration;
@@ -156,7 +158,15 @@ public class ProductsFragment extends Fragment {
             final Product product = mValues.get(position);
 
             holder.tvProductTiltle.setText(product.product_name);
-            Log.e("Adapeter","---------------------------------");
+
+            RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams)
+                    holder.imImage.getLayoutParams();
+//            rlp.height = product.card_height;
+            rlp.height =   ApplicationClass.getInstance().getHeight();;
+            holder.imImage.setLayoutParams(rlp);
+
+
+            Log.e("Adapeter","----------------1-----------------" + rlp.height);
             Log.e("Adapeter","Product ID:" + product.product_id);
             Log.e("Adapeter","Product Name:" + product.product_name);
             if(product.image_urls != null) {
@@ -164,6 +174,8 @@ public class ProductsFragment extends Fragment {
                     String url = product.image_urls.get(0);
 
                     Log.e("Adapeter","URL" + url);
+
+
 
                     Glide.with(holder.imImage.getContext())
                             .load(url)

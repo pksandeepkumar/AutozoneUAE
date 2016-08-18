@@ -4,6 +4,7 @@ import android.app.Application;
 import android.os.Environment;
 
 import java.io.File;
+import java.util.Random;
 
 /**
  * Created by sandeep on 11/06/16.
@@ -27,6 +28,9 @@ public class ApplicationClass extends Application {
 
     public int width = 0;
     public int height = 0;
+
+    private int minHeight;
+    private int maxHeight;
 
     //IN search page search start if the keyword has following length
     public static final int SEARCH_MIN_COUNT = 3;
@@ -82,7 +86,18 @@ public class ApplicationClass extends Application {
                 + "AutoZoneUAE";
         makeDir(PDF_FOLDER);
 
+        minHeight = getResources()
+                .getDimensionPixelSize(R.dimen.item_card_image_min_width);
+        maxHeight = getResources()
+                .getDimensionPixelSize(R.dimen.item_card_image_max_width);
 
+
+    }
+
+    public int getHeight() {
+        Random random = new Random();
+        int height = minHeight + random.nextInt(maxHeight - minHeight);
+        return height;
     }
 
 }

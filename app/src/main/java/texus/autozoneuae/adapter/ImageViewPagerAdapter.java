@@ -59,6 +59,8 @@ public class ImageViewPagerAdapter  extends PagerAdapter {
 
         ImageView imImage = (ImageView) child.findViewById(R.id.imImage);
 
+
+
         String url = getURL(position);
 
         Log.e("ImageAdapter","URL:" + url);

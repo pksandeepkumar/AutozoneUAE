@@ -31,5 +31,10 @@
     <dimen name="text_area_height">120dp</dimen>
 
 
+    <dimen name="item_card_image_min_width">180dp</dimen>
+    <dimen name="item_card_image_max_width">250dp</dimen>
+
+
+
 
 </resources>

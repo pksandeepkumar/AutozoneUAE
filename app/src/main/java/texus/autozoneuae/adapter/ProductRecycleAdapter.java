@@ -16,6 +16,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import texus.autozoneuae.ApplicationClass;
 import texus.autozoneuae.ProductDetailActivty;
 import texus.autozoneuae.R;
 import texus.autozoneuae.datamodels.Product;
@@ -92,6 +94,14 @@ public class ProductRecycleAdapter extends RecyclerView.Adapter<ProductRecycleAd
         final Product product = mValues.get(position);
 
         holder.tvProductTiltle.setText(product.product_name);
+
+        RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams)
+                holder.imImage.getLayoutParams();
+//            rlp.height = product.card_height;
+        rlp.height =   ApplicationClass.getInstance().getHeight();;
+        holder.imImage.setLayoutParams(rlp);
+
+
         Log.e("Adapeter","---------------------------------");
         Log.e("Adapeter","Product ID:" + product.product_id);
         Log.e("Adapeter","Product Name:" + product.product_name);

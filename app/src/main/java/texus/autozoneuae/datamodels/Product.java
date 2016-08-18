@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import texus.autozoneuae.ApplicationClass;
 import texus.autozoneuae.db.Databases;
 import texus.autozoneuae.json.JsonParserBase;
 import texus.autozoneuae.utility.LOG;
@@ -26,18 +27,21 @@ public class Product implements Parcelable{
     public static final String PRODUCT_ID = "product_id";
     public static final String PRODUCT_NAME = "product_name";
     public static final String PRODUCT_IMAGES = "product_images";
+    public static final String CARD_HEIGHT = "card_height";
     public static final String CAT_ID = "cat_id";
 
     public static final String CREATE_TABLE_QUERY = "CREATE TABLE  " + TABLE_NAME
             + " ( " + "_id" + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
             + PRODUCT_ID + " INTEGER , "
             + CAT_ID + " INTEGER , "
+            + CARD_HEIGHT + " INTEGER , "
             + PRODUCT_IMAGES + " TEXT , "
             + PRODUCT_NAME + " TEXT )";
 
     public int product_id = 0;
     public String product_name = "";
     public ArrayList<String> image_urls = null;
+    public int card_height;
 
 
     public static ArrayList<Product> getParesed( JSONArray jsonArray) {
@@ -75,18 +79,22 @@ public class Product implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(product_id);
+        dest.writeInt(card_height);
         dest.writeString(product_name);
         dest.writeList(image_urls);
 //        dest.writeByte((byte) (viewed ? 1 : 0));
 //        dest.writeByte((byte) (liked ? 1 : 0));
     }
 
-    public Product() {
 
+
+    public Product() {
+        card_height = ApplicationClass.getInstance().getHeight();
     }
 
     private Product(Parcel in){
         this.product_id = in.readInt();
+        this.card_height = in.readInt();
         this.product_name = in.readString();
         this.image_urls = in.readArrayList(null);
 
@@ -116,6 +124,7 @@ public class Product implements Parcelable{
             ContentValues cv = new ContentValues();
             cv.put(CAT_ID, cat_id);
             cv.put(PRODUCT_ID, product.product_id);
+            cv.put(CARD_HEIGHT, product.card_height);
             cv.put(PRODUCT_NAME, product.product_name);
             String images = "";
             for(String image_url :  product.image_urls) {
@@ -166,6 +175,7 @@ public class Product implements Parcelable{
         if( c != null) {
             instance = new Product();
             instance.product_id = c.getInt(c.getColumnIndex(PRODUCT_ID));
+            instance.card_height = c.getInt(c.getColumnIndex(CARD_HEIGHT));
             instance.product_name = c.getString(c.getColumnIndex(PRODUCT_NAME));
             String [] split = c.getString(c.getColumnIndex(PRODUCT_IMAGES)).split(",");
             instance.image_urls = new ArrayList( Arrays.asList(split));

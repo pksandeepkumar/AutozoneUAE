@@ -2,13 +2,14 @@ package texus.autozoneuae.controls;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 
+//No need to set LayoutManager for this autofit recyclerview
 public class AutofitRecyclerView extends RecyclerView {
 
-  private GridLayoutManager manager;
+  private StaggeredGridLayoutManager manager;
   private int columnWidth = -1;
 
   public AutofitRecyclerView(Context context) {
@@ -36,7 +37,7 @@ public class AutofitRecyclerView extends RecyclerView {
       array.recycle();
     }
 
-    manager = new GridLayoutManager(getContext(), 1);
+    manager = new StaggeredGridLayoutManager(2, 1);
     setLayoutManager(manager);
   }
 
@@ -45,7 +46,7 @@ public class AutofitRecyclerView extends RecyclerView {
     super.onMeasure(widthSpec, heightSpec);
     if (columnWidth > 0) {
       int spanCount = Math.max(1, getMeasuredWidth() / columnWidth);
-      manager.setSpanCount(spanCount);
+        manager.setSpanCount(spanCount);
     }
   }
 }

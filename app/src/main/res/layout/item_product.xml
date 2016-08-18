@@ -17,7 +17,7 @@
             android:id="@+id/imImage"
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:scaleType="centerCrop"
             android:src="@drawable/no_preview"
             android:layout_above="@+id/tvProductTiltle"
