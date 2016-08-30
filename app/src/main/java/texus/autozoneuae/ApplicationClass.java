@@ -16,6 +16,8 @@ public class ApplicationClass extends Application {
             + "/getAllCategoryData.php";
     public static final String URL_GET_PRODUCT_SPEC  = BASE_URL
             + "/getProductSpec.php?product_id=";
+    public static final String URL_GET_PRODUCT_DESC  = BASE_URL
+            + "/getProductDescription.php?product_id=";
     public static final String URL_GET_SLIDER_IMAGE  = BASE_URL
             + "/splash_screen/splash_screen_resp_json.json";
 

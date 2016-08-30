@@ -38,6 +38,8 @@ import texus.autozoneuae.utility.Utility;
 
 /**
  * Created by sandeep on 7/7/16.
+ *
+ * Link:http://stackoverflow.com/questions/13257990/android-webview-inside-scrollview-scrolls-only-scrollview
  */
 public class ProductDetailActivty  extends AppCompatActivity {
 
@@ -48,6 +50,7 @@ public class ProductDetailActivty  extends AppCompatActivity {
     Product product;
 
     LinearLayout llSpecHolder;
+    LinearLayout llDesccHolder;
     String pdfFileName = "";
 
     @Override
@@ -117,9 +120,10 @@ public class ProductDetailActivty  extends AppCompatActivity {
         indicator.setViewPager(viewPager);
 
         llSpecHolder = (LinearLayout) findViewById(R.id.llSpecHolder);
+        llDesccHolder = (LinearLayout) findViewById(R.id.llDesccHolder);
 
-        ArrayList<SpecData> specDatas
-                = SpecData.getParesed(Utility.readFromAssets("getProductSpec.json", this));
+//        ArrayList<SpecData> specDatas
+//                = SpecData.getParesed(Utility.readFromAssets("getProductSpec.json", this));
 
         HeadderRow headderRow = new HeadderRow(this,"Specifications");
         llSpecHolder.addView(headderRow);
@@ -163,6 +167,64 @@ public class ProductDetailActivty  extends AppCompatActivity {
         llSpecHolder.addView(child);
     }
 
+
+    public class LoadProductDesc extends AsyncTask<Void, Void, Void> {
+
+        Context context;
+        ArrayList<SpecData> specDatas = null;
+        HeadderRow headderRow;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            headderRow.setTitle("Specifications" + "( Loading....)");
+        }
+
+        public LoadProductDesc(Context context, HeadderRow headderRow) {
+            this.context = context;
+            this.headderRow = headderRow;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            String resp = Utility.getData(SpecData.FILE_NAME_START + product.product_id);
+            if(resp.length() != 0) {
+                Log.e("ProductDetailActivity","OFFLINE DATA");
+                specDatas = SpecData.getParesed(resp);
+                publishProgress();
+
+            }
+
+            NetworkService.getAndSave(ApplicationClass.URL_GET_PRODUCT_SPEC +product.product_id,
+                    SpecData.FILE_NAME_START + product.product_id);
+
+            String resp2 = Utility.getData(SpecData.FILE_NAME_START + product.product_id);
+
+            if(!resp.equals(resp2)) {
+                specDatas = SpecData.getParesed(resp2);
+                publishProgress();
+            } else{
+                Log.e("ProductDetailActivity","Response are same!!!!");
+            }
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            Log.e("ProductDetailActivity","Calling publish!!!!");
+            publishSpec(specDatas);
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+        }
+
+
+
+    }
 
     public class LoadProductSpecData extends AsyncTask<Void, Void, Void> {
 
