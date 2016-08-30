@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -35,6 +36,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -117,6 +119,7 @@ public class ProductsFragment extends Fragment {
             public final View mView;
             public final ImageView imImage;
             public final TextView tvProductTiltle;
+            public final CardView card_view;
 
             public final View vBgLike;
 
@@ -126,6 +129,7 @@ public class ProductsFragment extends Fragment {
                 imImage = (ImageView) view.findViewById(R.id.imImage);
                 tvProductTiltle = (TextView) view.findViewById(R.id.tvProductTiltle);
                 vBgLike  = (View) view.findViewById(R.id.vBgLike);
+                card_view  = (CardView) view.findViewById(R.id.card_view);
             }
 
             @Override
@@ -159,11 +163,11 @@ public class ProductsFragment extends Fragment {
 
             holder.tvProductTiltle.setText(product.product_name);
 
-            RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams)
-                    holder.imImage.getLayoutParams();
+            LinearLayout.LayoutParams rlp = (LinearLayout.LayoutParams)
+                    holder.card_view.getLayoutParams();
 //            rlp.height = product.card_height;
             rlp.height =   ApplicationClass.getInstance().getHeight();;
-            holder.imImage.setLayoutParams(rlp);
+            holder.card_view.setLayoutParams(rlp);
 
 
             Log.e("Adapeter","----------------1-----------------" + rlp.height);
