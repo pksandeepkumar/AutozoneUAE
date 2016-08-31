@@ -40,19 +40,19 @@ public class SplashScreen  extends AppCompatActivity {
 //        LoadInitialData task = new LoadInitialData(this);
 //        task.execute();
 
-        if(SavedPreferance.getAlreadyLoaded(this)) {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
-                    startActivity(i);
-                    finish();
-                }
-            }, SPLASH_TIME_OUT);
-        } else {
+//        if(SavedPreferance.getAlreadyLoaded(this)) {
+//            new Handler().postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
+//                    startActivity(i);
+//                    finish();
+//                }
+//            }, SPLASH_TIME_OUT);
+//        } else {
             LoadInitialData task = new LoadInitialData(this);
             task.execute();
-        }
+//        }
 
     }
 

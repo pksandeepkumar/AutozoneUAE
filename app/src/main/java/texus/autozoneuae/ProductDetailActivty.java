@@ -14,7 +14,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.viewpagerindicator.CirclePageIndicator;
 
@@ -52,6 +54,7 @@ public class ProductDetailActivty  extends AppCompatActivity {
     LinearLayout llSpecHolder;
     LinearLayout llDesccHolder;
     String pdfFileName = "";
+    WebView description_web;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +124,7 @@ public class ProductDetailActivty  extends AppCompatActivity {
 
         llSpecHolder = (LinearLayout) findViewById(R.id.llSpecHolder);
         llDesccHolder = (LinearLayout) findViewById(R.id.llDesccHolder);
+        description_web = (WebView) findViewById(R.id.description_web);
 
 //        ArrayList<SpecData> specDatas
 //                = SpecData.getParesed(Utility.readFromAssets("getProductSpec.json", this));
@@ -130,6 +134,16 @@ public class ProductDetailActivty  extends AppCompatActivity {
 
         LoadProductSpecData task = new LoadProductSpecData(this, headderRow);
         task.execute();
+
+        loadProductDetails();
+    }
+
+    private void loadProductDetails() {
+
+        description_web.getSettings().setLoadsImagesAutomatically(true);
+        description_web.getSettings().setJavaScriptEnabled(true);
+//        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        description_web.loadUrl(ApplicationClass.URL_GET_PRODUCT_DESC + product.product_id);
     }
 
     public void publishSpec(ArrayList<SpecData> specDatas) {
@@ -315,7 +329,11 @@ public class ProductDetailActivty  extends AppCompatActivity {
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-            status = Downloader.DownloadFile(ApplicationClass.TEMP_PDF, file);
+            String pdfURL = NetworkService.get(ApplicationClass.URL_GET_PRODUCT_PDF + product.product_id);
+            if(pdfURL.trim().length() != 0) {
+                status = Downloader.DownloadFile(pdfURL, file);
+            }
+
 
 
 
@@ -333,6 +351,8 @@ public class ProductDetailActivty  extends AppCompatActivity {
             dialog.hide();
             if(status) {
                 showPdf();
+            } else {
+                Toast.makeText(context,"No pdf available!!", Toast.LENGTH_LONG).show();
             }
 
 
