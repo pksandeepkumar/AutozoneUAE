@@ -40,10 +40,10 @@ import texus.autozoneuae.utility.Utility;
 
 /**
  * Created by sandeep on 7/7/16.
- *
+ * <p>
  * Link:http://stackoverflow.com/questions/13257990/android-webview-inside-scrollview-scrolls-only-scrollview
  */
-public class ProductDetailActivty  extends AppCompatActivity {
+public class ProductDetailActivty extends AppCompatActivity {
 
     public static final String PARAM_PRODUCT = "ParamProduct";
 
@@ -63,9 +63,9 @@ public class ProductDetailActivty  extends AppCompatActivity {
 
         product = getIntent().getParcelableExtra(PARAM_PRODUCT);
 
-        if(product != null) {
+        if (product != null) {
             ActionBar actionBar = getSupportActionBar();
-            if( actionBar != null) {
+            if (actionBar != null) {
                 actionBar.setTitle(product.product_name);
                 actionBar.setDisplayHomeAsUpEnabled(true);
             }
@@ -88,7 +88,6 @@ public class ProductDetailActivty  extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -101,12 +100,12 @@ public class ProductDetailActivty  extends AppCompatActivity {
     }
 
     private void init() {
-        if(product == null) {
+        if (product == null) {
             return;
         }
         squirePagerView = (SquirePagerView) findViewById(R.id.squirePagerView);
         //In landscape mode, we use squire viewpager, in portrait mode we use SquirePagerView
-        if(squirePagerView != null) {
+        if (squirePagerView != null) {
             viewPager = squirePagerView.viewPager;
         } else {
             viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -116,7 +115,7 @@ public class ProductDetailActivty  extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
 
-        CirclePageIndicator  indicator = (CirclePageIndicator) findViewById(R.id.indicator);
+        CirclePageIndicator indicator = (CirclePageIndicator) findViewById(R.id.indicator);
         indicator.setFillColor(Color.parseColor("#7e7e7e"));
         indicator.setStrokeColor(Color.parseColor("#7e7e7e"));
         indicator.setRadius(indicator.getRadius() * 3f);
@@ -129,7 +128,7 @@ public class ProductDetailActivty  extends AppCompatActivity {
 //        ArrayList<SpecData> specDatas
 //                = SpecData.getParesed(Utility.readFromAssets("getProductSpec.json", this));
 
-        HeadderRow headderRow = new HeadderRow(this,"Specifications");
+        HeadderRow headderRow = new HeadderRow(this, "Specifications");
         llSpecHolder.addView(headderRow);
 
         LoadProductSpecData task = new LoadProductSpecData(this, headderRow);
@@ -143,33 +142,36 @@ public class ProductDetailActivty  extends AppCompatActivity {
         description_web.getSettings().setLoadsImagesAutomatically(true);
         description_web.getSettings().setJavaScriptEnabled(true);
 //        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        description_web.loadUrl(ApplicationClass.URL_GET_PRODUCT_DESC + product.product_id);
+//        description_web.loadUrl(ApplicationClass.URL_GET_PRODUCT_DESC + product.product_id);
+
+        LoadProductDesc task = new LoadProductDesc(this);
+        task.execute();
     }
 
     public void publishSpec(ArrayList<SpecData> specDatas) {
-        if(specDatas == null){
-            Log.e("ProductDetailActivity","Specs Is null");
+        if (specDatas == null) {
+            Log.e("ProductDetailActivity", "Specs Is null");
             return;
         }
 
-        Log.e("ProductDetailActivity","Spec Data Size:" + specDatas.size());
+        Log.e("ProductDetailActivity", "Spec Data Size:" + specDatas.size());
 
         llSpecHolder.removeAllViews();
 
-        HeadderRow headderRow = new HeadderRow(this,"Specifications");
+        HeadderRow headderRow = new HeadderRow(this, "Specifications");
         llSpecHolder.addView(headderRow);
 
         int count = 0;
-        for(SpecData specData : specDatas) {
-            if(specData.type == SpecData.SPEC_TYPE_NORMAL) {
+        for (SpecData specData : specDatas) {
+            if (specData.type == SpecData.SPEC_TYPE_NORMAL) {
                 NameValueRow row = new NameValueRow(this, specData.name, specData.value);
                 llSpecHolder.addView(row);
-            } else if(specData.type == SpecData.SPEC_TYPE_COLOR) {
+            } else if (specData.type == SpecData.SPEC_TYPE_COLOR) {
                 ColorRow row = new ColorRow(this, specData.name, specData.colors);
                 llSpecHolder.addView(row);
             }
             count++;
-            if(count< specDatas.size()) {
+            if (count < specDatas.size()) {
                 LineRow row = new LineRow(this);
                 llSpecHolder.addView(row);
             }
@@ -185,57 +187,48 @@ public class ProductDetailActivty  extends AppCompatActivity {
     public class LoadProductDesc extends AsyncTask<Void, Void, Void> {
 
         Context context;
-        ArrayList<SpecData> specDatas = null;
-        HeadderRow headderRow;
+        String resp;
+        StringBuilder builder;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            headderRow.setTitle("Specifications" + "( Loading....)");
         }
 
-        public LoadProductDesc(Context context, HeadderRow headderRow) {
+        public LoadProductDesc(Context context) {
             this.context = context;
-            this.headderRow = headderRow;
         }
 
         @Override
         protected Void doInBackground(Void... params) {
 
-            String resp = Utility.getData(SpecData.FILE_NAME_START + product.product_id);
-            if(resp.length() != 0) {
-                Log.e("ProductDetailActivity","OFFLINE DATA");
-                specDatas = SpecData.getParesed(resp);
-                publishProgress();
+            builder = new StringBuilder();
 
-            }
+            builder.append(Utility.readFromAssets("html_start.txt", context));
 
-            NetworkService.getAndSave(ApplicationClass.URL_GET_PRODUCT_SPEC +product.product_id,
-                    SpecData.FILE_NAME_START + product.product_id);
+            resp = NetworkService.get(ApplicationClass.URL_GET_PRODUCT_DESC
+                    + product.product_id);
 
-            String resp2 = Utility.getData(SpecData.FILE_NAME_START + product.product_id);
+            builder.append(resp);
 
-            if(!resp.equals(resp2)) {
-                specDatas = SpecData.getParesed(resp2);
-                publishProgress();
-            } else{
-                Log.e("ProductDetailActivity","Response are same!!!!");
-            }
+            builder.append("</body></html>");
+
             return null;
         }
 
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
-            Log.e("ProductDetailActivity","Calling publish!!!!");
-            publishSpec(specDatas);
+
         }
 
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-        }
 
+            description_web.loadDataWithBaseURL("", builder.toString(), "text/html", "UTF-8", "");
+
+        }
 
 
     }
@@ -261,23 +254,23 @@ public class ProductDetailActivty  extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
 
             String resp = Utility.getData(SpecData.FILE_NAME_START + product.product_id);
-            if(resp.length() != 0) {
-                Log.e("ProductDetailActivity","OFFLINE DATA");
+            if (resp.length() != 0) {
+                Log.e("ProductDetailActivity", "OFFLINE DATA");
                 specDatas = SpecData.getParesed(resp);
                 publishProgress();
 
             }
 
-            NetworkService.getAndSave(ApplicationClass.URL_GET_PRODUCT_SPEC +product.product_id,
+            NetworkService.getAndSave(ApplicationClass.URL_GET_PRODUCT_SPEC + product.product_id,
                     SpecData.FILE_NAME_START + product.product_id);
 
             String resp2 = Utility.getData(SpecData.FILE_NAME_START + product.product_id);
 
-            if(!resp.equals(resp2)) {
+            if (!resp.equals(resp2)) {
                 specDatas = SpecData.getParesed(resp2);
                 publishProgress();
-            } else{
-                Log.e("ProductDetailActivity","Response are same!!!!");
+            } else {
+                Log.e("ProductDetailActivity", "Response are same!!!!");
             }
             return null;
         }
@@ -285,7 +278,7 @@ public class ProductDetailActivty  extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
-            Log.e("ProductDetailActivity","Calling publish!!!!");
+            Log.e("ProductDetailActivity", "Calling publish!!!!");
             publishSpec(specDatas);
         }
 
@@ -293,7 +286,6 @@ public class ProductDetailActivty  extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
         }
-
 
 
     }
@@ -330,11 +322,9 @@ public class ProductDetailActivty  extends AppCompatActivity {
                 e1.printStackTrace();
             }
             String pdfURL = NetworkService.get(ApplicationClass.URL_GET_PRODUCT_PDF + product.product_id);
-            if(pdfURL.trim().length() != 0) {
+            if (pdfURL.trim().length() != 0) {
                 status = Downloader.DownloadFile(pdfURL, file);
             }
-
-
 
 
             return null;
@@ -349,16 +339,14 @@ public class ProductDetailActivty  extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             dialog.hide();
-            if(status) {
+            if (status) {
                 showPdf();
             } else {
-                Toast.makeText(context,"No pdf available!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "No pdf available!!", Toast.LENGTH_LONG).show();
             }
 
 
-
         }
-
 
 
     }
