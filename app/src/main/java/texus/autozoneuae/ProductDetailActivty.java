@@ -142,10 +142,10 @@ public class ProductDetailActivty extends AppCompatActivity {
         description_web.getSettings().setLoadsImagesAutomatically(true);
         description_web.getSettings().setJavaScriptEnabled(true);
 //        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-//        description_web.loadUrl(ApplicationClass.URL_GET_PRODUCT_DESC + product.product_id);
+        description_web.loadUrl(ApplicationClass.URL_GET_PRODUCT_DESC + product.product_id);
 
-        LoadProductDesc task = new LoadProductDesc(this);
-        task.execute();
+//        LoadProductDesc task = new LoadProductDesc(this);
+//        task.execute();
     }
 
     public void publishSpec(ArrayList<SpecData> specDatas) {
@@ -226,7 +226,9 @@ public class ProductDetailActivty extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            description_web.loadDataWithBaseURL("", builder.toString(), "text/html", "UTF-8", "");
+//            description_web.loadDataWithBaseURL("", builder.toString(), "text/html", "UTF-8", "");
+            description_web.loadDataWithBaseURL("fake://not/needed",
+                    builder.toString(), "text/html", "utf-8", "");
 
         }
 
