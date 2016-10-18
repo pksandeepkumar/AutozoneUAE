@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -55,6 +56,7 @@ public class ProductDetailActivty extends AppCompatActivity {
     LinearLayout llDesccHolder;
     String pdfFileName = "";
     WebView description_web;
+    CardView cardWeb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +136,7 @@ public class ProductDetailActivty extends AppCompatActivity {
         LoadProductSpecData task = new LoadProductSpecData(this, headderRow);
         task.execute();
 
-        loadProductDetails();
+//        loadProductDetails();
     }
 
     private void loadProductDetails() {

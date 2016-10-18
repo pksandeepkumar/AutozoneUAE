@@ -4,18 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
 import texus.autozoneuae.datamodels.CatData;
 import texus.autozoneuae.datamodels.SlideData;
 import texus.autozoneuae.network.NetworkService;
-import texus.autozoneuae.preferance.SavedPreferance;
 import texus.autozoneuae.utility.Utility;
 
 /**
@@ -33,9 +29,9 @@ public class SplashScreen  extends AppCompatActivity {
 
         ImageView imgLogo = (ImageView) findViewById(R.id.imgLogo);
 
-        Glide.with(this)
-                .load(R.drawable.splash)
-                .into(imgLogo);
+//        Glide.with(this)
+//                .load(R.drawable.splash)
+//                .into(imgLogo);
 
 //        LoadInitialData task = new LoadInitialData(this);
 //        task.execute();

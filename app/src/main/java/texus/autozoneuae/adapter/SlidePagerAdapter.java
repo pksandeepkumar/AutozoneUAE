@@ -61,6 +61,7 @@ public class SlidePagerAdapter extends PagerAdapter {
         Glide.with(context)
                 .load(imageList.get(position))
                 .error(R.drawable.no_preview)
+                .placeholder(R.drawable.loading_image)
                 .into(imageView);
 
         ((ViewPager) collection).addView(layout, 0);

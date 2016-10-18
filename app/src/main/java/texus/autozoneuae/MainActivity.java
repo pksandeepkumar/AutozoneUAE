@@ -27,6 +27,7 @@ import texus.autozoneuae.adapter.SlidePagerAdapter;
 import texus.autozoneuae.datamodels.CatData;
 import texus.autozoneuae.datamodels.SlideData;
 import texus.autozoneuae.fragments.ProductsFragment;
+import texus.autozoneuae.fragments.ProductsFragmentList;
 import texus.autozoneuae.network.NetworkService;
 import texus.autozoneuae.preferance.SavedPreferance;
 import texus.autozoneuae.utility.Utility;
@@ -157,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
     public void addFragment( Adapter adapter, CatData object ) {
         if(object == null) return;
 
-        ProductsFragment fragment = new ProductsFragment();
+        ProductsFragmentList fragment = new ProductsFragmentList();
         Bundle bundle=new Bundle();
         bundle.putParcelable(ProductsFragment.PARAM_CAT_DATA, object);
         fragment.setArguments(bundle);

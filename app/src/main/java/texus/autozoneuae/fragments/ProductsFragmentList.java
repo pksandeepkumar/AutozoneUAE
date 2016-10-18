@@ -26,6 +26,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -36,7 +38,6 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -50,11 +51,10 @@ import java.util.Random;
 import texus.autozoneuae.ApplicationClass;
 import texus.autozoneuae.ProductDetailActivty;
 import texus.autozoneuae.R;
-import texus.autozoneuae.controls.MarginDecoration;
 import texus.autozoneuae.datamodels.CatData;
 import texus.autozoneuae.datamodels.Product;
 
-public class ProductsFragment extends Fragment {
+public class ProductsFragmentList extends Fragment {
 
     CatData catData = null;
 
@@ -66,7 +66,7 @@ public class ProductsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         RecyclerView rv = (RecyclerView) inflater.inflate(
-                R.layout.fragment_product, container, false);
+                R.layout.fragment_list, container, false);
 
         catData = ( CatData ) getArguments().get(PARAM_CAT_DATA);
 
@@ -77,12 +77,23 @@ public class ProductsFragment extends Fragment {
 
     private void setupRecyclerView(RecyclerView recyclerView) {
 
-        recyclerView.addItemDecoration(new MarginDecoration(getActivity()));
-        recyclerView.setHasFixedSize(true);
+
+
+//        recyclerView.addItemDecoration(new MarginDecoration(getActivity()));
+//        recyclerView.setHasFixedSize(true);
 
         if( catData != null) {
-            ProductRecycleAdapter adapter = new ProductRecycleAdapter(getActivity(), catData.products);
-            recyclerView.setAdapter(adapter);
+            ProductRecycleAdapter mAdapter = new ProductRecycleAdapter(getActivity(), catData.products);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(
+                    ApplicationClass.getInstance().getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(mAdapter);
+
+
+//            ProductRecycleAdapter adapter = new ProductRecycleAdapter(getActivity(), catData.products);
+//            recyclerView.setAdapter(adapter);
         }
 
 
@@ -150,7 +161,7 @@ public class ProductsFragment extends Fragment {
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_product_holder, parent, false);
+                    .inflate(R.layout.item_product_holder_sq2, parent, false);
             //view.setBackgroundResource(mBackground);
             return new ViewHolder(view);
         }
@@ -162,14 +173,14 @@ public class ProductsFragment extends Fragment {
 
             holder.tvProductTiltle.setText(product.product_name);
 
-            LinearLayout.LayoutParams rlp = (LinearLayout.LayoutParams)
-                    holder.card_view.getLayoutParams();
-//            rlp.height = product.card_height;
-            rlp.height =   ApplicationClass.getInstance().getHeight();;
-            holder.card_view.setLayoutParams(rlp);
+//            LinearLayout.LayoutParams rlp = (LinearLayout.LayoutParams)
+//                    holder.card_view.getLayoutParams();
+////            rlp.height = product.card_height;
+//            rlp.height =   ApplicationClass.getInstance().getHeight();;
+//            holder.card_view.setLayoutParams(rlp);
 
 
-            Log.e("Adapeter","----------------1-----------------" + rlp.height);
+//            Log.e("Adapeter","----------------1-----------------" + rlp.height);
             Log.e("Adapeter","Product ID:" + product.product_id);
             Log.e("Adapeter","Product Name:" + product.product_name);
             if(product.image_urls != null) {

@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -204,10 +206,20 @@ public class SearchPage extends AppCompatActivity {
                 llHolder.removeAllViews();
                 LayoutInflater inflater = (LayoutInflater) context
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View child = inflater.inflate(R.layout.control_recycler_view, llHolder);
+                View child = inflater.inflate(R.layout.control_recycler_view_list, llHolder);
                 recyclerView = (RecyclerView) child.findViewById(R.id.recycler_view);
-                adapter = new ProductRecycleAdapter( context, products);
-                recyclerView.setAdapter(adapter);
+
+                ProductRecycleAdapter mAdapter = new ProductRecycleAdapter(context, products);
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(
+                        ApplicationClass.getInstance().getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+
+                recyclerView.setLayoutManager(mLayoutManager);
+                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                recyclerView.setAdapter(mAdapter);
+
+
+//                adapter = new ProductRecycleAdapter( context, products);
+//                recyclerView.setAdapter(adapter);
 
             } else {
                 Log.e("SearchPage","Items null.........");

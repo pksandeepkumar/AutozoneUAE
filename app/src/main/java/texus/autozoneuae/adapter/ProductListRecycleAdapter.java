@@ -31,7 +31,7 @@ import texus.autozoneuae.datamodels.Product;
 /**
  * Created by sandeep on 30/07/16.
  */
-public class ProductRecycleAdapter extends RecyclerView.Adapter<ProductRecycleAdapter.ViewHolder> {
+public class ProductListRecycleAdapter extends RecyclerView.Adapter<ProductListRecycleAdapter.ViewHolder> {
 
     private final TypedValue mTypedValue = new TypedValue();
     private int mBackground;
@@ -72,7 +72,7 @@ public class ProductRecycleAdapter extends RecyclerView.Adapter<ProductRecycleAd
         return mValues.get(position);
     }
 
-    public ProductRecycleAdapter(Context context, ArrayList<Product> products) {
+    public ProductListRecycleAdapter(Context context, ArrayList<Product> products) {
         context.getTheme().resolveAttribute(R.attr.selectableItemBackground, mTypedValue, true);
         mBackground = mTypedValue.resourceId;
         mValues = products;
@@ -81,7 +81,7 @@ public class ProductRecycleAdapter extends RecyclerView.Adapter<ProductRecycleAd
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_product_holder_sq2, parent, false);
+                .inflate(R.layout.item_product_holder, parent, false);
         //view.setBackgroundResource(mBackground);
         return new ViewHolder(view);
     }
