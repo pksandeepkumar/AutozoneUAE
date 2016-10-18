@@ -5,4 +5,11 @@
     <string name="search_vehicle">Search Vehicle</string>
 
     <string name="enquiry_form">Enquiry Form</string>
+
+    <!-- Bottom tab control-->
+    <string name="title_home">Home</string>
+    <string name="title_about_us">About Us</string>
+    <string name="title_services">Services</string>
+    <string name="title_contact_us">Contacts</string>
+
 </resources>

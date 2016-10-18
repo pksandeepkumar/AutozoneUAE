@@ -93,7 +93,7 @@ public class SplashScreen  extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            Intent i = new Intent(SplashScreen.this, MainActivity.class);
+            Intent i = new Intent(SplashScreen.this, MainActivityNew.class);
             startActivity(i);
             finish();
         }

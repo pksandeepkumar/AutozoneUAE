@@ -29,6 +29,7 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'com.github.bumptech.glide:glide:3.5.2'
     compile 'com.mcxiaoke.viewpagerindicator:library:2.4.1@aar'
+    compile 'com.balysv:material-ripple:1.0.2'
 
 
 
