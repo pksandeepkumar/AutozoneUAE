@@ -56,10 +56,10 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
     @Override
     public void onTabClicked(int whichTab) {
         switch ( whichTab) {
-            case TAB_HOME: addFragment2(new FragmentHome());break;
-            case TAB_ABOUT_US:  addFragment2(new FragmentAboutUS());break;
-            case TAB_TAB_SERVICE:  addFragment2(new FragmentServices());break;
-            case TAB_CONTACT_US:  addFragment2(new FragmentAboutUS());break;
+            case TAB_HOME: addFragment(new FragmentHome());break;
+            case TAB_ABOUT_US:  addFragment(new FragmentAboutUS());break;
+            case TAB_TAB_SERVICE:  addFragment(new FragmentServices());break;
+            case TAB_CONTACT_US:  addFragment(new FragmentAboutUS());break;
         }
     }
 
