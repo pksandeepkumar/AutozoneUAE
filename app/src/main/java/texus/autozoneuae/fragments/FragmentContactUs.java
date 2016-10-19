@@ -16,6 +16,8 @@
 
 package texus.autozoneuae.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -37,5 +39,36 @@ public class FragmentContactUs extends android.app.Fragment {
         return rv;
     }
 
+    private void openFacebook() {
+
+    }
+
+    private void openTwitter( String userId, String profileName) {
+        Intent intent = null;
+        try {
+            // get the Twitter app if possible
+            getActivity().getPackageManager().getPackageInfo("com.twitter.android", 0);
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?user_id=" + userId));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        } catch (Exception e) {
+            // no Twitter app, revert to browser
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/" + profileName ));
+        }
+        this.startActivity(intent);
+    }
+
+
+    private void openLinkedIn() {
+
+    }
+    private void openGooglePlus() {
+
+    }
+
+    private void openInstagram() {
+
+    }
 
 }
+
+
