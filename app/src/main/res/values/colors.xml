@@ -22,8 +22,16 @@
 
     <!-- Top Tab -->
     <color name="top_tab_text_color">#FFF</color>
+    <color name="top_tab_normal_text_color">#b4b4b4</color>
 
     <!-- Bottom Tab control-->
     <color name="tab_color_text_default">#3d4512</color>
     <color name="tab_color_text_hover">#ffffff</color>
+
+    <!-- Item List -->
+    <color name="item_bg_color">#6d6e72</color>
+    <color name="item_text_color">#454138</color>
+
+
+
 </resources>

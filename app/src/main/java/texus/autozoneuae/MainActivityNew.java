@@ -51,7 +51,8 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
 
         bottomControl = (BottomTabControl) findViewById(idBottomControl);
         bottomControl.setOnTabClickedListener(this);
-        onTabClicked(TAB_HOME);
+        bottomControl.setTab(TAB_HOME);
+
     }
 
     @Override
@@ -71,7 +72,7 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
         try {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.frFragmentContainer, fragment);
+            fragmentTransaction.replace(R.id.frFragmentContainer, fragment);
             fragmentTransaction.commit();
             Log.e("MainActivityNew","Fragment Added");
         } catch (Exception e) {
@@ -84,7 +85,7 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
         Log.e("FoodMenuActivity","Adding Fragment................................");
         android.app.FragmentManager fragmentManager = getFragmentManager();
         android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.frFragmentContainer, fragment);
+        fragmentTransaction.replace(R.id.frFragmentContainer, fragment);
         fragmentTransaction.commit();
     }
 

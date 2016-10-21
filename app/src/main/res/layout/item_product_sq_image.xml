@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/no_preview"
+            android:background="@color/item_bg_color"
             android:layout_above="@+id/tvProductTiltle"
             />
 
@@ -40,13 +40,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="#333333"
+            android:background="#fdaf17"
 
             android:padding="10dp"
             android:textAllCaps="true"
             android:gravity="center"
             android:text="PRODUCT NAME"
-            android:textColor="#f2c706"
+            android:textColor="@color/item_text_color"
             android:textStyle="bold"
             android:maxLines="2"
             android:lines="2"
