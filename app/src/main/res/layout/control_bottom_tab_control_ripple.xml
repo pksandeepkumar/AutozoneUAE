@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bottom_tab_layout_height"
+    android:layout_alignParentBottom="true"
+    android:background="#fbb016"
+    android:orientation="horizontal"
+    android:weightSum="4">
+
+    <com.balysv.materialripple.MaterialRippleLayout style="@style/tab_ripple_view">
+
+        <TextView
+            android:id="@+id/tvTabHome"
+            style="@style/tab_text_style"
+            android:text="@string/title_home" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout style="@style/tab_ripple_view">
+
+        <TextView
+            android:id="@+id/tvAboutUS"
+            style="@style/tab_text_style"
+            android:text="@string/title_about_us" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout style="@style/tab_ripple_view">
+
+        <TextView
+            android:id="@+id/tvTabService"
+            style="@style/tab_text_style"
+            android:text="@string/title_services" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout style="@style/tab_ripple_view">
+
+        <TextView
+            android:id="@+id/tvTabContactUs"
+            style="@style/tab_text_style"
+            android:text="@string/title_contact_us" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+
+</LinearLayout>

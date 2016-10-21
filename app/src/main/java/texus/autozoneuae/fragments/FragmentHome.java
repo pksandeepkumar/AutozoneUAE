@@ -26,17 +26,23 @@ import android.view.ViewGroup;
 
 import texus.autozoneuae.R;
 
-public class FragmentHome extends Fragment {
+public class FragmentHome extends BaseFragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = (View) inflater.inflate(
+        View view = inflater.inflate(
                 R.layout.fragment_home, container, false);
-
-//        setupRecyclerView(rv);
+        initViews(view);
         return view;
     }
+
+    private void initViews(View view) {
+        addFragment(new FragmentProductLIst());
+
+    }
+
+
 
 
 }

@@ -314,7 +314,8 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(result);
             if(!status) {
                 hideDialog();
-                Toast.makeText(context,"Something went wrong. Please try later!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(context,"Something went wrong. Please try later!!",
+                        Toast.LENGTH_LONG).show();
             }
         }
 

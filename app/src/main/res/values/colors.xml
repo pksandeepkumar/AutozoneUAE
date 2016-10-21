@@ -9,6 +9,8 @@
     <color name="line_color">#b9b9b9</color>
     <color name="row_text_color">#636060</color>
 
+    <color name="color_yellow">#cc9332</color>
+
 
 
 
@@ -17,6 +19,9 @@
     <color name="google_plus_dark_grey">#2d2d2d</color>
     <color name="google_plus_light_grey">#d2d2d2</color>
     <color name="google_plus_lightest_grey">#f1f1f1</color>
+
+    <!-- Top Tab -->
+    <color name="top_tab_text_color">#FFF</color>
 
     <!-- Bottom Tab control-->
     <color name="tab_color_text_default">#3d4512</color>

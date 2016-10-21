@@ -71,8 +71,8 @@ public class SplashScreen  extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
 
-            status = NetworkService.getAndSave(
-                    ApplicationClass.URL_GET_SLIDER_IMAGE, SlideData.FILENAME);
+//            status = NetworkService.getAndSave(
+//                    ApplicationClass.URL_GET_SLIDER_IMAGE, SlideData.FILENAME);
 
             status = NetworkService.getAndSave(
                     ApplicationClass.URL_GET_ALL_CATEGORIES, CatData.FILENAME);

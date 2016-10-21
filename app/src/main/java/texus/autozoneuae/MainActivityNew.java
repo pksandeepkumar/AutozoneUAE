@@ -42,7 +42,7 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_new);
+        setContentView(R.layout.activity_main_new2);
         initViews();
 
     }
@@ -51,6 +51,7 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
 
         bottomControl = (BottomTabControl) findViewById(idBottomControl);
         bottomControl.setOnTabClickedListener(this);
+        onTabClicked(TAB_HOME);
     }
 
     @Override
@@ -64,14 +65,15 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
     }
 
     public void addFragment( Fragment fragment) {
-
+        Log.e("MainActivityNew","addFragment");
         if(fragment == null) return;
 
         try {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.frFragmentContainer, fragment);
+            fragmentTransaction.add(R.id.frFragmentContainer, fragment);
             fragmentTransaction.commit();
+            Log.e("MainActivityNew","Fragment Added");
         } catch (Exception e) {
             e.printStackTrace();
         }
