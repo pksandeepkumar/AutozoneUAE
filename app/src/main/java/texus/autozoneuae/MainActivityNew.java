@@ -39,6 +39,7 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
 
     BottomTabControl bottomControl;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

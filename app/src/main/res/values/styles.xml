@@ -66,4 +66,14 @@
 
     </style>
 
+
+
+    <!-- Fragment About us -->
+    <style name="about_us_fragment_text_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scrollbars">horizontal</item>
+
+    </style>
+
 </resources>

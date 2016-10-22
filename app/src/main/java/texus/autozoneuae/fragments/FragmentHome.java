@@ -39,7 +39,6 @@ public class FragmentHome extends BaseFragment {
 
     private void initViews(View view) {
         addFragment(new FragmentProductLIst());
-
     }
 
 

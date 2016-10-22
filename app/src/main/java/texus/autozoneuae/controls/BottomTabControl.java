@@ -20,6 +20,8 @@ public class BottomTabControl extends RelativeLayout implements View.OnClickList
 	public static final int TAB_TAB_SERVICE  = 3;
 	public static final int TAB_CONTACT_US  = 4;
 
+	public int currentTab = -1;
+
 	public interface OnTabClickedListener {
 		public void onTabClicked(int whichTab);
 	}
@@ -82,11 +84,16 @@ public class BottomTabControl extends RelativeLayout implements View.OnClickList
 	}
 
 	public void setTab(int tab) {
+		if(tab == currentTab) return;
 		switch ( tab) {
-			case TAB_HOME:  setTab(tvTabHome);break;
-			case TAB_ABOUT_US:  setTab(tvAboutUS);break;
-			case TAB_TAB_SERVICE:  setTab(tvTabService);break;
-			case TAB_CONTACT_US:  setTab(tvTabContactUs);break;
+			case TAB_HOME: currentTab = TAB_HOME; setTab(tvTabHome);
+				setTab(tvTabHome);raiseCallBack(TAB_HOME);break;
+			case TAB_ABOUT_US: currentTab = TAB_ABOUT_US; setTab(tvAboutUS);
+				setTab(tvAboutUS);raiseCallBack(TAB_ABOUT_US);break;
+			case TAB_TAB_SERVICE: currentTab = TAB_TAB_SERVICE; setTab(tvTabService);
+				setTab(tvTabService);raiseCallBack(TAB_TAB_SERVICE);break;
+			case TAB_CONTACT_US:currentTab = TAB_CONTACT_US; setTab(tvTabContactUs);
+				setTab(tvTabContactUs);raiseCallBack(TAB_CONTACT_US);break;
 		}
 	}
 
@@ -95,28 +102,27 @@ public class BottomTabControl extends RelativeLayout implements View.OnClickList
 	public void onClick(View view) {
 
 		if(view.getId() == tvTabHome.getId()) {
-			raiseCallBack(TAB_HOME);
+			setTab(TAB_HOME);
 		}
 
 		if(view.getId() == tvAboutUS.getId()) {
-			raiseCallBack(TAB_ABOUT_US);
+			setTab(TAB_ABOUT_US);
 		}
 
 		if(view.getId() == tvTabService.getId()) {
-			raiseCallBack(TAB_TAB_SERVICE);
+			setTab(TAB_TAB_SERVICE);
 		}
 
 		if(view.getId() == tvTabContactUs.getId()) {
-			raiseCallBack(TAB_CONTACT_US);
+			setTab(TAB_CONTACT_US);
 		}
 
-		TextView tv = (TextView) view;
-		setTab(tv);
 	}
 
 	private void setTab( TextView tv) {
 		resetButtonHover();
 		resetButtonHover(tv);
+
 	}
 
 	private void raiseCallBack( int whichTab) {

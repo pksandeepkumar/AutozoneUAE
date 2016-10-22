@@ -193,7 +193,7 @@ public class ProductsFragmentList extends Fragment {
 
                     Glide.with(holder.imImage.getContext())
                             .load(url)
-                            .placeholder(R.drawable.loading_image)
+//                            .placeholder(R.drawable.loading_image)
                             .into(holder.imImage);
                 }
             } else {
