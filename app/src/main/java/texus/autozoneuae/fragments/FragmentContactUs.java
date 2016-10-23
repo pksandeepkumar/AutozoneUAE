@@ -24,10 +24,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import texus.autozoneuae.R;
 
 public class FragmentContactUs extends Fragment {
+
+    LinearLayout llContactHolder;
+    LinearLayout llSocialMediaHolder;
 
     @Nullable
     @Override
@@ -35,7 +39,10 @@ public class FragmentContactUs extends Fragment {
         View view = (View) inflater.inflate(
                 R.layout.fragment_contact, container, false);
 
-//        setupRecyclerView(rv);
+        llContactHolder = (LinearLayout) view.findViewById(R.id.llContactHolder) ;
+        llSocialMediaHolder = (LinearLayout) view.findViewById(R.id.llSocialMediaHolder) ;
+
+
         return view;
     }
 

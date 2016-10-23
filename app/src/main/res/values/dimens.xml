@@ -42,6 +42,10 @@
     <dimen name="bottom_tab_layout_height">48dp</dimen>
 
 
+    <!-- Contact Text -->
+    <dimen name="sub_text_icon_size">30dp</dimen>
+
+
 
 
 </resources>

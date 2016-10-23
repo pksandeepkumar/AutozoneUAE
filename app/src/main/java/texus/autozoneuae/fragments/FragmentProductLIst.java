@@ -54,10 +54,8 @@ import java.util.Map;
 import java.util.Random;
 
 import texus.autozoneuae.ApplicationClass;
-import texus.autozoneuae.MainActivity;
 import texus.autozoneuae.ProductDetailActivty;
 import texus.autozoneuae.R;
-import texus.autozoneuae.controls.MarginDecoration;
 import texus.autozoneuae.datamodels.CatData;
 import texus.autozoneuae.datamodels.Product;
 import texus.autozoneuae.network.NetworkService;
@@ -127,7 +125,7 @@ public class FragmentProductLIst extends Fragment {
 
     }
 
-    static class Adapter extends FragmentPagerAdapter {
+    class Adapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragments = new ArrayList<>();
         private final List<String> mFragmentTitles = new ArrayList<>();
 

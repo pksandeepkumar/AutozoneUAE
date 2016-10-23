@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+    
+    <ImageView
+        android:id="@+id/imIcon"
+        android:layout_width="@dimen/sub_text_icon_size"
+        android:layout_height="@dimen/sub_text_icon_size"
+        android:src="@drawable/ic_watsapp"/>
+
+    <TextView
+        android:id="@+id/tvText"
+        style="@style/contact_us_sub_text"
+        />
+
+</LinearLayout>

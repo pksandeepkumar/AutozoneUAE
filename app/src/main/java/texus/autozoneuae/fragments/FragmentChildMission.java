@@ -22,16 +22,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import texus.autozoneuae.R;
+import texus.autozoneuae.utility.Utility;
 
 public class FragmentChildMission extends Fragment {
+
+    TextView tvContent;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = (View) inflater.inflate(
                 R.layout.fragment_child_mission, container, false);
+        tvContent = (TextView) view.findViewById(R.id.tvContent);
+        tvContent.setText(Utility.readFromAssets("content_mission.txt",getActivity()));
         return view;
     }
 

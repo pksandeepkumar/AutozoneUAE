@@ -13,17 +13,5 @@ import texus.autozoneuae.R;
 
 public class BaseFragment extends Fragment {
 
-    public void addFragment( Fragment fragment) {
-        Log.e("BaseFragment","addFragment");
-        if(fragment == null) return;
-        try {
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.frFragmentContainer, fragment);
-            fragmentTransaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-    }
 }

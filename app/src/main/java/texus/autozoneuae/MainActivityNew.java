@@ -20,6 +20,7 @@ import java.util.List;
 import texus.autozoneuae.controls.BottomTabControl;
 import texus.autozoneuae.datamodels.CatData;
 import texus.autozoneuae.fragments.FragmentAboutUS;
+import texus.autozoneuae.fragments.FragmentContactUs;
 import texus.autozoneuae.fragments.FragmentHome;
 import texus.autozoneuae.fragments.FragmentServices;
 import texus.autozoneuae.fragments.ProductsFragment;
@@ -62,7 +63,7 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
             case TAB_HOME: addFragment(new FragmentHome());break;
             case TAB_ABOUT_US:  addFragment(new FragmentAboutUS());break;
             case TAB_TAB_SERVICE:  addFragment(new FragmentServices());break;
-            case TAB_CONTACT_US:  addFragment(new FragmentAboutUS());break;
+            case TAB_CONTACT_US:  addFragment(new FragmentContactUs());break;
         }
     }
 
@@ -73,7 +74,9 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
         try {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
             fragmentTransaction.replace(R.id.frFragmentContainer, fragment);
+//            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
             Log.e("MainActivityNew","Fragment Added");
         } catch (Exception e) {
