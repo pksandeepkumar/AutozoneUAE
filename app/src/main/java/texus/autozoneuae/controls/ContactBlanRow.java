@@ -11,35 +11,34 @@ import texus.autozoneuae.R;
  * Created by sandeep on 22/10/16.
  */
 
-public class ContactMainText  extends TextView {
+public class ContactBlanRow extends TextView {
 
     Context context;
 
-    public ContactMainText(Context context, AttributeSet attrs, int defStyle) {
+    public ContactBlanRow(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context,"");
+        init(context,attrs);
     }
 
-    public ContactMainText(Context context, AttributeSet attrs) {
+    public ContactBlanRow(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context, "");
+        init(context, attrs);
     }
 
-    public ContactMainText(Context context, String text) {
+    public ContactBlanRow(Context context) {
         super(context);
-        init(context, text);
+        init(context, null);
 
     }
 
-    private void init(Context context, String text) {
+    private void init(Context context, AttributeSet attrs) {
 
         if (Build.VERSION.SDK_INT < 23) {
             setTextAppearance( context , R.style.contact_us_main_text);
         } else {
             setTextAppearance(R.style.contact_us_main_text);
         }
-
-        setText(text);
+        setText("");
 
     }
 

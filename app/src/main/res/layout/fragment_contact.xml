@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-
+        android:orientation="vertical">
 
 
         <LinearLayout
             android:id="@+id/llContactHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/contact_us_main_text"
+                android:paddingBottom="30dp"
+                android:text="OFFICE ADDRESS" />
 
         </LinearLayout>
 
@@ -26,15 +27,109 @@
             android:id="@+id/llSocialMediaHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="@dimen/contact_icon_size"
+                    android:layout_height="@dimen/contact_icon_size">
+
+                    <ImageView
+                        android:id="@+id/imMap"
+                        android:layout_width="@dimen/contact_icon_size"
+                        android:layout_height="@dimen/contact_icon_size"
+                        android:background="@drawable/ic_map_location"
+                        android:clickable="true" />
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+
+                <TextView
+                    android:id="@+id/tvGetDirection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Get Directions"
+                    android:textColor="#FFF"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <RelativeLayout style="@style/contact_us_buttons">
+
+                <com.balysv.materialripple.MaterialRippleLayout style="@style/mp_mp">
+
+                <ImageView
+                    android:id="@+id/imFacebook"
+                    style="@style/mp_mp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_facebook" />
+                </com.balysv.materialripple.MaterialRippleLayout>
 
 
+            </RelativeLayout>
 
+
+            <RelativeLayout style="@style/contact_us_buttons">
+
+                <com.balysv.materialripple.MaterialRippleLayout style="@style/mp_mp">
+
+                <ImageView
+                    android:id="@+id/imInstagram"
+                    style="@style/mp_mp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_instagram" />
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout style="@style/contact_us_buttons">
+
+                <com.balysv.materialripple.MaterialRippleLayout style="@style/mp_mp">
+
+                <ImageView
+                    android:id="@+id/imGooglePlus"
+                    style="@style/mp_mp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_google_plus" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout style="@style/contact_us_buttons">
+
+                <com.balysv.materialripple.MaterialRippleLayout style="@style/mp_mp">
+
+                    <ImageView
+                        android:id="@+id/imTwitter"
+                        style="@style/mp_mp"
+                        android:clickable="true"
+                        android:src="@drawable/ic_twitter" />
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
 
 
     </LinearLayout>

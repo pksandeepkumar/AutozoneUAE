@@ -12,7 +12,7 @@
         android:layout_height="@dimen/top_tab_height"
         android:layout_gravity="center"
         app:tabTextColor="@color/top_tab_normal_text_color"
-        app:tabMode="fixed"
+        app:tabMode="scrollable"
         app:tabGravity="center"
         app:tabIndicatorColor="@color/color_yellow"
         app:tabSelectedTextColor="#FFFFFF"

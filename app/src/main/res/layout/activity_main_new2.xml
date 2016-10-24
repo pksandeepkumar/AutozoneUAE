@@ -9,12 +9,45 @@
         <RelativeLayout
             android:id="@+id/toolbarLayout"
             android:layout_width="match_parent"
+            android:background="@color/color_yellow"
             android:layout_height="@dimen/appBarLayoutHeight">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="@dimen/appBarLayoutHeight"
+                android:layout_height="@dimen/appBarLayoutHeight"
+                android:src="@drawable/ic_logo"
+                />
+
+            <TextView
+                android:id="@+id/tvAppName"
+                android:text="autozone"
+                android:textSize="30dp"
+                android:layout_toRightOf="@+id/imgLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"/>
+
+            <TextView
+                android:text="ARMOR &amp; PROCESSING CARS LLC "
+                android:textSize="15dp"
+                android:layout_toRightOf="@+id/imgLogo"
+                android:layout_below="@+id/tvAppName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#464646"
+                android:shadowColor="#FFF"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"
+
+                />
 
         </RelativeLayout>
 
 
     <include
+        android:layout_below="@+id/toolbarLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         layout="@layout/content_main_new"></include>

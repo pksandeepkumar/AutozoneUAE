@@ -17,6 +17,15 @@
     <style name="AppTheme.PopupOverlay"
            parent="ThemeOverlay.AppCompat.Light" />
 
+
+    <style name="mp_mp">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+
+
     <style name="form_enty_style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -71,9 +80,9 @@
     <!-- Fragment About us -->
     <style name="about_us_fragment_text_style">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#FFF</item>
-        <item name="android:scrollbars">horizontal</item>
+
 
     </style>
 
@@ -81,15 +90,27 @@
     <style name="contact_us_main_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_yellow</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">15dp</item>
     </style>
 
     <style name="contact_us_sub_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#FFF</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">12dp</item>
     </style>
+
+    <style name="contact_us_buttons">
+        <item name="android:layout_width">@dimen/contact_icon_size</item>
+        <item name="android:layout_height">@dimen/contact_icon_size</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:background">@color/color_yellow</item>
+
+
+    </style>
+
+
 
 </resources>

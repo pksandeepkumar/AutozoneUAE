@@ -38,12 +38,19 @@
     <dimen name="item_card_image_min_width">180dp</dimen>
     <dimen name="item_card_image_max_width">250dp</dimen>
 
+    <!-- Tool Bar -->
+    <dimen name="toolbar_height">70dp</dimen>
+
     <!-- Bottom Tab layout -->
     <dimen name="bottom_tab_layout_height">48dp</dimen>
 
 
     <!-- Contact Text -->
     <dimen name="sub_text_icon_size">30dp</dimen>
+    <dimen name="contact_icon_size">60dp</dimen>
+
+
+
 
 
 
