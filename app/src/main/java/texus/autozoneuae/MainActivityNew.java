@@ -2,6 +2,7 @@ package texus.autozoneuae;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -45,6 +47,7 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_new2);
+        setWidthAndHeight();
         initViews();
 
     }
@@ -91,6 +94,17 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
         android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frFragmentContainer, fragment);
         fragmentTransaction.commit();
+    }
+
+    public void setWidthAndHeight() {
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+        ApplicationClass.getInstance().setWidthAndHeight(width, height);
+//        Toast.makeText(this,"Dime:" + width + ":" + height, Toast.LENGTH_LONG).show();
     }
 
 

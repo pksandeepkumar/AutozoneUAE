@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/row_height"
+    android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:paddingLeft="@dimen/padding_extra_large"
     android:paddingRight="@dimen/padding_extra_large"
@@ -12,8 +12,9 @@
     <TextView
         android:id="@+id/tvText"
         android:layout_width="1px"
+        android:gravity="right"
         android:layout_height="wrap_content"
-        android:textColor="@color/row_text_color"
+        android:textColor="#FFF"
         android:layout_weight="1"/>
 
     <LinearLayout

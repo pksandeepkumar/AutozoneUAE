@@ -14,5 +14,19 @@
          />
 
 
+    <ImageButton
+
+        android:visibility="invisible"
+        android:id="@+id/imPressToStart"
+        android:layout_marginBottom="20dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#0FFF"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_press_start"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+
 
 </RelativeLayout>

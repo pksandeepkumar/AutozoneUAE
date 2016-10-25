@@ -27,14 +27,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import texus.autozoneuae.R;
+import texus.autozoneuae.adapter.ProductRecycleAdapter;
+import texus.autozoneuae.datamodels.Product;
 
-public class FragmentHome extends BaseFragment {
+public class FragmentHome extends BaseFragment implements ProductRecycleAdapter.OnProductClickListener{
+
+    public static FragmentManager fragmentManager;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(
                 R.layout.fragment_home, container, false);
+        fragmentManager = getChildFragmentManager();
         initViews(view);
         return view;
     }
@@ -43,11 +48,11 @@ public class FragmentHome extends BaseFragment {
         addFragment(new FragmentProductLIst());
     }
 
-    public void addFragment( Fragment fragment) {
+    public static void addFragment( Fragment fragment) {
         Log.e("BaseFragment","addFragment");
         if(fragment == null) return;
         try {
-            FragmentManager fragmentManager = getChildFragmentManager();
+
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.frFragmentContainerHome, fragment);
             fragmentTransaction.commit();
@@ -58,6 +63,14 @@ public class FragmentHome extends BaseFragment {
     }
 
 
+    @Override
+    public void onProductClick(Product product) {
+        if(product == null) return;
+        FragmentProductDetails fragment = new FragmentProductDetails();
+        Bundle bundle=new Bundle();
+        bundle.putParcelable(FragmentProductDetails.PARAM_PRODUCT_DATA, product);
+        fragment.setArguments(bundle);
+        addFragment(fragment);
 
-
+    }
 }

@@ -45,7 +45,7 @@ public class NameValueRow extends RelativeLayout {
 	}
 
     public void setValues( String name, String value) {
-        tvText.setText(name);
+        tvText.setText(name + ": ");
         tvTextRight.setText(value);
     }
 

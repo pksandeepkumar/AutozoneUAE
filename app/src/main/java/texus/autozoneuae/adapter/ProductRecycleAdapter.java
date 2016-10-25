@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -24,7 +23,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import texus.autozoneuae.ProductDetailActivty;
 import texus.autozoneuae.R;
 import texus.autozoneuae.datamodels.Product;
 
@@ -42,6 +40,16 @@ public class ProductRecycleAdapter extends RecyclerView.Adapter<ProductRecycleAd
     private  final DecelerateInterpolator DECCELERATE_INTERPOLATOR = new DecelerateInterpolator();
     private  final AccelerateInterpolator ACCELERATE_INTERPOLATOR = new AccelerateInterpolator();
     private  final OvershootInterpolator OVERSHOOT_INTERPOLATOR = new OvershootInterpolator(4);
+
+    public OnProductClickListener listener;
+
+    public interface  OnProductClickListener {
+        public void onProductClick( Product product );
+    }
+    public void setOnProductClickListener(OnProductClickListener listener) {
+        this.listener = listener;
+
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public String mBoundString;
@@ -172,12 +180,16 @@ public class ProductRecycleAdapter extends RecyclerView.Adapter<ProductRecycleAd
     }
 
     private void callProductDetailActivity(ViewHolder holder, Product product ) {
-        Context context = holder.mView.getContext();
-        Intent intent = new Intent(context, ProductDetailActivty.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if(product != null)
-            intent.putExtra(ProductDetailActivty.PARAM_PRODUCT,product);
-        context.startActivity(intent);
+
+        if(listener != null) listener.onProductClick(product);
+
+
+//        Context context = holder.mView.getContext();
+//        Intent intent = new Intent(context, ProductDetailActivty.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        if(product != null)
+//            intent.putExtra(ProductDetailActivty.PARAM_PRODUCT,product);
+//        context.startActivity(intent);
     }
 
 
