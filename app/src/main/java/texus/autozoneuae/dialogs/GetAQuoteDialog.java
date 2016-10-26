@@ -5,27 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.andexert.library.RippleView;
-
-import orange.sbl.com.edinette.EdinetteApplication;
-import orange.sbl.com.edinette.R;
-import orange.sbl.com.edinette.controls.BillItemControll;
-import orange.sbl.com.edinette.datamodels.BillData;
-import orange.sbl.com.edinette.datamodels.BillOrder;
-import orange.sbl.com.edinette.datamodels.BillTransaction;
-import orange.sbl.com.edinette.networks.WebServiceCalls;
-import orange.sbl.com.edinette.utility.Utility;
 import texus.autozoneuae.R;
 import texus.autozoneuae.datamodels.Product;
 import texus.autozoneuae.preferance.SavedPreferance;
+import texus.autozoneuae.utility.AppToast;
 
 /**
  * Created by sandeep on 21/4/16.
@@ -39,6 +27,8 @@ public class GetAQuoteDialog extends Dialog {
     EditText etName;
     EditText etEmail;
     EditText etMessage;
+
+    Button btnSendMail;
 
 
     public Context mContext = null;
@@ -57,6 +47,13 @@ public class GetAQuoteDialog extends Dialog {
         etEmail = (EditText) this.findViewById(R.id.etEmail) ;
         etEmail.setText(SavedPreferance.getEmailID(mContext));
         etMessage = (EditText) this.findViewById(R.id.etMessage) ;
+        btnSendMail = (Button) this.findViewById(R.id.btnSendMail);
+        btnSendMail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMail();
+            }
+        });
     }
 
     private void setValues() {
@@ -74,7 +71,23 @@ public class GetAQuoteDialog extends Dialog {
         setValues();
     }
 
-    public void sendMail( View view) {
+    public void sendMail( ) {
+        if(etName.getText().toString().trim().length() == 0) {
+            AppToast.showMessage("Please enter name");
+            return;
+        }
+
+        if(etEmail.getText().toString().trim().length() == 0) {
+            AppToast.showMessage("Please enter e mail");
+            return;
+        }
+
+        if(etMessage.getText().toString().trim().length() == 0) {
+            AppToast.showMessage("Please enter your message");
+            return;
+        }
+
+
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                 "mailto","vipizone@gmail.com ", null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, etSubject.getText().toString());

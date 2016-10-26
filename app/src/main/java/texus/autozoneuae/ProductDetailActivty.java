@@ -349,9 +349,7 @@ public class ProductDetailActivty extends AppCompatActivity {
                 Toast.makeText(context, "No pdf available!!", Toast.LENGTH_LONG).show();
             }
 
-
         }
-
 
     }
 

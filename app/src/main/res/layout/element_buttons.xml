@@ -5,37 +5,68 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="@dimen/padding_extra_large"
-    android:gravity="right"
+    android:weightSum="2"
+
     >
 
 
+<RelativeLayout
+    android:layout_weight="1"
+    android:layout_width="0px"
+    android:layout_margin="5dp"
+    android:background="@color/color_yellow"
+    android:layout_height="wrap_content">
 
-
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <Button
         android:id="@+id/btnGetAQuote"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/button_height"
-        android:background="@drawable/round_bg_blue_xml"
-        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0FFF"
+        android:textColor="#464334"
         android:paddingLeft="@dimen/padding_extra_large"
         android:paddingRight="@dimen/padding_extra_large"
         android:layout_marginRight="@dimen/padding_extra_large"
         android:textStyle="bold"
         android:onClick="getAQuote"
         android:text="Get a Quote"/>
+    </com.balysv.materialripple.MaterialRippleLayout>
 
-    <Button
-        android:id="@+id/btnDownloadPDF"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/button_height"
-        android:background="@drawable/round_bg_red_xml"
-        android:textColor="#FFFFFF"
-        android:paddingLeft="@dimen/padding_extra_large"
-        android:paddingRight="@dimen/padding_extra_large"
+</RelativeLayout>
 
-        android:textStyle="bold"
-        android:onClick="downloadPDF"
-        android:text="Download Pdf"/>
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="0px"
+        android:layout_margin="5dp"
+        android:background="@color/color_yellow"
+        android:layout_height="wrap_content">
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnDownloadPDF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_yellow"
+
+            android:textColor="#464334"
+            android:paddingLeft="@dimen/padding_extra_large"
+            android:paddingRight="@dimen/padding_extra_large"
+
+            android:textStyle="bold"
+            android:onClick="downloadPDF"
+            android:text="Download Pdf"/>
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+    </RelativeLayout>
+
+
+
+
 
 
 </LinearLayout>

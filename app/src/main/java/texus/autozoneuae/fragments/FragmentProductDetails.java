@@ -16,23 +16,34 @@
 
 package texus.autozoneuae.fragments;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.viewpagerindicator.CirclePageIndicator;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import texus.autozoneuae.ApplicationClass;
 import texus.autozoneuae.R;
@@ -43,6 +54,9 @@ import texus.autozoneuae.controls.NameValueRow;
 import texus.autozoneuae.controls.SquirePagerView;
 import texus.autozoneuae.datamodels.Product;
 import texus.autozoneuae.datamodels.SpecData;
+import texus.autozoneuae.dialogs.GetAQuoteDialog;
+import texus.autozoneuae.dialogs.ProgressDialog;
+import texus.autozoneuae.network.Downloader;
 import texus.autozoneuae.network.NetworkService;
 import texus.autozoneuae.utility.Utility;
 
@@ -53,6 +67,9 @@ public class FragmentProductDetails extends Fragment {
     SquirePagerView squirePagerView;
     ViewPager viewPager;
     Product product;
+
+    Button btnDownloadPDF;
+    Button btnGetAQuote;
 
     LinearLayout llSpecHolder;
     TextView tvTitle;
@@ -137,6 +154,54 @@ public class FragmentProductDetails extends Fragment {
                 getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View child = inflater.inflate(R.layout.element_buttons, null);
         llSpecHolder.addView(child);
+
+        btnDownloadPDF  = (Button) child.findViewById(R.id.btnDownloadPDF) ;
+        btnGetAQuote  = (Button) child.findViewById(R.id.btnGetAQuote) ;
+
+        btnDownloadPDF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkPermissionAndDownload();
+            }
+        });
+
+        btnGetAQuote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GetAQuoteDialog dialog = new GetAQuoteDialog(getActivity(), product);
+                dialog.show();
+            }
+        });
+    }
+
+
+
+    public void checkPermissionAndDownload () {
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(),
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                12);
+            return;
+        }
+
+        LoadAndViewPDF task = new LoadAndViewPDF(getActivity());
+        task.execute();
+
+
+    }
+
+    public void showPdf() {
+        File file = new File(ApplicationClass.PDF_FOLDER + File.separator + pdfFileName);
+        PackageManager packageManager = ApplicationClass.getInstance().getPackageManager();
+        Intent testIntent = new Intent(Intent.ACTION_VIEW);
+        testIntent.setType("application/pdf");
+        List list = packageManager.queryIntentActivities(testIntent, PackageManager.MATCH_DEFAULT_ONLY);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        Uri uri = Uri.fromFile(file);
+        intent.setDataAndType(uri, "application/pdf");
+        startActivity(intent);
     }
 
 
@@ -194,6 +259,62 @@ public class FragmentProductDetails extends Fragment {
             super.onPostExecute(result);
         }
 
+
+    }
+
+
+    public class LoadAndViewPDF extends AsyncTask<Void, Void, Void> {
+        Context context;
+        boolean status;
+        ProgressDialog dialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new ProgressDialog(context);
+            dialog.show();
+
+        }
+
+        public LoadAndViewPDF(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            File folder = new File(ApplicationClass.PDF_FOLDER);
+            File file = new File(folder, pdfFileName);
+            try {
+                file.createNewFile();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            String pdfURL = NetworkService.get(ApplicationClass.URL_GET_PRODUCT_PDF + product.product_id);
+            if (pdfURL.trim().length() != 0) {
+                status = Downloader.DownloadFile(pdfURL, file);
+            }
+
+
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            dialog.hide();
+            if (status) {
+                showPdf();
+            } else {
+                Toast.makeText(context, "No pdf available!!", Toast.LENGTH_LONG).show();
+            }
+
+        }
 
     }
 
