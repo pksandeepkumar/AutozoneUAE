@@ -9,7 +9,7 @@
     android:weightSum="2"
     >
 
-    <TextView
+    <texus.autozoneuae.controls.AutozoneTextView
         android:id="@+id/tvText"
         android:layout_width="1px"
         android:gravity="right"

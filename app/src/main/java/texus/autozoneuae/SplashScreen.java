@@ -125,16 +125,20 @@ public class SplashScreen  extends AppCompatActivity {
                 public void onCompletion(MediaPlayer mediaPlayer) {
                     imPressToStart.clearAnimation();
                     vibrator.cancel();
+                    start();
 
-                    Intent i = new Intent(SplashScreen.this, MainActivityNew.class);
-                    startActivity(i);
-                    finish();
                 }
             });
 
         } catch ( Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void start() {
+        Intent i = new Intent(SplashScreen.this, MainActivityNew.class);
+        startActivity(i);
+        finish();
     }
 
 
@@ -178,7 +182,8 @@ public class SplashScreen  extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            enablePressToStart();
+            start();
+//            enablePressToStart();
 
 
         }

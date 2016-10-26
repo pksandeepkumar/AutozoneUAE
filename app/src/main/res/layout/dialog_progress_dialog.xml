@@ -8,7 +8,7 @@
     android:background="@drawable/bg_app"
     android:padding="@dimen/padding_extra_large"
     >
-    <TextView
+    <texus.autozoneuae.controls.AutozoneTextView
         android:id="@+id/tvMessage"
         android:text="Loading..."
         android:paddingLeft="10dp"

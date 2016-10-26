@@ -19,7 +19,7 @@
                 android:src="@drawable/ic_logo"
                 />
 
-            <TextView
+            <texus.autozoneuae.controls.AutozoneTextView
                 android:id="@+id/tvAppName"
                 android:text="autozone"
                 android:textSize="30dp"

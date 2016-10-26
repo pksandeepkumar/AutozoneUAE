@@ -8,25 +8,25 @@
     android:weightSum="4">
 
 
-    <TextView
+    <texus.autozoneuae.controls.AutozoneTextView
         android:id="@+id/tvTabHome"
         style="@style/tab_text_style"
         android:text="@string/title_home" />
 
 
-    <TextView
+    <texus.autozoneuae.controls.AutozoneTextView
         android:id="@+id/tvAboutUS"
         style="@style/tab_text_style"
         android:text="@string/title_about_us" />
 
 
-    <TextView
+    <texus.autozoneuae.controls.AutozoneTextView
         android:id="@+id/tvTabService"
         style="@style/tab_text_style"
         android:text="@string/title_services" />
 
 
-    <TextView
+    <texus.autozoneuae.controls.AutozoneTextView
         android:id="@+id/tvTabContactUs"
         style="@style/tab_text_style"
         android:text="@string/title_contact_us" />

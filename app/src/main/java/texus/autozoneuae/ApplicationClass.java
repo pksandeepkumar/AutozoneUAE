@@ -1,6 +1,7 @@
 package texus.autozoneuae;
 
 import android.app.Application;
+import android.graphics.Typeface;
 import android.os.Environment;
 
 import java.io.File;
@@ -41,6 +42,8 @@ public class ApplicationClass extends Application {
     //IN search page search start if the keyword has following length
     public static final int SEARCH_MIN_COUNT = 3;
 
+    public Typeface appFont;
+
 
     private static ApplicationClass ourInstance = new ApplicationClass();
 
@@ -54,6 +57,14 @@ public class ApplicationClass extends Application {
             if (!eDinetteDir.exists()) {
                 eDinetteDir.mkdir();
             }
+        }
+    }
+
+    public void loadFont() {
+        try {
+            appFont = Typeface.createFromAsset(getAssets(), "fonts/Ubuntu-Medium.ttf");
+        } catch ( Exception e) {
+            e.printStackTrace();;
         }
     }
 
@@ -96,6 +107,7 @@ public class ApplicationClass extends Application {
                 .getDimensionPixelSize(R.dimen.item_card_image_min_width);
         maxHeight = getResources()
                 .getDimensionPixelSize(R.dimen.item_card_image_max_width);
+        loadFont();
 
 
     }

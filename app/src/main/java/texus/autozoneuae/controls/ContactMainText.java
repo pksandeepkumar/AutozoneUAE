@@ -5,6 +5,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import texus.autozoneuae.ApplicationClass;
 import texus.autozoneuae.R;
 
 /**
@@ -38,6 +39,7 @@ public class ContactMainText  extends TextView {
         } else {
             setTextAppearance(R.style.contact_us_main_text);
         }
+        setTypeface(ApplicationClass.getInstance().appFont);
 
         setText(text);
 

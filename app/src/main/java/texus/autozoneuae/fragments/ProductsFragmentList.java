@@ -61,8 +61,8 @@ public class ProductsFragmentList extends Fragment implements ProductRecycleAdap
     @Override
     public void onProductClick(Product product) {
         if(product == null) return;
-        product = null;
-        Log.d("XXXX","X" + product.product_name);
+//        product = null;
+//        Log.d("XXXX","X" + product.product_name);
         FragmentProductDetails fragment = new FragmentProductDetails();
         Bundle bundle=new Bundle();
         bundle.putParcelable(FragmentProductDetails.PARAM_PRODUCT_DATA, product);
