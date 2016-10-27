@@ -44,9 +44,9 @@
                     android:id="@+id/indicator"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:layout_below="@+id/squirePagerView"
+                    android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:padding="10dip" />
+                    android:padding="5dip" />
 
             </RelativeLayout>
 

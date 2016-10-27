@@ -38,8 +38,9 @@ public class SquirePagerView extends RelativeLayout {
 	private void init(Context context, AttributeSet attrs) {
         setGravity(Gravity.CENTER);
         viewPager = new ViewPager(context);
-        int width = (int) ((ApplicationClass.getInstance().width ) * 0.8f);
-        RelativeLayout.LayoutParams rlp = new LayoutParams(width,width);
+        int width = (int) ((ApplicationClass.getInstance().width ) * 1f);
+		int height = (int) ((ApplicationClass.getInstance().width ) * 0.7f);
+        RelativeLayout.LayoutParams rlp = new LayoutParams(width,height);
         addView(viewPager, rlp);
 	}
 

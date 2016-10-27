@@ -44,7 +44,7 @@
 
     <style name="form_edit_text_style">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_height">38dp</item>
         <item name="android:background">@drawable/bg_rounded_for_edittext_blue_xml</item>
         <item name="android:textColor">#000000</item>
     </style>

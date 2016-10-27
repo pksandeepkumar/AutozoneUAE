@@ -3,8 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#fdaf17"
+    android:layout_marginTop="100dp"
+    android:layout_marginBottom="100dp"
+    android:paddingBottom="10dp"
 
     >
 
@@ -32,7 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_extra_large">
+            android:paddingLeft="@dimen/padding_extra_large"
+            android:paddingRight="@dimen/padding_extra_large">
 
             <LinearLayout style="@style/form_enty_style">
 
@@ -85,8 +89,8 @@
                     android:gravity="top|left"
                     android:inputType="textMultiLine"
                     android:lines="8"
-                    android:maxLines="10"
-                    android:minLines="6"
+                    android:maxLines="6"
+                    android:minLines="3"
                     android:scrollbars="vertical"
                     android:text="" />
             </LinearLayout>
@@ -100,10 +104,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         card_view:cardBackgroundColor="#feefd0"
         card_view:cardCornerRadius="0dp"
-        card_view:cardElevation="5dp">
+        card_view:cardElevation="10dp">
 
         <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
