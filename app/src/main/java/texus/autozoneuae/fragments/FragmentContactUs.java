@@ -76,6 +76,10 @@ public class FragmentContactUs extends Fragment {
                 ContactSubText.TYPE_NONE));
         llContactHolder.addView( new ContactSubText(context,"Jurf Ajman, UAE - 4029",
                 ContactSubText.TYPE_NONE));
+        llContactHolder.addView( new ContactSubText(context,"+971 6 7478 965",ContactSubText.TYPE_PHONE));
+        llContactHolder.addView( new ContactSubText(context,"+971 6 7433 458",ContactSubText.TYPE_FAX));
+        llContactHolder.addView( new ContactSubText(context,"info@autozoneuae.com",ContactSubText.TYPE_EMAIL));
+
         llContactHolder.addView( new ContactBlanRow(context));
 
 //        llContactHolder.addView(new ContactMainText(context,""));
@@ -109,9 +113,7 @@ public class FragmentContactUs extends Fragment {
         llContactHolder.addView( new ContactSubText(context,"sales@autozoneuae.com",ContactSubText.TYPE_EMAIL));
         llContactHolder.addView( new ContactBlanRow(context));
 
-        llContactHolder.addView( new ContactSubText(context,"+971 6 7478 965",ContactSubText.TYPE_PHONE));
-        llContactHolder.addView( new ContactSubText(context,"+971 6 7433 458",ContactSubText.TYPE_PHONE));
-        llContactHolder.addView( new ContactSubText(context,"info@autozoneuae.com",ContactSubText.TYPE_EMAIL));
+
 
 
 

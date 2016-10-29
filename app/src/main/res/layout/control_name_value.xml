@@ -13,7 +13,7 @@
         android:id="@+id/tvText"
         android:layout_width="1px"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:gravity="left"
         android:textColor="#FFF"
         android:layout_weight="1"/>
 

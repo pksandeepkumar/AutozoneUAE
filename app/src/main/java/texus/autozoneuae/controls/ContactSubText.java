@@ -25,6 +25,9 @@ public class ContactSubText extends RelativeLayout {
     public static final int TYPE_PHONE = 1;
     public static final int TYPE_EMAIL = 2;
     public static final int TYPE_NONE = 3;
+    public static final int TYPE_FAX = 4;
+
+    String paddingText = "";
 
     Context mContext;
 
@@ -58,6 +61,7 @@ public class ContactSubText extends RelativeLayout {
                 public void onClick(View v) {
                     Toast.makeText(mContext, "Opening call app..", Toast.LENGTH_LONG).show();
                     dialNumber(text);
+                    paddingText = " ";
                 }
             });
         }
@@ -70,12 +74,27 @@ public class ContactSubText extends RelativeLayout {
                 public void onClick(View v) {
                     Toast.makeText(mContext, "Opening eMail app..", Toast.LENGTH_LONG).show();
                     sendMail(text);
+                    paddingText = " ";
                 }
             });
 
         }
 
-        tvText.setText(text);
+        if( type == TYPE_FAX) {
+            imIcon.setImageResource(R.drawable.ic_fax);
+            tvText.setClickable(true);
+            tvText.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    Toast.makeText(mContext, "Opening eMail app..", Toast.LENGTH_LONG).show();
+//                    dialNumber(text);
+                    paddingText = " ";
+                }
+            });
+
+        }
+
+        tvText.setText( paddingText + text);
 
     }
 

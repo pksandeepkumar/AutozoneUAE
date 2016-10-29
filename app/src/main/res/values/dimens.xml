@@ -46,7 +46,7 @@
 
 
     <!-- Contact Text -->
-    <dimen name="sub_text_icon_size">30dp</dimen>
+    <dimen name="sub_text_icon_size">20dp</dimen>
     <dimen name="contact_icon_size">60dp</dimen>
 
 

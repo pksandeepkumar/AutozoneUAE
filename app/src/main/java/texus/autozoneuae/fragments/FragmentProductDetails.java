@@ -70,6 +70,8 @@ public class FragmentProductDetails extends Fragment {
 
     Button btnDownloadPDF;
     Button btnGetAQuote;
+    Button btnCallForEnquiry;
+    Button btnSpecificaltion;
 
     LinearLayout llSpecHolder;
     TextView tvTitle;
@@ -155,8 +157,10 @@ public class FragmentProductDetails extends Fragment {
         View child = inflater.inflate(R.layout.element_buttons, null);
         llSpecHolder.addView(child);
 
-        btnDownloadPDF  = (Button) child.findViewById(R.id.btnDownloadPDF) ;
-        btnGetAQuote  = (Button) child.findViewById(R.id.btnGetAQuote) ;
+        btnDownloadPDF      = (Button) child.findViewById(R.id.btnDownloadPDF) ;
+        btnGetAQuote        = (Button) child.findViewById(R.id.btnGetAQuote) ;
+        btnCallForEnquiry   = (Button) child.findViewById(R.id.btnCallForEnquiry) ;
+        btnSpecificaltion   = (Button) child.findViewById(R.id.btnSpecificaltion) ;
 
         btnDownloadPDF.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +174,20 @@ public class FragmentProductDetails extends Fragment {
             public void onClick(View v) {
                 GetAQuoteDialog dialog = new GetAQuoteDialog(getActivity(), product);
                 dialog.show();
+            }
+        });
+
+        btnCallForEnquiry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btnSpecificaltion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

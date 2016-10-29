@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fdaf17"
+    android:layout_marginTop="100dp"
+    android:layout_marginBottom="100dp"
+    android:paddingBottom="10dp"
+
+    >
+
+    <texus.autozoneuae.controls.AutozoneTextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#fdc75d"
+        android:padding="10dp"
+        android:text="Get a Quote"
+        android:textColor="#2d2c2a"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <WebView
+        android:layout_below="@+id/tvDialogTitle"
+        android:id="@+id/description_web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+
+
+</RelativeLayout>
