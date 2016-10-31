@@ -50,18 +50,24 @@ public class ContactSubText extends RelativeLayout {
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) imIcon.getLayoutParams();
             lp.width = 0;
             lp.height = 0;
+            lp.setMargins(0,0,0,0);
             imIcon.setLayoutParams(lp);
+        } else {
+            LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) tvText.getLayoutParams();
+            lp.setMargins(getResources()
+                    .getDimensionPixelSize(R.dimen.padding_five),0,0,0);
+            tvText.setLayoutParams(lp);
         }
 
         if(type == TYPE_PHONE) {
-            imIcon.setImageResource(R.drawable.ic_watsapp);
+            imIcon.setImageResource(R.drawable.ic_phone);
             tvText.setClickable(true);
             tvText.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(mContext, "Opening call app..", Toast.LENGTH_LONG).show();
                     dialNumber(text);
-                    paddingText = " ";
+                    paddingText = "  ";
                 }
             });
         }
@@ -74,7 +80,7 @@ public class ContactSubText extends RelativeLayout {
                 public void onClick(View v) {
                     Toast.makeText(mContext, "Opening eMail app..", Toast.LENGTH_LONG).show();
                     sendMail(text);
-                    paddingText = " ";
+                    paddingText = "  ";
                 }
             });
 
@@ -88,13 +94,15 @@ public class ContactSubText extends RelativeLayout {
                 public void onClick(View v) {
 //                    Toast.makeText(mContext, "Opening eMail app..", Toast.LENGTH_LONG).show();
 //                    dialNumber(text);
-                    paddingText = " ";
+                    paddingText = "  ";
                 }
             });
 
         }
 
         tvText.setText( paddingText + text);
+
+
 
     }
 

@@ -6,7 +6,7 @@
     android:gravity="center_vertical"
     android:paddingLeft="@dimen/padding_extra_large"
     android:paddingRight="@dimen/padding_extra_large"
-    android:weightSum="2"
+    android:weightSum="3"
     >
 
     <texus.autozoneuae.controls.AutozoneTextView
@@ -17,13 +17,32 @@
         android:textColor="#FFF"
         android:layout_weight="1"/>
 
-    <texus.autozoneuae.controls.AutozoneTextView
-        android:id="@+id/tvTextRight"
+    <LinearLayout
         android:layout_width="1px"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:textColor="@color/color_yellow"
-        android:layout_weight="1"/>
+        android:orientation="horizontal"
+        android:layout_weight="2">
+
+        <texus.autozoneuae.controls.AutozoneTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text=":"
+            android:textColor="@color/color_yellow"
+            />
+
+        <texus.autozoneuae.controls.AutozoneTextView
+            android:id="@+id/tvTextRight"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/color_yellow"
+            />
+
+
+    </LinearLayout>
+
+
 
 
 </LinearLayout>

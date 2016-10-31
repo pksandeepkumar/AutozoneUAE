@@ -10,6 +10,7 @@
     <color name="row_text_color">#636060</color>
 
     <color name="color_yellow">#fcad1c</color>
+    <color name="color_grey2">#414143</color>
     <color name="color_grey1">#7f8082</color>
 
 
@@ -26,8 +27,8 @@
     <color name="top_tab_normal_text_color">#b4b4b4</color>
 
     <!-- Bottom Tab control-->
-    <color name="tab_color_text_default">#3d4512</color>
-    <color name="tab_color_text_hover">#ffffff</color>
+    <color name="tab_color_text_default">#ffffff</color>
+    <color name="tab_color_text_hover">#fcad1c</color>
 
     <!-- Item List -->
     <color name="item_bg_color">#6d6e72</color>

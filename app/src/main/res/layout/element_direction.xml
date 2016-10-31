@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:paddingTop="10dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:gravity="center_vertical"
+android:orientation="horizontal">
+
+
+<com.balysv.materialripple.MaterialRippleLayout
+    android:layout_width="@dimen/contact_icon_size"
+    android:layout_height="@dimen/contact_icon_size">
+
+    <ImageView
+        android:id="@+id/imMap"
+        android:layout_width="@dimen/contact_icon_size"
+        android:layout_height="@dimen/contact_icon_size"
+        android:background="@drawable/ic_map_location"
+        android:clickable="true" />
+</com.balysv.materialripple.MaterialRippleLayout>
+
+
+<texus.autozoneuae.controls.AutozoneTextView
+    android:id="@+id/tvGetDirection"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:text="Get Directions"
+    android:textColor="#FFF"
+    android:textSize="20dp"
+    android:textStyle="bold" />
+
+</LinearLayout>

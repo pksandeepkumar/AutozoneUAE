@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/bottom_tab_layout_height"
     android:layout_alignParentBottom="true"
-    android:background="#fbb016"
+    android:background="#414143"
     android:orientation="horizontal"
     android:weightSum="4">
 

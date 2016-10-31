@@ -18,7 +18,7 @@
 
             <TextView
                 style="@style/contact_us_main_text"
-                android:paddingBottom="30dp"
+                android:paddingBottom="2dp"
                 android:text="OFFICE ADDRESS" />
 
         </LinearLayout>
@@ -37,28 +37,10 @@
                 android:orientation="horizontal">
 
 
-                <com.balysv.materialripple.MaterialRippleLayout
-                    android:layout_width="@dimen/contact_icon_size"
-                    android:layout_height="@dimen/contact_icon_size">
-
-                    <ImageView
-                        android:id="@+id/imMap"
-                        android:layout_width="@dimen/contact_icon_size"
-                        android:layout_height="@dimen/contact_icon_size"
-                        android:background="@drawable/ic_map_location"
-                        android:clickable="true" />
-                </com.balysv.materialripple.MaterialRippleLayout>
 
 
-                <TextView
-                    android:id="@+id/tvGetDirection"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Get Directions"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+
+                
 
             </LinearLayout>
 

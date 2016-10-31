@@ -27,6 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import texus.autozoneuae.R;
 import texus.autozoneuae.controls.ContactBlanRow;
@@ -54,7 +55,8 @@ public class FragmentContactUs extends Fragment {
     ImageView imGooglePlus;
     ImageView imTwitter;
 
-    ImageView imMap;
+    ImageView imDirection;
+    TextView tvDirection;
 
 
     private Context context;
@@ -70,7 +72,7 @@ public class FragmentContactUs extends Fragment {
         llContactHolder = (LinearLayout) view.findViewById(R.id.llContactHolder) ;
         llSocialMediaHolder = (LinearLayout) view.findViewById(R.id.llSocialMediaHolder);
 
-        llContactHolder.addView(new ContactMainText(context,"AUTOZONE Armor & Processing Cars LLC"));
+        llContactHolder.addView(new ContactSubText(context,"AUTOZONE Armor & Processing Cars LLC",ContactSubText.TYPE_NONE ));
         llContactHolder.addView( new ContactSubText(context,"Office No: D2-D3",ContactSubText.TYPE_NONE));
         llContactHolder.addView( new ContactSubText(context,"Shaikh Rashid Bin Abdul Aziz Aaemi Street,",
                 ContactSubText.TYPE_NONE));
@@ -79,6 +81,15 @@ public class FragmentContactUs extends Fragment {
         llContactHolder.addView( new ContactSubText(context,"+971 6 7478 965",ContactSubText.TYPE_PHONE));
         llContactHolder.addView( new ContactSubText(context,"+971 6 7433 458",ContactSubText.TYPE_FAX));
         llContactHolder.addView( new ContactSubText(context,"info@autozoneuae.com",ContactSubText.TYPE_EMAIL));
+
+
+        View child = inflater.inflate(R.layout.element_direction, null);
+        llContactHolder.addView( child);
+
+        imDirection = (ImageView) child.findViewById(R.id.imMap);
+        tvDirection = (TextView) child.findViewById(R.id.tvGetDirection);
+
+
 
         llContactHolder.addView( new ContactBlanRow(context));
 
@@ -124,7 +135,7 @@ public class FragmentContactUs extends Fragment {
         imInstagram = (ImageView) view.findViewById(R.id.imInstagram);
         imGooglePlus = (ImageView) view.findViewById(R.id.imGooglePlus);
         imTwitter = (ImageView) view.findViewById(R.id.imTwitter);
-        imMap = (ImageView) view.findViewById(R.id.imMap);
+
 
         imFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,7 +165,13 @@ public class FragmentContactUs extends Fragment {
             }
         });
 
-        imMap.setOnClickListener(new View.OnClickListener() {
+        imDirection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showOnMap();
+            }
+        });
+        tvDirection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showOnMap();

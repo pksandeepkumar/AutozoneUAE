@@ -56,6 +56,7 @@ import texus.autozoneuae.datamodels.Product;
 import texus.autozoneuae.datamodels.SpecData;
 import texus.autozoneuae.dialogs.GetAQuoteDialog;
 import texus.autozoneuae.dialogs.ProgressDialog;
+import texus.autozoneuae.dialogs.SpecDialog;
 import texus.autozoneuae.network.Downloader;
 import texus.autozoneuae.network.NetworkService;
 import texus.autozoneuae.utility.Utility;
@@ -187,7 +188,8 @@ public class FragmentProductDetails extends Fragment {
         btnSpecificaltion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                SpecDialog dialog = new SpecDialog(getActivity(), product);
+                dialog.show();
             }
         });
     }
