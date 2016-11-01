@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text=":"
-            android:textColor="@color/color_yellow"
+            android:paddingRight="@dimen/padding_five"
+            android:textColor="#FFF"
             />
 
         <texus.autozoneuae.controls.AutozoneTextView

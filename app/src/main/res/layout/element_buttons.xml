@@ -129,12 +129,9 @@
                     android:id="@+id/btnSpecificaltion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/color_yellow"
-
                     android:onClick="downloadPDF"
                     android:paddingLeft="@dimen/padding_extra_large"
                     android:paddingRight="@dimen/padding_extra_large"
-
                     android:text="Specification"
                     android:textColor="#464334"
                     android:textStyle="bold" />

@@ -24,12 +24,29 @@
         android:textSize="20dp"
         android:textStyle="bold" />
 
-    <WebView
-        android:layout_below="@+id/tvDialogTitle"
-        android:id="@+id/description_web"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+    <RelativeLayout
+        style="@style/mp_mp"
+        android:layout_below="@+id/tvDialogTitle">
+        <WebView
+            android:id="@+id/description_web"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#d4a446"
+            />
+
+        <texus.autozoneuae.controls.AVLoadingIndicatorView
+            android:id="@+id/avlProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicator="BallTrianglePath"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/padding_extra_large"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
 
 
 

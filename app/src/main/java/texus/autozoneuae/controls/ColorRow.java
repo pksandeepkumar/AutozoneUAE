@@ -53,14 +53,20 @@ public class ColorRow extends RelativeLayout {
         for(String color: colors) {
             if(color.trim().length() == 0) continue;
             try {
+                LinearLayout btnHolder = new LinearLayout(this.getContext());
+                btnHolder.setBackgroundColor(Color.WHITE);
+                int padding = (int) getResources().getDimension(R.dimen.color_padding);
+                btnHolder.setPadding(padding, padding, padding, padding);
+
                 LinearLayout btn = new LinearLayout(this.getContext());
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                         (int) getResources().getDimension(R.dimen.color_size),
                         (int) getResources().getDimension(R.dimen.color_size));
                 lp.setMargins(0,0,(int) getResources().getDimension(R.dimen.padding_large),0);
                 btn.setBackgroundColor(Color.parseColor(color));
+                btnHolder.addView(btn,lp);
 
-                llColorHolder.addView(btn,lp);
+                llColorHolder.addView(btnHolder);
             } catch ( Exception e) {
                 e.printStackTrace();
             }

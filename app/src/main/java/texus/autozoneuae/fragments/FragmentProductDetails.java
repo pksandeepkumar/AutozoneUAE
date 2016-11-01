@@ -108,8 +108,8 @@ public class FragmentProductDetails extends Fragment {
 
 
         CirclePageIndicator indicator = (CirclePageIndicator) view.findViewById(R.id.indicator);
-        indicator.setFillColor(Color.parseColor("#7e7e7e"));
-        indicator.setStrokeColor(Color.parseColor("#7e7e7e"));
+        indicator.setFillColor(Color.parseColor("#FFFFFF"));
+        indicator.setStrokeColor(Color.parseColor("#FFFFFF"));
         indicator.setRadius(indicator.getRadius() * 1f);
         indicator.setViewPager(viewPager);
 

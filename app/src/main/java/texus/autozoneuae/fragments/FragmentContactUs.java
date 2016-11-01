@@ -55,6 +55,11 @@ public class FragmentContactUs extends Fragment {
     ImageView imGooglePlus;
     ImageView imTwitter;
 
+    TextView tvFacebook;
+    TextView tvInstagram;
+    TextView tvGooglePlus;
+    TextView tvTwitter;
+
     ImageView imDirection;
     TextView tvDirection;
 
@@ -136,6 +141,11 @@ public class FragmentContactUs extends Fragment {
         imGooglePlus = (ImageView) view.findViewById(R.id.imGooglePlus);
         imTwitter = (ImageView) view.findViewById(R.id.imTwitter);
 
+        tvFacebook = (TextView) view.findViewById(R.id.tvFacebook);
+        tvInstagram = (TextView) view.findViewById(R.id.tvInstagram);
+        tvGooglePlus = (TextView) view.findViewById(R.id.tvGooglePlus);
+        tvTwitter = (TextView) view.findViewById(R.id.tvTwitter);
+
 
         imFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,6 +169,34 @@ public class FragmentContactUs extends Fragment {
         });
 
         imTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTwitter();
+            }
+        });
+
+        tvFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFacebook();
+            }
+        });
+
+        tvInstagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openInstagram();
+            }
+        });
+
+        tvGooglePlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGooglePlus();
+            }
+        });
+
+        tvTwitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openTwitter();

@@ -21,8 +21,24 @@
     <style name="mp_mp">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:orientation">vertical</item>
     </style>
+
+    <style name="mp_wp">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="wp_wp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="wp_mp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+
 
 
 
@@ -107,8 +123,16 @@
         <item name="android:layout_height">@dimen/contact_icon_size</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:background">@color/color_yellow</item>
+    </style>
 
 
+
+    <style name="contact_us_social_item_holder_layout" parent="mp_wp">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="contact_us_social_media_link_text" parent="contact_us_sub_text">
+        <item name="android:text">@string/social_media_link_text</item>
     </style>
 
 

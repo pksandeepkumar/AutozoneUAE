@@ -41,7 +41,6 @@
             <LinearLayout style="@style/form_enty_style">
 
                 <texus.autozoneuae.controls.AutozoneTextView
-
                     style="@style/form_label_style"
                     android:text="Name" />
 
@@ -93,6 +92,7 @@
                     android:minLines="3"
                     android:scrollbars="vertical"
                     android:text="" />
+
             </LinearLayout>
 
         </LinearLayout>

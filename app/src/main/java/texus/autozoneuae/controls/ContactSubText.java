@@ -26,6 +26,7 @@ public class ContactSubText extends RelativeLayout {
     public static final int TYPE_EMAIL = 2;
     public static final int TYPE_NONE = 3;
     public static final int TYPE_FAX = 4;
+    public static final int TYPE_WATSAPP = 5;
 
     String paddingText = "";
 
@@ -59,8 +60,13 @@ public class ContactSubText extends RelativeLayout {
             tvText.setLayoutParams(lp);
         }
 
-        if(type == TYPE_PHONE) {
-            imIcon.setImageResource(R.drawable.ic_phone);
+        if(type == TYPE_PHONE || type == TYPE_WATSAPP) {
+            if(type == TYPE_PHONE) {
+                imIcon.setImageResource(R.drawable.ic_phone);
+            } else {
+                imIcon.setImageResource(R.drawable.ic_watsapp);
+            }
+
             tvText.setClickable(true);
             tvText.setOnClickListener(new OnClickListener() {
                 @Override

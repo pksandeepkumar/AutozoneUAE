@@ -30,6 +30,7 @@
 
     <dimen name="row_height">48dp</dimen>
     <dimen name="color_size">30dp</dimen>
+    <dimen name="color_padding">3dp</dimen>
 
     <dimen name="button_width">120dp</dimen>
     <dimen name="button_height">43dp</dimen>

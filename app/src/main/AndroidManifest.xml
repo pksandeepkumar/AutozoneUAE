@@ -29,11 +29,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ProductDetailActivty"/>
-        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivityNew" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SearchPage" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EnquiryFormActivity"  />
+        <activity android:name=".ProductDetailActivty" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivityNew"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SearchPage"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".EnquiryFormActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

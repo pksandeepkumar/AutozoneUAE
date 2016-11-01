@@ -41,6 +41,7 @@ public class GetAQuoteDialog extends Dialog {
     }
 
     private void initViews() {
+        if( productData == null) return;
         etSubject = (EditText) this.findViewById(R.id.etSubject) ;
         etName = (EditText) this.findViewById(R.id.etName) ;
         etName.setText(SavedPreferance.getUserName(mContext));
@@ -54,6 +55,11 @@ public class GetAQuoteDialog extends Dialog {
                 sendMail();
             }
         });
+
+        etSubject.setText("Enquiry for " + productData.product_name);
+        etEmail.setText(SavedPreferance.getEmailID(mContext));
+        etName.setText(SavedPreferance.getUserName(mContext));
+
     }
 
     private void setValues() {

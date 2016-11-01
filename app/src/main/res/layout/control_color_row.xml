@@ -6,23 +6,44 @@
     android:gravity="center_vertical"
     android:paddingLeft="@dimen/padding_extra_large"
     android:paddingRight="@dimen/padding_extra_large"
-    android:weightSum="2"
+    android:weightSum="3"
     >
 
     <texus.autozoneuae.controls.AutozoneTextView
         android:id="@+id/tvText"
         android:layout_width="1px"
-        android:gravity="right"
+        android:gravity="left"
+
         android:layout_height="wrap_content"
         android:textColor="#FFF"
         android:layout_weight="1"/>
 
     <LinearLayout
-        android:id="@+id/llColorHolder"
         android:layout_width="1px"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="1"/>
+        android:layout_weight="2">
+
+        <texus.autozoneuae.controls.AutozoneTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text=":"
+            android:paddingRight="@dimen/padding_five"
+            android:textColor="#FFF"
+            />
+
+        <LinearLayout
+            android:id="@+id/llColorHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+
 
 
 </LinearLayout>
