@@ -79,6 +79,8 @@ public class FragmentProductDetails extends Fragment {
     LinearLayout llDesccHolder;
     String pdfFileName = "";
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -181,7 +183,7 @@ public class FragmentProductDetails extends Fragment {
         btnCallForEnquiry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                dialNumber("+971 6 7478 965");
             }
         });
 
@@ -192,6 +194,18 @@ public class FragmentProductDetails extends Fragment {
                 dialog.show();
             }
         });
+    }
+
+
+    private void dialNumber( String number ) {
+        if (ContextCompat.checkSelfPermission( getActivity(),
+                Manifest.permission.CALL_PHONE)
+                == PackageManager.PERMISSION_GRANTED) {
+            String uri = "tel:" + number ;
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse(uri));
+            getActivity().startActivity(intent);
+        }
     }
 
 

@@ -19,6 +19,7 @@ package texus.autozoneuae.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,9 @@ public class FragmentChildAboutUs extends Fragment {
         View view = inflater.inflate(
                 R.layout.fragment_child_about_us, container, false);
         tvContent = (TextView) view.findViewById(R.id.tvContent);
-        tvContent.setText(Utility.readFromAssets("content_about.txt",getActivity()));
+        String aboutUsString = Utility.readFromAssets("content_about.txt",getActivity());
+
+        tvContent.setText(Html.fromHtml(aboutUsString));
 
         return view;
     }

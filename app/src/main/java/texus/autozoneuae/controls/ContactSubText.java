@@ -56,7 +56,7 @@ public class ContactSubText extends RelativeLayout {
         } else {
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) tvText.getLayoutParams();
             lp.setMargins(getResources()
-                    .getDimensionPixelSize(R.dimen.padding_five),0,0,0);
+                    .getDimensionPixelSize(R.dimen.padding_two_dp),0,0,0);
             tvText.setLayoutParams(lp);
         }
 

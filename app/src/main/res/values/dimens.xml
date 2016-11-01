@@ -4,6 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="padding_two_dp">2dp</dimen>
     <dimen name="padding_medium">3dp</dimen>
     <dimen name="padding_large">5dp</dimen>
     <dimen name="padding_five">5dp</dimen>
@@ -40,6 +41,9 @@
     <dimen name="item_card_image_min_width">180dp</dimen>
     <dimen name="item_card_image_max_width">250dp</dimen>
 
+    <!-- Product Details -->
+    <dimen name="product_details_button_height">40dp</dimen>
+
     <!-- Tool Bar -->
     <dimen name="toolbar_height">70dp</dimen>
 
@@ -48,8 +52,8 @@
 
 
     <!-- Contact Text -->
-    <dimen name="sub_text_icon_size">20dp</dimen>
-    <dimen name="contact_icon_size">30dp</dimen>
+    <dimen name="sub_text_icon_size">13dp</dimen>
+    <dimen name="contact_icon_size">25dp</dimen>
 
 
 

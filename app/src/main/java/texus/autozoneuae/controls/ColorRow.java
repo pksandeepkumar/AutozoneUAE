@@ -49,7 +49,7 @@ public class ColorRow extends RelativeLayout {
 	}
 
     public void setValues( String name, ArrayList<String> colors) {
-        tvText.setText(name + ":");
+        tvText.setText(name );
         for(String color: colors) {
             if(color.trim().length() == 0) continue;
             try {
@@ -62,7 +62,7 @@ public class ColorRow extends RelativeLayout {
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                         (int) getResources().getDimension(R.dimen.color_size),
                         (int) getResources().getDimension(R.dimen.color_size));
-                lp.setMargins(0,0,(int) getResources().getDimension(R.dimen.padding_large),0);
+                lp.setMargins(0,0,0,0);
                 btn.setBackgroundColor(Color.parseColor(color));
                 btnHolder.addView(btn,lp);
 

@@ -26,10 +26,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
+                <texus.autozoneuae.controls.AutozoneButton
                     android:id="@+id/btnGetAQuote"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/product_details_button_height"
                     android:layout_marginRight="@dimen/padding_extra_large"
                     android:background="#0FFF"
                     android:onClick="getAQuote"
@@ -53,10 +53,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
+                <texus.autozoneuae.controls.AutozoneButton
                     android:id="@+id/btnDownloadPDF"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/product_details_button_height"
                     android:background="#0FFF"
 
                     android:onClick="downloadPDF"
@@ -98,10 +98,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
+                <texus.autozoneuae.controls.AutozoneButton
                     android:id="@+id/btnCallForEnquiry"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/product_details_button_height"
                     android:layout_marginRight="@dimen/padding_extra_large"
                     android:background="#0FFF"
                     android:onClick="getAQuote"
@@ -125,11 +125,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
+                <texus.autozoneuae.controls.AutozoneButton
                     android:id="@+id/btnSpecificaltion"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/product_details_button_height"
                     android:onClick="downloadPDF"
+                    android:background="#0FFF"
                     android:paddingLeft="@dimen/padding_extra_large"
                     android:paddingRight="@dimen/padding_extra_large"
                     android:text="Specification"

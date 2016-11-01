@@ -107,25 +107,25 @@ public class FragmentContactUs extends Fragment {
 
         llContactHolder.addView(new ContactMainText(context,"AMBULANCES AND SPECIAL VEHICLES"));
         llContactHolder.addView( new ContactSubText(context,"SABEESH P BABU",ContactSubText.TYPE_NONE));
-        llContactHolder.addView( new ContactSubText(context,"+971 50 9593559",ContactSubText.TYPE_PHONE));
+        llContactHolder.addView( new ContactSubText(context,"+971 50 9593559",ContactSubText.TYPE_WATSAPP));
         llContactHolder.addView( new ContactSubText(context,"cars@autozoneuae.com",ContactSubText.TYPE_EMAIL));
         llContactHolder.addView( new ContactBlanRow(context));
 
         llContactHolder.addView(new ContactMainText(context,"AMBULANCES AND ARMORED VEHICLES"));
         llContactHolder.addView( new ContactSubText(context,"ZEESHAN GONDAL ",ContactSubText.TYPE_NONE));
-        llContactHolder.addView( new ContactSubText(context,"+971 55 7562284",ContactSubText.TYPE_PHONE));
+        llContactHolder.addView( new ContactSubText(context,"+971 55 7562284",ContactSubText.TYPE_WATSAPP));
         llContactHolder.addView( new ContactSubText(context,"contact@autozoneuae.com",ContactSubText.TYPE_EMAIL));
         llContactHolder.addView( new ContactBlanRow(context));
 
         llContactHolder.addView(new ContactMainText(context,"AUTO PARTS AND ARMORED VEHICLE PARTS"));
         llContactHolder.addView( new ContactSubText(context,"MUHAMMAD MAIRAJ KHALID  ",ContactSubText.TYPE_NONE));
-        llContactHolder.addView( new ContactSubText(context,"+971 55 9518184",ContactSubText.TYPE_PHONE));
+        llContactHolder.addView( new ContactSubText(context,"+971 55 9518184",ContactSubText.TYPE_WATSAPP));
         llContactHolder.addView( new ContactSubText(context,"parts@autozoneuae.com",ContactSubText.TYPE_EMAIL));
         llContactHolder.addView( new ContactBlanRow(context));
 
         llContactHolder.addView(new ContactMainText(context,"AUTO PARTS AND 4×4 ACCESSORIES"));
         llContactHolder.addView( new ContactSubText(context,"A RAHMAN ZAFAR ",ContactSubText.TYPE_NONE));
-        llContactHolder.addView( new ContactSubText(context,"+971 50 8739401",ContactSubText.TYPE_PHONE));
+        llContactHolder.addView( new ContactSubText(context,"+971 50 8739401",ContactSubText.TYPE_WATSAPP));
         llContactHolder.addView( new ContactSubText(context,"sales@autozoneuae.com",ContactSubText.TYPE_EMAIL));
         llContactHolder.addView( new ContactBlanRow(context));
 

@@ -112,6 +112,10 @@ public class SplashScreen  extends AppCompatActivity {
                 startSound();
             }
         });
+
+
+
+
     }
 
     private void startSound( ){
@@ -123,9 +127,10 @@ public class SplashScreen  extends AppCompatActivity {
             player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
+                    start();
                     imPressToStart.clearAnimation();
                     vibrator.cancel();
-                    start();
+
 
                 }
             });
@@ -182,8 +187,8 @@ public class SplashScreen  extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            start();
-//            enablePressToStart();
+//            start();
+            enablePressToStart();
 
 
         }

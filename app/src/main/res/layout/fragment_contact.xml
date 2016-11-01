@@ -51,7 +51,7 @@
             <texus.autozoneuae.controls.AutozoneTextView
                 style="@style/contact_us_main_text"
                 android:paddingBottom="2dp"
-                android:text="Social Media" />
+                android:text="SOCIAL MEDIA" />
 
             <LinearLayout
                 style="@style/contact_us_social_item_holder_layout"

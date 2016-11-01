@@ -6,7 +6,7 @@
 
 </head>
 <style>
-body { font-family: 'Open Sans', sans-serif; font-size: 13px; line-height: 20px; background-color:#d4a446}
+body { font-family: 'Open Sans', sans-serif; font-size: 13px; line-height: 20px; background-color:#fddfa1}
 ul {padding:0px; margin-left:0px; margin-right:0px; }
 ul li { line-height: 20px; list-style:none;  }
 ul li:before { content:'\f101'; font-family:font awesome; padding-right:10px;}

@@ -72,6 +72,9 @@
                 <EditText
                     android:id="@+id/etSubject"
                     style="@style/form_edit_text_style"
+                    android:singleLine="true"
+                    android:minLines="1"
+                    android:maxLines="1"
                     android:text="" />
             </LinearLayout>
 
@@ -116,7 +119,7 @@
             <Button
                 android:id="@+id/btnSendMail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/product_details_button_height"
                 android:background="#0FFF"
                 android:onClick="sendMail"
                 android:text="Send Mail"
