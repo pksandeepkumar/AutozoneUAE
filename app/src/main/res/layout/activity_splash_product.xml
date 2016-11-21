@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+        <RelativeLayout
+            android:id="@+id/toolbarLayout"
+            android:layout_width="match_parent"
+            android:background="@color/color_grey2"
+            android:layout_height="@dimen/appBarLayoutHeight">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_marginBottom="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/autozone_logo"
+                />
+
+
+
+        </RelativeLayout>
+
+
+    <include
+        android:layout_below="@+id/toolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/content_main_new"></include>
+
+    <LinearLayout
+        android:id="@+id/llSplashScreenHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            android:layout_below="@+id/toolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/activity_splash"></include>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -54,7 +54,6 @@ import texus.autozoneuae.controls.NameValueRow;
 import texus.autozoneuae.controls.SquirePagerView;
 import texus.autozoneuae.datamodels.Product;
 import texus.autozoneuae.datamodels.SpecData;
-import texus.autozoneuae.dialogs.GetAQuoteDialog;
 import texus.autozoneuae.dialogs.ProgressDialog;
 import texus.autozoneuae.dialogs.SpecDialog;
 import texus.autozoneuae.network.Downloader;
@@ -117,7 +116,7 @@ public class FragmentProductDetails extends Fragment {
 
         llSpecHolder = (LinearLayout) view.findViewById(R.id.llSpecHolder);
 
-        HeadderRow headderRow = new HeadderRow(getActivity(), "Specifications");
+        HeadderRow headderRow = new HeadderRow(getActivity(), "");
         llSpecHolder.addView(headderRow);
 
         LoadProductSpecData task = new LoadProductSpecData(getActivity(), headderRow);
@@ -136,7 +135,7 @@ public class FragmentProductDetails extends Fragment {
 
         llSpecHolder.removeAllViews();
 
-        HeadderRow headderRow = new HeadderRow(getActivity(), "Specifications");
+        HeadderRow headderRow = new HeadderRow(getActivity(), "");
         llSpecHolder.addView(headderRow);
 
         int count = 0;
@@ -175,15 +174,16 @@ public class FragmentProductDetails extends Fragment {
         btnGetAQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GetAQuoteDialog dialog = new GetAQuoteDialog(getActivity(), product);
-                dialog.show();
+                sendMail();
+//                GetAQuoteDialog dialog = new GetAQuoteDialog(getActivity(), product);
+//                dialog.show();
             }
         });
 
         btnCallForEnquiry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialNumber("+971 6 7478 965");
+                dialNumber("+971557562284");
             }
         });
 
@@ -293,6 +293,16 @@ public class FragmentProductDetails extends Fragment {
             super.onPostExecute(result);
         }
 
+
+    }
+
+    public void sendMail( ) {
+
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto","info@autozoneuae.com", null));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Enquire about " + product.product_name );
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "");
+        getActivity().startActivity(Intent.createChooser(emailIntent, "Send email to AutozoneUAE"));
 
     }
 

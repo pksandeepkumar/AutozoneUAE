@@ -8,6 +8,7 @@ import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -16,7 +17,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ import texus.autozoneuae.utility.Utility;
 public class SplashScreen  extends AppCompatActivity {
 
     // Splash screen timer
-    private static int SPLASH_TIME_OUT = 3000;
+    private static int SPLASH_TIME_OUT = 1500;
 
     private final int MY_PERMISSIONS_REQUEST_VIBRATE = 1231;
 
@@ -44,31 +44,8 @@ public class SplashScreen  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
-
-        ImageView imgLogo = (ImageView) findViewById(R.id.imgLogo);
-
-//        Glide.with(this)
-//                .load(R.drawable.splash)
-//                .into(imgLogo);
-
-//        LoadInitialData task = new LoadInitialData(this);
-//        task.execute();
-
-//        if(SavedPreferance.getAlreadyLoaded(this)) {
-//            new Handler().postDelayed(new Runnable() {
-//                @Override
-//                public void run() {
-//                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
-//                    startActivity(i);
-//                    finish();
-//                }
-//            }, SPLASH_TIME_OUT);
-//        } else {
-            LoadInitialData task = new LoadInitialData(this);
-            task.execute();
-//        }
-
+        LoadInitialData task = new LoadInitialData(this);
+        task.execute();
     }
 
 
@@ -107,7 +84,8 @@ public class SplashScreen  extends AppCompatActivity {
         imPressToStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vibrator.vibrate((long)10000);
+                startDelayAndGotoDashboard();
+                vibrator.vibrate((long)1000);
                 v.startAnimation(shake);
                 startSound();
             }
@@ -116,6 +94,19 @@ public class SplashScreen  extends AppCompatActivity {
 
 
 
+    }
+
+    private void startDelayAndGotoDashboard() {
+        new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    shake.cancel();
+                    Animation fade = AnimationUtils.loadAnimation(SplashScreen.this, R.anim.fade_out);;
+                    imPressToStart.startAnimation(fade);
+                    start();
+                }
+            }, SPLASH_TIME_OUT);
     }
 
     private void startSound( ){
@@ -127,8 +118,8 @@ public class SplashScreen  extends AppCompatActivity {
             player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
-                    start();
-                    imPressToStart.clearAnimation();
+//                    start();
+//                    imPressToStart.clearAnimation();
                     vibrator.cancel();
 
 
@@ -143,6 +134,7 @@ public class SplashScreen  extends AppCompatActivity {
     public void start() {
         Intent i = new Intent(SplashScreen.this, MainActivityNew.class);
         startActivity(i);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
     }
 

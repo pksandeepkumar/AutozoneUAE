@@ -118,6 +118,13 @@
         <item name="android:textSize">14dp</item>
     </style>
 
+    <style name="service_list_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
     <style name="contact_us_buttons">
         <item name="android:layout_width">@dimen/contact_icon_size</item>
         <item name="android:layout_height">@dimen/contact_icon_size</item>

@@ -30,7 +30,7 @@
     <dimen name="product_title_top_padding">12dp</dimen>
 
     <dimen name="row_height">48dp</dimen>
-    <dimen name="color_size">30dp</dimen>
+    <dimen name="color_size">20dp</dimen>
     <dimen name="color_padding">3dp</dimen>
 
     <dimen name="button_width">120dp</dimen>
@@ -54,6 +54,10 @@
     <!-- Contact Text -->
     <dimen name="sub_text_icon_size">13dp</dimen>
     <dimen name="contact_icon_size">25dp</dimen>
+
+    <!-- Service -->
+    <dimen name="status_radious">4dp</dimen>
+    <dimen name="bullet_width">8dp</dimen>
 
 
 

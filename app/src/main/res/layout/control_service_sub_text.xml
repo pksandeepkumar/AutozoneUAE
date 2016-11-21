@@ -3,11 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
+    android:gravity="center"
+    android:orientation="horizontal"
+
     android:padding="5dp">
+    <View
+        android:layout_width="@dimen/bullet_width"
+        android:layout_height="@dimen/bullet_width"
+        android:background="@drawable/rounded_bullet"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="2dp"
+        />
     <texus.autozoneuae.controls.AutozoneTextView
         android:id="@+id/tvText"
-        style="@style/contact_us_sub_text"
+        style="@style/service_list_text"
         android:gravity="center"
         android:textStyle="bold"
         />
