@@ -130,6 +130,26 @@
                     />
             </LinearLayout>
 
+            <LinearLayout
+                style="@style/contact_us_social_item_holder_layout"
+                android:orientation="horizontal">
+                <RelativeLayout style="@style/contact_us_buttons">
+                    <com.balysv.materialripple.MaterialRippleLayout
+                        style="@style/mp_mp">
+                        <ImageView
+                            android:id="@+id/imYouTube"
+                            style="@style/mp_mp"
+                            android:clickable="true"
+                            android:src="@drawable/ic_youtube" />
+                    </com.balysv.materialripple.MaterialRippleLayout>
+
+                </RelativeLayout>
+                <texus.autozoneuae.controls.AutozoneTextView
+                    android:id="@+id/tvYouTube"
+                    style="@style/contact_us_social_media_link_text"
+                    />
+            </LinearLayout>
+
 
 
 

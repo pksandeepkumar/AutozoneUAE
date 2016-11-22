@@ -43,6 +43,7 @@ public class FragmentContactUs extends Fragment {
     public static final String LINK_FACEBOOK = "https://www.facebook.com/autozonearmor/";
     public static final String LINK_GOOGLE_PLUS = "https://plus.google.com/108072810371953685189";
     public static final String LINK_INSTAGRAM = "https://www.instagram.com/autozoneuae";
+    public static final String LINK_YOUTUBE = "https://youtu.be/hN-Fu9ZpdUI";
 
     public static final String LINK_MAP = "https://www.google.com/maps/place/AUTO+ZONE+ARMOR+%26+PROCESSING+CARS+L.L.C/@25.402155,55.499052,15z/data=!4m13!1m7!3m6!1s0x0:0x8f719cf68913f5d2!2sAUTO+ZONE+ARMOR+%26+PROCESSING+CARS+L.L.C!3b1!8m2!3d25.402155!4d55.499052!3m4!1s0x0:0x8f719cf68913f5d2!8m2!3d25.402155!4d55.499052?hl=en-US";
 
@@ -54,11 +55,13 @@ public class FragmentContactUs extends Fragment {
     ImageView imInstagram;
     ImageView imGooglePlus;
     ImageView imTwitter;
+    ImageView imYouTube;
 
     TextView tvFacebook;
     TextView tvInstagram;
     TextView tvGooglePlus;
     TextView tvTwitter;
+    TextView tvYouTube;
 
     ImageView imDirection;
     TextView tvDirection;
@@ -140,11 +143,13 @@ public class FragmentContactUs extends Fragment {
         imInstagram = (ImageView) view.findViewById(R.id.imInstagram);
         imGooglePlus = (ImageView) view.findViewById(R.id.imGooglePlus);
         imTwitter = (ImageView) view.findViewById(R.id.imTwitter);
+        imYouTube = (ImageView) view.findViewById(R.id.imYouTube);
 
         tvFacebook = (TextView) view.findViewById(R.id.tvFacebook);
         tvInstagram = (TextView) view.findViewById(R.id.tvInstagram);
         tvGooglePlus = (TextView) view.findViewById(R.id.tvGooglePlus);
         tvTwitter = (TextView) view.findViewById(R.id.tvTwitter);
+        tvYouTube = (TextView) view.findViewById(R.id.tvYouTube);
 
 
         imFacebook.setOnClickListener(new View.OnClickListener() {
@@ -172,6 +177,13 @@ public class FragmentContactUs extends Fragment {
             @Override
             public void onClick(View v) {
                 openTwitter();
+            }
+        });
+
+        imYouTube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openYouTube();
             }
         });
 
@@ -203,16 +215,31 @@ public class FragmentContactUs extends Fragment {
             }
         });
 
+        tvTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTwitter();
+            }
+        });
+
         imDirection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showOnMap();
             }
         });
+
         tvDirection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showOnMap();
+            }
+        });
+
+        tvYouTube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openYouTube();
             }
         });
 
@@ -242,6 +269,11 @@ public class FragmentContactUs extends Fragment {
 
     private void openInstagram() {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK_INSTAGRAM));;
+        startActivity(intent);
+    }
+
+    private void openYouTube() {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK_YOUTUBE));;
         startActivity(intent);
     }
 
