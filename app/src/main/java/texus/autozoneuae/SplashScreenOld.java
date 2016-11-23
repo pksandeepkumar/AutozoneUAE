@@ -30,7 +30,7 @@ import texus.autozoneuae.utility.Utility;
 public class SplashScreenOld  extends AppCompatActivity {
 
     // Splash screen timer
-    private static int SPLASH_TIME_OUT = 1500;
+    private static int SPLASH_TIME_OUT = 1000;
 
     private final int MY_PERMISSIONS_REQUEST_VIBRATE = 1231;
 
@@ -102,6 +102,7 @@ public class SplashScreenOld  extends AppCompatActivity {
             public void run() {
 
                 shake.cancel();
+                vibrator.cancel();
                 Animation fade = AnimationUtils.loadAnimation(SplashScreenOld.this, R.anim.fade_out);;
                 imPressToStart.startAnimation(fade);
                 start();
@@ -120,7 +121,7 @@ public class SplashScreenOld  extends AppCompatActivity {
                 public void onCompletion(MediaPlayer mediaPlayer) {
 //                    start();
 //                    imPressToStart.clearAnimation();
-                    vibrator.cancel();
+//                    vibrator.cancel();
 
 
                 }

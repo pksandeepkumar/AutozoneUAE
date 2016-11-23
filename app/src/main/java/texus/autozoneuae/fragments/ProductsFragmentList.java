@@ -22,7 +22,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +31,7 @@ import java.util.List;
 import java.util.Random;
 
 import texus.autozoneuae.ApplicationClass;
+import texus.autozoneuae.MainActivityNew;
 import texus.autozoneuae.R;
 import texus.autozoneuae.adapter.ProductRecycleAdapter;
 import texus.autozoneuae.datamodels.CatData;
@@ -67,7 +67,8 @@ public class ProductsFragmentList extends Fragment implements ProductRecycleAdap
         Bundle bundle=new Bundle();
         bundle.putParcelable(FragmentProductDetails.PARAM_PRODUCT_DATA, product);
         fragment.setArguments(bundle);
-        FragmentHome.addFragment(fragment);
+        MainActivityNew.productListFragment = fragment;
+        FragmentHome.addFragment(fragment, true);
 
     }
 

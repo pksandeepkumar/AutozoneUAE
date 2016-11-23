@@ -26,6 +26,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import texus.autozoneuae.MainActivityNew;
 import texus.autozoneuae.R;
 import texus.autozoneuae.adapter.ProductRecycleAdapter;
 import texus.autozoneuae.datamodels.Product;
@@ -45,16 +46,20 @@ public class FragmentHome extends BaseFragment implements ProductRecycleAdapter.
     }
 
     private void initViews(View view) {
-        addFragment(new FragmentProductLIst());
+        addFragment(new FragmentProductLIst(), false);
     }
 
-    public static void addFragment( Fragment fragment) {
+    public static void addFragment( Fragment fragment, boolean addToStack) {
         Log.e("BaseFragment","addFragment");
         if(fragment == null) return;
         try {
 
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.frFragmentContainerHome, fragment);
+            if(addToStack) {
+                fragmentTransaction.addToBackStack("FragmentDetails");
+
+            }
             fragmentTransaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +75,8 @@ public class FragmentHome extends BaseFragment implements ProductRecycleAdapter.
         Bundle bundle=new Bundle();
         bundle.putParcelable(FragmentProductDetails.PARAM_PRODUCT_DATA, product);
         fragment.setArguments(bundle);
-        addFragment(fragment);
+        MainActivityNew.productListFragment = fragment;
+        addFragment(fragment, true);
 
     }
 }

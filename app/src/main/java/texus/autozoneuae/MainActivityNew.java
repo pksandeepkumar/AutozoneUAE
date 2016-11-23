@@ -12,8 +12,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -41,6 +43,7 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
 
 
     BottomTabControl bottomControl;
+    public static Fragment productListFragment;
 
 
     @Override
@@ -58,6 +61,11 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
         bottomControl.setOnTabClickedListener(this);
         bottomControl.setTab(TAB_HOME);
 
+    }
+
+    public void fireBack(View view) {
+        this.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK));
+        this.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK));
     }
 
     @Override
@@ -87,6 +95,23 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
         }
 
     }
+
+    @Override
+    public void onBackPressed() {
+
+        // If the fragment exists and has some back-stack entry
+        if (productListFragment != null && productListFragment.getFragmentManager().getBackStackEntryCount() > 0){
+            // Get the fragment fragment manager - and pop the backstack
+            productListFragment.getFragmentManager().popBackStack();
+            productListFragment = null;
+        }
+        // Else, nothing in the direct fragment back stack
+        else{
+            // Let super handle the back press
+            super.onBackPressed();
+        }
+    }
+
 
     public void addFragment2( android.app.Fragment fragment) {
         Log.e("FoodMenuActivity","Adding Fragment................................");

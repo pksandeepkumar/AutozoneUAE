@@ -63,6 +63,8 @@ public class ApplicationClass extends Application {
     public void loadFont() {
         try {
             appFont = Typeface.createFromAsset(getAssets(), "fonts/Ubuntu-Medium.ttf");
+//            appFont = Typeface.createFromAsset(getAssets(), "fonts/hect.ttf");
+
         } catch ( Exception e) {
             e.printStackTrace();;
         }
