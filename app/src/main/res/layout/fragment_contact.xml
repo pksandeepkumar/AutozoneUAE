@@ -51,7 +51,7 @@
             <texus.autozoneuae.controls.AutozoneTextView
                 style="@style/contact_us_main_text"
                 android:paddingBottom="2dp"
-                android:text="SOCIAL MEDIA" />
+                android:text="Like... Follow... Share..." />
 
             <LinearLayout
                 style="@style/contact_us_social_item_holder_layout"
@@ -67,14 +67,7 @@
                     </com.balysv.materialripple.MaterialRippleLayout>
 
                 </RelativeLayout>
-                <texus.autozoneuae.controls.AutozoneTextView
-                    android:id="@+id/tvFacebook"
-                    style="@style/contact_us_social_media_link_text" />
-            </LinearLayout>
 
-            <LinearLayout
-                style="@style/contact_us_social_item_holder_layout"
-                android:orientation="horizontal">
                 <RelativeLayout style="@style/contact_us_buttons">
                     <com.balysv.materialripple.MaterialRippleLayout
                         style="@style/mp_mp">
@@ -86,14 +79,7 @@
                     </com.balysv.materialripple.MaterialRippleLayout>
 
                 </RelativeLayout>
-                <texus.autozoneuae.controls.AutozoneTextView
-                    android:id="@+id/tvInstagram"
-                    style="@style/contact_us_social_media_link_text" />
-            </LinearLayout>
 
-            <LinearLayout
-                style="@style/contact_us_social_item_holder_layout"
-                android:orientation="horizontal">
                 <RelativeLayout style="@style/contact_us_buttons">
                     <com.balysv.materialripple.MaterialRippleLayout
                         style="@style/mp_mp">
@@ -105,14 +91,7 @@
                     </com.balysv.materialripple.MaterialRippleLayout>
 
                 </RelativeLayout>
-                <texus.autozoneuae.controls.AutozoneTextView
-                    android:id="@+id/tvGooglePlus"
-                    style="@style/contact_us_social_media_link_text" />
-            </LinearLayout>
 
-            <LinearLayout
-                style="@style/contact_us_social_item_holder_layout"
-                android:orientation="horizontal">
                 <RelativeLayout style="@style/contact_us_buttons">
                     <com.balysv.materialripple.MaterialRippleLayout
                         style="@style/mp_mp">
@@ -124,15 +103,7 @@
                     </com.balysv.materialripple.MaterialRippleLayout>
 
                 </RelativeLayout>
-                <texus.autozoneuae.controls.AutozoneTextView
-                    android:id="@+id/tvTwitter"
-                    style="@style/contact_us_social_media_link_text"
-                    />
-            </LinearLayout>
 
-            <LinearLayout
-                style="@style/contact_us_social_item_holder_layout"
-                android:orientation="horizontal">
                 <RelativeLayout style="@style/contact_us_buttons">
                     <com.balysv.materialripple.MaterialRippleLayout
                         style="@style/mp_mp">
@@ -144,14 +115,8 @@
                     </com.balysv.materialripple.MaterialRippleLayout>
 
                 </RelativeLayout>
-                <texus.autozoneuae.controls.AutozoneTextView
-                    android:id="@+id/tvYouTube"
-                    style="@style/contact_us_social_media_link_text"
-                    />
+
             </LinearLayout>
-
-
-
 
 
         </LinearLayout>

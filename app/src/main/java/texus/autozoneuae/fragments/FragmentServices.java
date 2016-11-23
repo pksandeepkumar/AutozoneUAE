@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 
 import texus.autozoneuae.R;
 import texus.autozoneuae.controls.ServiceText;
+import texus.autozoneuae.controls.ServiceTextLine;
 
 public class FragmentServices extends Fragment {
 
@@ -44,18 +45,31 @@ public class FragmentServices extends Fragment {
         llHolder = (LinearLayout) view.findViewById(R.id.llHolder);
 
         llHolder.addView(new ServiceText( context, "Armored Vehicle Manufacturing"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Ambulance & Mobile Clinic Conversion"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Humanitarian Mission Vehicle Conversion"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Mining Vehicle Conversion"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Military & Police Vehicle Modifications"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Hunter & Adventure Vehicle Modifications"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Special Purpose Customized Vehicles"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Brand New Cars"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Armored Vehicle Parts"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Genuine Automobile Spare Parts"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "4X4 Equipment"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "On & Off Road Accessories"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Camping & Recovery Products"));
+        llHolder.addView( new ServiceTextLine(context));
         llHolder.addView(new ServiceText( context, "Ambulance Équipment"));
 
 

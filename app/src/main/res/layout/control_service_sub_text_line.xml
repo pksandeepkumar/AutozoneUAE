@@ -5,14 +5,12 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="horizontal"
+    android:padding="3dp">
 
-    android:padding="5dp">
-
-    <texus.autozoneuae.controls.AutozoneTextView
-        android:id="@+id/tvText"
-        style="@style/service_list_text"
-        android:gravity="center"
-        android:textStyle="bold"
+    <View
+        android:layout_width="@dimen/line_width"
+        android:layout_height="@dimen/line_height"
+        android:background="#FFFFFF"
         />
 
 </LinearLayout>

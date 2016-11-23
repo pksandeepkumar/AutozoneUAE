@@ -57,11 +57,11 @@ public class FragmentContactUs extends Fragment {
     ImageView imTwitter;
     ImageView imYouTube;
 
-    TextView tvFacebook;
-    TextView tvInstagram;
-    TextView tvGooglePlus;
-    TextView tvTwitter;
-    TextView tvYouTube;
+//    TextView tvFacebook;
+//    TextView tvInstagram;
+//    TextView tvGooglePlus;
+//    TextView tvTwitter;
+//    TextView tvYouTube;
 
     ImageView imDirection;
     TextView tvDirection;
@@ -145,11 +145,11 @@ public class FragmentContactUs extends Fragment {
         imTwitter = (ImageView) view.findViewById(R.id.imTwitter);
         imYouTube = (ImageView) view.findViewById(R.id.imYouTube);
 
-        tvFacebook = (TextView) view.findViewById(R.id.tvFacebook);
-        tvInstagram = (TextView) view.findViewById(R.id.tvInstagram);
-        tvGooglePlus = (TextView) view.findViewById(R.id.tvGooglePlus);
-        tvTwitter = (TextView) view.findViewById(R.id.tvTwitter);
-        tvYouTube = (TextView) view.findViewById(R.id.tvYouTube);
+//        tvFacebook = (TextView) view.findViewById(R.id.tvFacebook);
+//        tvInstagram = (TextView) view.findViewById(R.id.tvInstagram);
+//        tvGooglePlus = (TextView) view.findViewById(R.id.tvGooglePlus);
+//        tvTwitter = (TextView) view.findViewById(R.id.tvTwitter);
+//        tvYouTube = (TextView) view.findViewById(R.id.tvYouTube);
 
 
         imFacebook.setOnClickListener(new View.OnClickListener() {
@@ -187,41 +187,6 @@ public class FragmentContactUs extends Fragment {
             }
         });
 
-        tvFacebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openFacebook();
-            }
-        });
-
-        tvInstagram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openInstagram();
-            }
-        });
-
-        tvGooglePlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openGooglePlus();
-            }
-        });
-
-        tvTwitter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTwitter();
-            }
-        });
-
-        tvTwitter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTwitter();
-            }
-        });
-
         imDirection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -235,14 +200,6 @@ public class FragmentContactUs extends Fragment {
                 showOnMap();
             }
         });
-
-        tvYouTube.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openYouTube();
-            }
-        });
-
 
         return view;
     }
