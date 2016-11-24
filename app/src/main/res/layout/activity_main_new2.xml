@@ -10,7 +10,10 @@
             android:id="@+id/toolbarLayout"
             android:layout_width="match_parent"
             android:background="@color/color_grey2"
+
             android:layout_height="@dimen/appBarLayoutHeight">
+
+
 
             <ImageView
                 android:id="@+id/imgLogo"
@@ -18,8 +21,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
+                android:layout_alignParentLeft="true"
                 android:src="@drawable/autozone_logo"
                 />
+
+            <ImageView
+                android:id="@+id/icBackNavigate"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_yellow"/>
 
 
 
