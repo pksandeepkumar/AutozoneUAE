@@ -45,7 +45,12 @@ public class FragmentContactUs extends Fragment {
     public static final String LINK_INSTAGRAM = "https://www.instagram.com/autozoneuae";
     public static final String LINK_YOUTUBE = "https://youtu.be/hN-Fu9ZpdUI";
 
+    public static final String LINK_LINKED_IN = "https://www.linkedin.com/company/2967546?trk=" +
+            "vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1496488871479968026135%2CVSRPtargetId" +
+            "%3A2967546%2CVSRPcmpt%3Aprimary";
+
     public static final String LINK_MAP = "https://www.google.com/maps/place/AUTO+ZONE+ARMOR+%26+PROCESSING+CARS+L.L.C/@25.402155,55.499052,15z/data=!4m13!1m7!3m6!1s0x0:0x8f719cf68913f5d2!2sAUTO+ZONE+ARMOR+%26+PROCESSING+CARS+L.L.C!3b1!8m2!3d25.402155!4d55.499052!3m4!1s0x0:0x8f719cf68913f5d2!8m2!3d25.402155!4d55.499052?hl=en-US";
+
 
 
     LinearLayout llContactHolder;
@@ -56,6 +61,7 @@ public class FragmentContactUs extends Fragment {
     ImageView imGooglePlus;
     ImageView imTwitter;
     ImageView imYouTube;
+    ImageView imLinkedin;
 
 //    TextView tvFacebook;
 //    TextView tvInstagram;
@@ -144,6 +150,7 @@ public class FragmentContactUs extends Fragment {
         imGooglePlus = (ImageView) view.findViewById(R.id.imGooglePlus);
         imTwitter = (ImageView) view.findViewById(R.id.imTwitter);
         imYouTube = (ImageView) view.findViewById(R.id.imYouTube);
+        imLinkedin = (ImageView) view.findViewById(R.id.imLinkedin);
 
 //        tvFacebook = (TextView) view.findViewById(R.id.tvFacebook);
 //        tvInstagram = (TextView) view.findViewById(R.id.tvInstagram);
@@ -184,6 +191,13 @@ public class FragmentContactUs extends Fragment {
             @Override
             public void onClick(View v) {
                 openYouTube();
+            }
+        });
+
+        imLinkedin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLinkedIn();
             }
         });
 
@@ -231,6 +245,11 @@ public class FragmentContactUs extends Fragment {
 
     private void openYouTube() {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK_YOUTUBE));;
+        startActivity(intent);
+    }
+
+    private void openLinkedIn() {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK_LINKED_IN));;
         startActivity(intent);
     }
 

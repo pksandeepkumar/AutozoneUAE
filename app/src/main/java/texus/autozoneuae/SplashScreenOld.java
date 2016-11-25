@@ -115,7 +115,7 @@ public class SplashScreenOld  extends AppCompatActivity {
             AssetFileDescriptor afd = getAssets().openFd("start.mp3");
             player.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
             player.prepare();
-            player.start();
+//            player.start();
             player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {

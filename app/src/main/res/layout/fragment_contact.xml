@@ -96,6 +96,18 @@
                     <com.balysv.materialripple.MaterialRippleLayout
                         style="@style/mp_mp">
                         <ImageView
+                            android:id="@+id/imLinkedin"
+                            style="@style/mp_mp"
+                            android:clickable="true"
+                            android:src="@drawable/ic_linkedin" />
+                    </com.balysv.materialripple.MaterialRippleLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/contact_us_buttons">
+                    <com.balysv.materialripple.MaterialRippleLayout
+                        style="@style/mp_mp">
+                        <ImageView
                             android:id="@+id/imTwitter"
                             style="@style/mp_mp"
                             android:clickable="true"
