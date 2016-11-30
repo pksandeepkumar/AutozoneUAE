@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -45,6 +46,8 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
     BottomTabControl bottomControl;
     public static Fragment productListFragment;
 
+    public static ImageView icBackNavigate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +61,24 @@ public class MainActivityNew extends AppCompatActivity implements BottomTabContr
     private void initViews() {
 
         bottomControl = (BottomTabControl) findViewById(idBottomControl);
+        icBackNavigate = (ImageView) findViewById(R.id.icBackNavigate);
+        setDisableBackButton();
         bottomControl.setOnTabClickedListener(this);
         bottomControl.setTab(TAB_HOME);
 
+    }
+
+    public static void setEnableBackButton() {
+        if(icBackNavigate == null) return;
+        icBackNavigate.setVisibility(View.VISIBLE);
+        icBackNavigate.setEnabled(true);
+
+    }
+
+    public static void setDisableBackButton() {
+        if(icBackNavigate == null) return;
+        icBackNavigate.setVisibility(View.INVISIBLE);
+        icBackNavigate.setEnabled(false);
     }
 
     public void fireBack(View view) {

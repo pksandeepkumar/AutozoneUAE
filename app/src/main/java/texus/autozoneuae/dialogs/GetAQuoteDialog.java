@@ -95,7 +95,7 @@ public class GetAQuoteDialog extends Dialog {
 
 
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto","vipizone@gmail.com ", null));
+                "mailto","cars@autozoneuae.com", null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, etSubject.getText().toString());
         emailIntent.putExtra(Intent.EXTRA_TEXT, etMessage.getText().toString());
         mContext.startActivity(Intent.createChooser(emailIntent, "Send email to AutozoneUAE"));

@@ -46,6 +46,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import texus.autozoneuae.ApplicationClass;
+import texus.autozoneuae.MainActivityNew;
 import texus.autozoneuae.R;
 import texus.autozoneuae.adapter.ImageViewPagerAdapter;
 import texus.autozoneuae.controls.ColorRow;
@@ -95,8 +96,13 @@ public class FragmentProductDetails extends Fragment {
         return view;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        MainActivityNew.setDisableBackButton();
+    }
 
-    private void initViews( View view) {
+    private void initViews(View view) {
 
         squirePagerView = (SquirePagerView) view.findViewById(R.id.squirePagerView);
         viewPager = squirePagerView.viewPager;
@@ -121,6 +127,8 @@ public class FragmentProductDetails extends Fragment {
 
         LoadProductSpecData task = new LoadProductSpecData(getActivity(), headderRow);
         task.execute();
+
+        MainActivityNew.setEnableBackButton();
 
 //        loadProductDetails();
     }
@@ -205,6 +213,10 @@ public class FragmentProductDetails extends Fragment {
             Intent intent = new Intent(Intent.ACTION_CALL);
             intent.setData(Uri.parse(uri));
             getActivity().startActivity(intent);
+        } else {
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.CALL_PHONE},
+                    1242);
         }
     }
 
@@ -299,7 +311,7 @@ public class FragmentProductDetails extends Fragment {
     public void sendMail( ) {
 
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto","info@autozoneuae.com", null));
+                "mailto","cars@autozoneuae.com", null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Enquire about " + product.product_name );
         emailIntent.putExtra(Intent.EXTRA_TEXT, "");
         getActivity().startActivity(Intent.createChooser(emailIntent, "Send email to AutozoneUAE"));

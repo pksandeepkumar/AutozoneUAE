@@ -4,7 +4,10 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,12 +31,31 @@ public class ContactSubText extends RelativeLayout {
     public static final int TYPE_FAX = 4;
     public static final int TYPE_WATSAPP = 5;
 
+
+    public static final int COLOR_YELLOW = 1;
+    public static final int COLOR_WHITE = 2;
+
     String paddingText = "";
+    int color = -1;
+    boolean bold = false;
 
     Context mContext;
 
     public ContactSubText(Context context, String text, int type ) {
         super(context);
+        init(context, text, type);
+    }
+
+    public ContactSubText(Context context, String text, int type, int color ) {
+        super(context);
+        this.color = color;
+        init(context, text, type);
+    }
+
+    public ContactSubText(Context context, String text, int type, int color, boolean bold ) {
+        super(context);
+        this.color = color;
+        this.bold = bold;
         init(context, text, type);
     }
 
@@ -106,6 +128,18 @@ public class ContactSubText extends RelativeLayout {
 
         }
 
+        if(color == COLOR_YELLOW) {
+            tvText.setTextColor(getResources().getColor(R.color.color_yellow));
+        }
+        if(color == COLOR_WHITE) {
+            tvText.setTextColor(Color.WHITE);
+        }
+
+        if( bold) {
+            tvText.setTypeface(null, Typeface.BOLD);
+        }
+
+
         tvText.setText( paddingText + text);
 
 
@@ -123,14 +157,31 @@ public class ContactSubText extends RelativeLayout {
         }
     }
 
-    private void sendMail( String eMail) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_EMAIL, eMail);
-        intent.putExtra(Intent.EXTRA_SUBJECT, "");
-        intent.putExtra(Intent.EXTRA_TEXT, "");
-        mContext.startActivity(Intent.createChooser(intent, "Send Email"));
+    public void sendMail( String eMail) {
+
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto",eMail, null));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "" );
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "");
+        mContext.startActivity(Intent.createChooser(emailIntent, "Send email to AutozoneUAE"));
+
     }
+
+//    private void sendMail( String eMail) {
+//        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+//                "mailto","abc@gmail.com", null));
+//        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+//        emailIntent.putExtra(Intent.EXTRA_TEXT, "Body");
+//        startActivity(Intent.createChooser(emailIntent, "Send email..."));
+//
+//        Intent intent = new Intent(Intent.ACTION_SEND);
+////        intent.setType("text/plain");
+//        intent.setType("message/rfc822");
+//        intent.putExtra(Intent.EXTRA_EMAIL, eMail);
+//        intent.putExtra(Intent.EXTRA_SUBJECT, "");
+//        intent.putExtra(Intent.EXTRA_TEXT, "");
+//        mContext.startActivity(Intent.createChooser(intent, "Send Email"));
+//    }
 
 
 

@@ -16,12 +16,16 @@
 
 package texus.autozoneuae.fragments;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +37,6 @@ import texus.autozoneuae.R;
 import texus.autozoneuae.controls.ContactBlanRow;
 import texus.autozoneuae.controls.ContactMainText;
 import texus.autozoneuae.controls.ContactSubText;
-
 
 
 public class FragmentContactUs extends Fragment {
@@ -52,6 +55,8 @@ public class FragmentContactUs extends Fragment {
     public static final String LINK_MAP = "https://www.google.com/maps/place/AUTO+ZONE+ARMOR+%26+PROCESSING+CARS+L.L.C/@25.402155,55.499052,15z/data=!4m13!1m7!3m6!1s0x0:0x8f719cf68913f5d2!2sAUTO+ZONE+ARMOR+%26+PROCESSING+CARS+L.L.C!3b1!8m2!3d25.402155!4d55.499052!3m4!1s0x0:0x8f719cf68913f5d2!8m2!3d25.402155!4d55.499052?hl=en-US";
 
 
+    double latitude = 25.402339;
+    double longitude = 55.499164;
 
     LinearLayout llContactHolder;
     LinearLayout llSocialMediaHolder;
@@ -115,27 +120,36 @@ public class FragmentContactUs extends Fragment {
 //        llContactHolder.addView( new ContactSubText(context,"",ContactSubText.TYPE_NONE));
 
         llContactHolder.addView(new ContactMainText(context,"AMBULANCES AND SPECIAL VEHICLES"));
-        llContactHolder.addView( new ContactSubText(context,"SABEESH P BABU",ContactSubText.TYPE_NONE));
+        llContactHolder.addView( new ContactSubText(context,"SABEESH P BABU",ContactSubText.TYPE_NONE,
+                ContactSubText.COLOR_WHITE, true));
         llContactHolder.addView( new ContactSubText(context,"+971 50 9593559",ContactSubText.TYPE_WATSAPP));
-        llContactHolder.addView( new ContactSubText(context,"cars@autozoneuae.com",ContactSubText.TYPE_EMAIL));
+        llContactHolder.addView( new ContactSubText(context,"cars@autozoneuae.com",
+                ContactSubText.TYPE_EMAIL,
+                ContactSubText.COLOR_WHITE));
         llContactHolder.addView( new ContactBlanRow(context));
 
         llContactHolder.addView(new ContactMainText(context,"AMBULANCES AND ARMORED VEHICLES"));
-        llContactHolder.addView( new ContactSubText(context,"ZEESHAN GONDAL ",ContactSubText.TYPE_NONE));
+        llContactHolder.addView( new ContactSubText(context,"ZEESHAN GONDAL ",ContactSubText.TYPE_NONE,
+                ContactSubText.COLOR_WHITE, true));
         llContactHolder.addView( new ContactSubText(context,"+971 55 7562284",ContactSubText.TYPE_WATSAPP));
-        llContactHolder.addView( new ContactSubText(context,"contact@autozoneuae.com",ContactSubText.TYPE_EMAIL));
+        llContactHolder.addView( new ContactSubText(context,"contact@autozoneuae.com",ContactSubText.TYPE_EMAIL,
+                ContactSubText.COLOR_WHITE));
         llContactHolder.addView( new ContactBlanRow(context));
 
         llContactHolder.addView(new ContactMainText(context,"AUTO PARTS AND ARMORED VEHICLE PARTS"));
-        llContactHolder.addView( new ContactSubText(context,"MUHAMMAD MAIRAJ KHALID  ",ContactSubText.TYPE_NONE));
+        llContactHolder.addView( new ContactSubText(context,"MUHAMMAD MAIRAJ KHALID  ",ContactSubText.TYPE_NONE,
+                ContactSubText.COLOR_WHITE, true));
         llContactHolder.addView( new ContactSubText(context,"+971 55 9518184",ContactSubText.TYPE_WATSAPP));
-        llContactHolder.addView( new ContactSubText(context,"parts@autozoneuae.com",ContactSubText.TYPE_EMAIL));
+        llContactHolder.addView( new ContactSubText(context,"parts@autozoneuae.com",ContactSubText.TYPE_EMAIL,
+                ContactSubText.COLOR_WHITE));
         llContactHolder.addView( new ContactBlanRow(context));
 
         llContactHolder.addView(new ContactMainText(context,"AUTO PARTS AND 4×4 ACCESSORIES"));
-        llContactHolder.addView( new ContactSubText(context,"A RAHMAN ZAFAR ",ContactSubText.TYPE_NONE));
+        llContactHolder.addView( new ContactSubText(context,"A RAHMAN ZAFAR ",ContactSubText.TYPE_NONE,
+                ContactSubText.COLOR_WHITE, true));
         llContactHolder.addView( new ContactSubText(context,"+971 50 8739401",ContactSubText.TYPE_WATSAPP));
-        llContactHolder.addView( new ContactSubText(context,"sales@autozoneuae.com",ContactSubText.TYPE_EMAIL));
+        llContactHolder.addView( new ContactSubText(context,"sales@autozoneuae.com",ContactSubText.TYPE_EMAIL,
+                ContactSubText.COLOR_WHITE));
         llContactHolder.addView( new ContactBlanRow(context));
 
 
@@ -215,12 +229,35 @@ public class FragmentContactUs extends Fragment {
             }
         });
 
+        requestCallPermission();
+
         return view;
     }
 
+    private void requestCallPermission() {
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.CALL_PHONE)
+                == PackageManager.PERMISSION_GRANTED) {
+        } else {
+            ActivityCompat.requestPermissions( getActivity(),
+                    new String[]{Manifest.permission.CALL_PHONE},
+                    1242);
+        }
+    }
+
     private void showOnMap() {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK_MAP));;
-        startActivity(intent);
+//        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK_MAP));;
+//        startActivity(intent);
+        try {
+            Uri gmmIntentUri = Uri.parse("geo:"+ latitude+"," + longitude
+                    + "?q=AUTO+ZONE+ARMOR+%26+PROCESSING+CARS+L.L.C");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
+        } catch ( Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void openFacebook() {

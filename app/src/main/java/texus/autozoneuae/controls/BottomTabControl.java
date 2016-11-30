@@ -84,7 +84,7 @@ public class BottomTabControl extends RelativeLayout implements View.OnClickList
 	}
 
 	public void setTab(int tab) {
-		if(tab == currentTab) return;
+//		if(tab == currentTab) return;
 		switch ( tab) {
 			case TAB_HOME: currentTab = TAB_HOME; setTab(tvTabHome);
 				setTab(tvTabHome);raiseCallBack(TAB_HOME);break;

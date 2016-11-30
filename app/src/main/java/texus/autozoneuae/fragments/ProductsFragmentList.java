@@ -58,6 +58,8 @@ public class ProductsFragmentList extends Fragment implements ProductRecycleAdap
         return rv;
     }
 
+
+
     @Override
     public void onProductClick(Product product) {
         if(product == null) return;

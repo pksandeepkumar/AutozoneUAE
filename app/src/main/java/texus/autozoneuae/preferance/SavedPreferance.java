@@ -23,6 +23,7 @@ public class SavedPreferance {
 	}
 	public static boolean getAlreadyLoaded(Context context) {
 		return getPreferance(context).getBoolean(ALREADY_LOADED, false);
+//		return false;
 	}
 
 	public static void setUserName(Context context, String userName) {

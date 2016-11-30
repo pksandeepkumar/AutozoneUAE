@@ -20,7 +20,7 @@
         android:background="#fdc75d"
 
         android:padding="10dp"
-        android:text="Get a Quote"
+        android:text="Specifications"
         android:textColor="#2d2c2a"
         android:textSize="20dp"
         android:textStyle="bold" />

@@ -18,13 +18,9 @@ public class ProgressDialog extends Dialog {
     private String message = "";
 
     public ProgressDialog(Context context, String message) {
-
         super(context);
-
         this.message = message;
-
         init();
-
         setMessage(this.message);
     }
 

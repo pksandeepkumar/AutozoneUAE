@@ -164,6 +164,7 @@ public class FragmentProductLIst extends Fragment {
             status = NetworkService.getAndSave(
                     ApplicationClass.URL_GET_ALL_CATEGORIES, CatData.FILENAME);
             if(!status) return  null;
+            catDatas = CatData.getParesed(Utility.getData(CatData.FILENAME));
             CatData.insertDatas(catDatas, context);
             if(!SavedPreferance.getAlreadyLoaded(context)) {
                 catDatas = CatData.getParesed(Utility.getData(CatData.FILENAME));

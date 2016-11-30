@@ -21,7 +21,9 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 
 import texus.autozoneuae.datamodels.CatData;
+import texus.autozoneuae.dialogs.ProgressDialog;
 import texus.autozoneuae.network.NetworkService;
+import texus.autozoneuae.preferance.SavedPreferance;
 import texus.autozoneuae.utility.Utility;
 
 /**
@@ -44,8 +46,15 @@ public class SplashScreenOld  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        LoadInitialData task = new LoadInitialData(this);
-        task.execute();
+        if(SavedPreferance.getAlreadyLoaded(this)) {
+            enablePressToStart();
+        } else {
+            LoadInitialData task = new LoadInitialData(this);
+            task.execute();
+        }
+
+
+
     }
 
 
@@ -115,7 +124,7 @@ public class SplashScreenOld  extends AppCompatActivity {
             AssetFileDescriptor afd = getAssets().openFd("start.mp3");
             player.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
             player.prepare();
-//            player.start();
+            player.start();
             player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
@@ -143,12 +152,23 @@ public class SplashScreenOld  extends AppCompatActivity {
     public class LoadInitialData extends AsyncTask<Void, Void, Void> {
 
         Context context;
+        ProgressDialog dialog;
 
         boolean status;
+        boolean firstTime = false;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            if(!SavedPreferance.getAlreadyLoaded(context)) {
+                firstTime = true;
+                try {
+                    dialog = new ProgressDialog(context, "Loading...");
+                    dialog.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         public LoadInitialData(Context context) {
@@ -179,9 +199,13 @@ public class SplashScreenOld  extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
+            if(dialog != null) dialog.cancel();
 
 //            start();
-            enablePressToStart();
+            if(firstTime) {
+                enablePressToStart();
+            }
+
 
 
         }

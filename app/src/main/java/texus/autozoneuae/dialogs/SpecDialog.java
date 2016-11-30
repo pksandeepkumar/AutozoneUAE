@@ -64,7 +64,7 @@ public class SpecDialog extends Dialog {
         setContentView(R.layout.dialog_specification);
 
         initViews();
-        setCanceledOnTouchOutside(true);
+//        setCanceledOnTouchOutside(true);
         setValues();
     }
 
