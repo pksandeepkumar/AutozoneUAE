@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fdaf17"
-    android:layout_marginTop="80dp"
-    android:layout_marginBottom="80dp"
+
     android:paddingBottom="10dp"
 
     >
@@ -18,7 +17,6 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:background="#fdc75d"
-
         android:padding="10dp"
         android:text="Specifications"
         android:textColor="#2d2c2a"

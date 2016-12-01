@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebView;
 
 import texus.autozoneuae.ApplicationClass;
@@ -13,6 +14,7 @@ import texus.autozoneuae.R;
 import texus.autozoneuae.controls.AVLoadingIndicatorView;
 import texus.autozoneuae.datamodels.Product;
 import texus.autozoneuae.network.NetworkService;
+import texus.autozoneuae.preferance.SavedPreferance;
 import texus.autozoneuae.utility.Utility;
 
 /**
@@ -61,11 +63,22 @@ public class SpecDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setBackgroundDrawable(
                 new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
         setContentView(R.layout.dialog_specification);
 
         initViews();
-//        setCanceledOnTouchOutside(true);
+        setCanceledOnTouchOutside(true);
         setValues();
+        setDialogSize();
+    }
+
+    private void setDialogSize() {
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(getWindow().getAttributes());
+        lp.width = (int)(SavedPreferance.getScreenWidth(mContext) * .80f);
+        lp.height = (int)(SavedPreferance.getScreenHeight(mContext) * .70f);
+
+        getWindow().setAttributes(lp);
     }
 
     public class LoadProductDesc extends AsyncTask<Void, Void, Void> {
