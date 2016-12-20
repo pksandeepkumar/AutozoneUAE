@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <texus.autozoneuae.controls.AutozoneTextView
+            <texus.autozoneuaenew.controls.AutozoneTextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:background="#bdbbbc">
 
-                <texus.autozoneuae.controls.SquirePagerView
+                <texus.autozoneuaenew.controls.SquirePagerView
                     android:id="@+id/squirePagerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

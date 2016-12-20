@@ -11,7 +11,7 @@
 
     >
 
-    <texus.autozoneuae.controls.AutozoneTextView
+    <texus.autozoneuaenew.controls.AutozoneTextView
         android:id="@+id/tvDialogTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
 
             <LinearLayout style="@style/form_enty_style">
 
-                <texus.autozoneuae.controls.AutozoneTextView
+                <texus.autozoneuaenew.controls.AutozoneTextView
                     style="@style/form_label_style"
                     android:text="Name" />
 
@@ -52,7 +52,7 @@
 
             <LinearLayout style="@style/form_enty_style">
 
-                <texus.autozoneuae.controls.AutozoneTextView
+                <texus.autozoneuaenew.controls.AutozoneTextView
                     style="@style/form_label_style"
                     android:text="e-mail" />
 
@@ -65,7 +65,7 @@
 
             <LinearLayout style="@style/form_enty_style">
 
-                <texus.autozoneuae.controls.AutozoneTextView
+                <texus.autozoneuaenew.controls.AutozoneTextView
                     style="@style/form_label_style"
                     android:text="Subject" />
 
@@ -80,7 +80,7 @@
 
             <LinearLayout style="@style/form_enty_style">
 
-                <texus.autozoneuae.controls.AutozoneTextView
+                <texus.autozoneuaenew.controls.AutozoneTextView
                     style="@style/form_label_style"
                     android:text="Message" />
 

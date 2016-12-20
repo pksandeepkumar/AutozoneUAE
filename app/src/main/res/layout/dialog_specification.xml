@@ -10,7 +10,7 @@
 
     >
 
-    <texus.autozoneuae.controls.AutozoneTextView
+    <texus.autozoneuaenew.controls.AutozoneTextView
         android:id="@+id/tvDialogTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_margin="15dp"
             />
 
-        <texus.autozoneuae.controls.AVLoadingIndicatorView
+        <texus.autozoneuaenew.controls.AVLoadingIndicatorView
             android:id="@+id/avlProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

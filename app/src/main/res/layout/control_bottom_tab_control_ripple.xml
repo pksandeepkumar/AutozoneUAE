@@ -9,7 +9,7 @@
 
     <com.balysv.materialripple.MaterialRippleLayout style="@style/tab_ripple_view">
 
-        <texus.autozoneuae.controls.AutozoneTextView
+        <texus.autozoneuaenew.controls.AutozoneTextView
             android:id="@+id/tvTabHome"
             style="@style/tab_text_style"
             android:text="@string/title_home" />
@@ -17,7 +17,7 @@
 
     <com.balysv.materialripple.MaterialRippleLayout style="@style/tab_ripple_view">
 
-        <texus.autozoneuae.controls.AutozoneTextView
+        <texus.autozoneuaenew.controls.AutozoneTextView
             android:id="@+id/tvAboutUS"
             style="@style/tab_text_style"
             android:text="@string/title_about_us" />
@@ -25,7 +25,7 @@
 
     <com.balysv.materialripple.MaterialRippleLayout style="@style/tab_ripple_view">
 
-        <texus.autozoneuae.controls.AutozoneTextView
+        <texus.autozoneuaenew.controls.AutozoneTextView
             android:id="@+id/tvTabService"
             style="@style/tab_text_style"
             android:text="@string/title_services" />
@@ -33,7 +33,7 @@
 
     <com.balysv.materialripple.MaterialRippleLayout style="@style/tab_ripple_view">
 
-        <texus.autozoneuae.controls.AutozoneTextView
+        <texus.autozoneuaenew.controls.AutozoneTextView
             android:id="@+id/tvTabContactUs"
             style="@style/tab_text_style"
             android:text="@string/title_contact_us" />

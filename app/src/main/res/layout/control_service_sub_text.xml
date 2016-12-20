@@ -8,7 +8,7 @@
 
     android:padding="5dp">
 
-    <texus.autozoneuae.controls.AutozoneTextView
+    <texus.autozoneuaenew.controls.AutozoneTextView
         android:id="@+id/tvText"
         style="@style/service_list_text"
         android:gravity="center"

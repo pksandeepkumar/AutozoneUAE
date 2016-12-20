@@ -8,7 +8,7 @@
     android:background="@drawable/bg_app"
     android:padding="@dimen/padding_extra_large"
     >
-    <texus.autozoneuae.controls.AutozoneTextView
+    <texus.autozoneuaenew.controls.AutozoneTextView
         android:id="@+id/tvMessage"
         android:text="Loading..."
         android:paddingLeft="10dp"
@@ -20,7 +20,7 @@
         android:textStyle="bold"
         android:layout_centerHorizontal="true"/>
 
-    <texus.autozoneuae.controls.AVLoadingIndicatorView
+    <texus.autozoneuaenew.controls.AVLoadingIndicatorView
         android:layout_below="@id/tvMessage"
         android:id="@+id/avlProgress"
         android:layout_width="wrap_content"

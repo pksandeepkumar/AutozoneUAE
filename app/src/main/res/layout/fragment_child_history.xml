@@ -4,7 +4,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 android:layout_height="match_parent" >
 
-<texus.autozoneuae.controls.AutozoneTextView
+<texus.autozoneuaenew.controls.AutozoneTextView
     android:id="@+id/tvContent"
     style="@style/about_us_fragment_text_style"
     />

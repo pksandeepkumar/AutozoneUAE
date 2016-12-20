@@ -48,7 +48,7 @@
             android:orientation="vertical"
             android:paddingTop="10dp">
 
-            <texus.autozoneuae.controls.AutozoneTextView
+            <texus.autozoneuaenew.controls.AutozoneTextView
                 style="@style/contact_us_main_text"
                 android:paddingBottom="2dp"
                 android:text="Like... Follow... Share..." />

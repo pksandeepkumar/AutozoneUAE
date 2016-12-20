@@ -13,7 +13,7 @@
         android:background="#000" />
 
 
-    <texus.autozoneuae.controls.BottomTabControl
+    <texus.autozoneuaenew.controls.BottomTabControl
         android:id="@+id/idBottomControl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_tab_layout_height"

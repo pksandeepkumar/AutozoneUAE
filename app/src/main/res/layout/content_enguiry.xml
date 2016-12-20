@@ -20,7 +20,7 @@
             android:padding="@dimen/padding_extra_large">
 
             <LinearLayout style="@style/form_enty_style" >
-                <texus.autozoneuae.controls.AutozoneTextView
+                <texus.autozoneuaenew.controls.AutozoneTextView
 
                     style="@style/form_label_style"
                     android:text="Name" />
@@ -31,7 +31,7 @@
             </LinearLayout>
 
             <LinearLayout style="@style/form_enty_style" >
-                <texus.autozoneuae.controls.AutozoneTextView
+                <texus.autozoneuaenew.controls.AutozoneTextView
                     style="@style/form_label_style"
                     android:text="e-mail" />
                 <EditText
@@ -42,7 +42,7 @@
             </LinearLayout>
 
             <LinearLayout style="@style/form_enty_style" >
-                <texus.autozoneuae.controls.AutozoneTextView
+                <texus.autozoneuaenew.controls.AutozoneTextView
                     style="@style/form_label_style"
                     android:text="Subject" />
                 <EditText
@@ -52,7 +52,7 @@
             </LinearLayout>
 
             <LinearLayout style="@style/form_enty_style" >
-                <texus.autozoneuae.controls.AutozoneTextView
+                <texus.autozoneuaenew.controls.AutozoneTextView
                     style="@style/form_label_style"
                     android:text="Message" />
 

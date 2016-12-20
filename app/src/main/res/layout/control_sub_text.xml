@@ -13,7 +13,7 @@
         android:layout_height="@dimen/sub_text_icon_size"
         android:src="@drawable/ic_watsapp"/>
 
-    <texus.autozoneuae.controls.AutozoneTextView
+    <texus.autozoneuaenew.controls.AutozoneTextView
         android:id="@+id/tvText"
         style="@style/contact_us_sub_text"
         />

@@ -35,7 +35,7 @@
             android:layout_above="@+id/tvProductTiltle"
             android:background="#333333"/>
 
-        <texus.autozoneuae.controls.AutozoneTextView
+        <texus.autozoneuaenew.controls.AutozoneTextView
             android:id="@+id/tvProductTiltle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
