@@ -10,14 +10,11 @@
             android:id="@+id/toolbarLayout"
             android:layout_width="match_parent"
             android:background="@color/color_grey2"
-
             android:layout_height="@dimen/appBarLayoutHeight">
-
-
 
             <ImageView
                 android:id="@+id/imgLogo"
-                android:layout_toRightOf="@+id/rippleBack"
+                android:layout_marginLeft="48dp"
                 android:layout_marginBottom="4dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -29,8 +26,8 @@
             <com.balysv.materialripple.MaterialRippleLayout
                 android:id="@+id/rippleBack"
                 android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
                 style="@style/wp_wp">
-
 
             <ImageView
                 android:id="@+id/icBackNavigate"
@@ -40,8 +37,6 @@
                 android:src="@drawable/ic_back_yellow"/>
 
             </com.balysv.materialripple.MaterialRippleLayout>
-
-
 
         </RelativeLayout>
 
